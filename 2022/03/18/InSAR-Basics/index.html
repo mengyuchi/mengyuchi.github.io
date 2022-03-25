@@ -28,7 +28,7 @@
 <meta property="og:description" content="InSAR Basic Whats SAR InSARSBAS-InSARSmall baseline differential interferograms generation  The differential interferometric phase is as follows: $$\varphi_{dint} &#x3D; \varphi_{def}+\varphi_{topo}+\">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-18T13:48:12.000Z">
-<meta property="article:modified_time" content="2022-03-23T20:59:13.702Z">
+<meta property="article:modified_time" content="2022-03-25T14:36:18.659Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="InSAR">
 <meta property="article:tag" content="Reposititory">
@@ -198,7 +198,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-23 21:59:13" itemprop="dateModified" datetime="2022-03-23T21:59:13+01:00">2022-03-23</time>
+                <time title="Modified: 2022-03-25 15:36:18" itemprop="dateModified" datetime="2022-03-25T15:36:18+01:00">2022-03-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -229,6 +229,12 @@
 <h2 id="Katex-Test"><a href="#Katex-Test" class="headerlink" title="Katex Test"></a>Katex Test</h2><p>Aha! $E &#x3D; mc^{2}$.</p>
 <p>$$\begin{equation} \label{eq1}<br>e&#x3D;mc^2<br>\end{equation}$$</p>
 <p>$$<br>\left(\beta m c^2 + c \left(\sum_{n&#x3D;1}^3\alpha_n p_n\right)\right) \psi(x,t)<br>&#x3D; i\hbar \frac{\partial \psi(x,t)}{\partial t}<br>$$</p>
+<h2 id="Interferometric-point-analysis"><a href="#Interferometric-point-analysis" class="headerlink" title="Interferometric point analysis"></a>Interferometric point analysis</h2><blockquote>
+<p>The <strong>residual phase</strong> includes the atmospheric, non-linear deformation, and noise phases.</p>
+<p>The <strong>non-linear phase</strong> shows a high correlation in the spatial domain, while the atmospheric delay shows a high correlation in the spatial domain and low correlation in the temporal domain.</p>
+<p><strong>Noise</strong> shows a low correlation in both the spatial and temporal domains.</p>
+</blockquote>
+<h3 id="Low-pass-and-High-pass-filter"><a href="#Low-pass-and-High-pass-filter" class="headerlink" title="Low-pass and High-pass filter"></a>Low-pass and High-pass filter</h3><p>First, the <em>low-pass</em> filtering in the <strong>spatial domain</strong> is used to suppress the noise phase from the residual. Secondly, in the <strong>temporal domain</strong>, the <em>low-pass</em> filtering is again used for spatially filtered residual phases to <em><strong>identify the non-linear phase</strong></em>. Thirdly, we superpose the non-linear phase to the linear phase to acquire the complete deformation phase. Finally, <em>phase unwrapping</em> is used to acquire the deformation with point targets.</p>
 
     </div>
 
@@ -342,7 +348,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Whats-SAR-InSAR"><span class="nav-number">1.</span> <span class="nav-text">Whats SAR InSAR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SBAS-InSAR"><span class="nav-number">2.</span> <span class="nav-text">SBAS-InSAR</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Katex-Test"><span class="nav-number">2.1.</span> <span class="nav-text">Katex Test</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Whats-SAR-InSAR"><span class="nav-number">1.</span> <span class="nav-text">Whats SAR InSAR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SBAS-InSAR"><span class="nav-number">2.</span> <span class="nav-text">SBAS-InSAR</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Katex-Test"><span class="nav-number">2.1.</span> <span class="nav-text">Katex Test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interferometric-point-analysis"><span class="nav-number">2.2.</span> <span class="nav-text">Interferometric point analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Low-pass-and-High-pass-filter"><span class="nav-number">2.2.1.</span> <span class="nav-text">Low-pass and High-pass filter</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
