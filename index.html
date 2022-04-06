@@ -194,7 +194,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-06 20:54:28" itemprop="dateModified" datetime="2022-04-06T20:54:28+02:00">2022-04-06</time>
+                <time title="Modified: 2022-04-06 22:43:18" itemprop="dateModified" datetime="2022-04-06T22:43:18+02:00">2022-04-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,7 +240,33 @@
 </ul>
 <p>  -source it upon opening a terminal<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># add TRAIN config</span></span><br><span class="line"><span class="built_in">source</span> /home/username/TRAIN/APS_CONFIG.sh</span><br></pre></td></tr></table></figure></p>
 </li>
+<li><p>install dependencies</p>
+</li>
 </ul>
+<blockquote>
+<p>gwak and tsch was already installed in LiDO3, thank god!</p>
+</blockquote>
+<h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><h3 id="Pre-stamps"><a href="#Pre-stamps" class="headerlink" title="Pre-stamps"></a>Pre-stamps</h3><p>In Stamps official tutorial there is ‘INSAR_master_date’ folder, after search answers in STEP forum, we found the perfect resolution,</p>
+<blockquote>
+<p>I am about to start my step 4- PS processing the ‘PSI’ folder which i obtained from stamps export in windows environment has four folders in it ‘dem’, ‘diff0’, ‘geo’ and ‘rslc’. The following are my queries:</p>
+</blockquote>
+<blockquote>
+<p>Can i proceed or should i rename any of the folders to proceed? In which path should i place this PSI folder?</p>
+</blockquote>
+<ul>
+<li><p>Answer<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/workflow-between-snap-and-stamps/3211/512" title="step forum @falahfakhri">4</a></p>
+<p>  1-move the ‘PSI’ folder to your Linux directory,</p>
+<p>  2- use the shell to create a new folder, (LINUX)</p>
+<p>  mkdir ~&#x2F;INSAR_master_date</p>
+<p>  3- copy the folder ‘PSI’ into this folder ‘INSAR_master_date’</p>
+<p>  cp -&#x2F;PSI -&#x2F;INSAR_master_date</p>
+<p>  Now you’re ready to start as explained in the previous post.</p>
+</li>
+</ul>
+<h3 id="Matlab"><a href="#Matlab" class="headerlink" title="Matlab"></a>Matlab</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">module avail</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">module matlab</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">matlab</span></span><br></pre></td></tr></table></figure>
+
+
+
 
       
     </div>
