@@ -163,6 +163,81 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://mengyuchi.github.io/2022/04/07/Land-subsidence-in-Xuzhou-using-Sentinel1A-PS-InSAR-in-SARScape/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Yuchi Meng">
+      <meta itemprop="description" content="BVB und Badminton">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuchi's BLOG">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/07/Land-subsidence-in-Xuzhou-using-Sentinel1A-PS-InSAR-in-SARScape/" class="post-title-link" itemprop="url">Land subsidence in Xuzhou using Sentinel1A PS-InSAR in SARScape</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-04-07 10:54:23 / Modified: 17:52:18" itemprop="dateCreated datePublished" datetime="2022-04-07T10:54:23+02:00">2022-04-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SAR/" itemprop="url" rel="index"><span itemprop="name">SAR</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>Working step and parameter setting in SARscape.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/07/Land-subsidence-in-Xuzhou-using-Sentinel1A-PS-InSAR-in-SARScape/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://mengyuchi.github.io/2022/04/05/StaMPS-InSAR-research-based-on-ENVISAT-using-LiDO3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -194,7 +269,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-06 22:43:18" itemprop="dateModified" datetime="2022-04-06T22:43:18+02:00">2022-04-06</time>
+                <time title="Modified: 2022-04-07 17:52:33" itemprop="dateModified" datetime="2022-04-07T17:52:33+02:00">2022-04-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -203,10 +278,6 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/SAR/" itemprop="url" rel="index"><span itemprop="name">SAR</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SAR/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
                 </span>
             </span>
 
@@ -223,51 +294,14 @@
       
           <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This post is about working steps of StaMPS-InSAR using 13 ENVISAT images in LiDO3.</p>
 <h2 id="StamPS-InSAR"><a href="#StamPS-InSAR" class="headerlink" title="StamPS-InSAR"></a>StamPS-InSAR</h2><p>StaMPS (Stanford Method for Persistent Scatterers) is a software package that implements an InSAR persistent scatterer (PS) method developed to work even in terrains devoid of man-made structures and&#x2F;or undergoing non-steady deformation. StaMPS&#x2F;MTI (Multi-Temporal InSAR) is an extended version of StaMPS that also includes a small baseline method and a combined multi-temporal InSAR method. The original development of StaMPS was undertaken at Stanford University, but subsequent development of StaMPS and StaMPS&#x2F;MTI has taken place at the University of Iceland, Delft University of Technology, and the University of Leeds. There are also contributions from users of the package based at other institutions<a target="_blank" rel="noopener" href="https://github.com/dbekaert/StaMPS" title="StaMPS - Stanford Method for Persistent Scatterers">1</a>.</p>
-<p>StaMPS PS analysis is performed within MATLAB, using the main function stamps(), which takes the first and last StaMPS-step as main arguments. To run StaMPS complete with default arguments, use stamps(1,8)<a target="_blank" rel="noopener" href="https://gitlab.com/Rexthor/gis-blog/-/blob/master/StaMPS/2-4_StaMPS-steps.md" title="StaMPS tutorial by Matthias Schloegl">2</a>.</p>
-<h2 id="Train"><a href="#Train" class="headerlink" title="Train"></a>Train</h2><p>The Toolbox for Reducing Atmospheric InSAR Noise - TRAIN - is developed in an effort to include current state of the art tropospheric correction methods into the default InSAR processing chain. Initial development was performed at the University of Leeds. The toolbox consists of a combination of command line scripts, shell scripts, and matlab scripts. More information on software is provided in Chapter 3. TRAIN is independent of the used InSAR processor, as long as the data convention is followed. The toolbox is compatible with the StaMPS software. Further initial efforts have been put to include TRAIN into the default -rate processing chain<a target="_blank" rel="noopener" href="https://github.com/dbekaert/TRAIN" title="Bekaert, D.P.S., Walters, R.J., Wright, T.J., Hooper, A.J., and Parker, D.J. (2015c), Statistical comparison of InSAR tropospheric correction techniques, Remote Sensing of Environment, doi: 10.1016/j.rse.2015.08.035">3</a>.</p>
-<h1 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h1><ul>
-<li><p>edit the StaMPS config file (e.g. via vim .&#x2F;StaMPS&#x2F;StaMPS_CONFIG.bash) to contain the correct paths to StAMPS, SNAPHU and triangle</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set environment variables:</span></span><br><span class="line"><span class="built_in">export</span> STAMPS=<span class="string">&quot;/home/username/StaMPS&quot;</span></span><br><span class="line"><span class="built_in">export</span> SNAP2STAMPS=<span class="string">&quot;/home/username/snap2stamps&quot;</span></span><br><span class="line">...</span><br><span class="line"><span class="comment">#if triangle and snaphu are not installed through the repositories (i.e. compiled locally):</span></span><br><span class="line"><span class="built_in">export</span> TRIANGLE_BIN=<span class="string">&quot;/home/username/software/triangle/bin&quot;</span></span><br><span class="line"><span class="built_in">export</span> SNAPHU_BIN=<span class="string">&quot;/home/username/software/snaphu/bin&quot;</span></span><br><span class="line">...</span><br><span class="line"><span class="built_in">export</span> MATLABPATH=<span class="variable">$STAMPS</span>/matlab:`<span class="built_in">echo</span> <span class="variable">$MATLABPATH</span>`</span><br><span class="line">...</span><br><span class="line"><span class="comment"># use points not commas for decimals, and give dates in US english</span></span><br><span class="line"><span class="built_in">export</span> LC_NUMERIC=<span class="string">&quot;en_US.UTF-8&quot;</span></span><br><span class="line"><span class="built_in">export</span> LC_TIME=<span class="string">&quot;en_US.UTF-8&quot;</span></span><br><span class="line">...</span><br><span class="line"><span class="built_in">export</span> SAR_TAPE=<span class="string">&quot;/dev/rmt/0mn&quot;</span></span><br><span class="line">...</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$STAMPS</span>/bin:<span class="variable">$MATLABPATH</span>:<span class="variable">$SNAP2STAMPS</span>/bin</span><br></pre></td></tr></table></figure>
-
-</li>
-<li><p>source the StaMPS config file upon opening terminal by adding it to your .bashrc</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># source StaMPS</span></span><br><span class="line"><span class="built_in">source</span> /home/username/StaMPS/StaMPS_CONFIG.bash</span><br></pre></td></tr></table></figure>
-
-</li>
-<li><p>do the same thing for your TRAIN (APS_toolbox) config file</p>
-<ul>
-<li>adjust path in the APS_CONFIG file  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> APS_toolbox=<span class="string">&quot;/home/username/TRAIN&quot;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>  -source it upon opening a terminal<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># add TRAIN config</span></span><br><span class="line"><span class="built_in">source</span> /home/username/TRAIN/APS_CONFIG.sh</span><br></pre></td></tr></table></figure></p>
-</li>
-<li><p>install dependencies</p>
-</li>
-</ul>
-<blockquote>
-<p>gwak and tsch was already installed in LiDO3, thank god!</p>
-</blockquote>
-<h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><h3 id="Pre-stamps"><a href="#Pre-stamps" class="headerlink" title="Pre-stamps"></a>Pre-stamps</h3><p>In Stamps official tutorial there is ‘INSAR_master_date’ folder, after search answers in STEP forum, we found the perfect resolution,</p>
-<blockquote>
-<p>I am about to start my step 4- PS processing the ‘PSI’ folder which i obtained from stamps export in windows environment has four folders in it ‘dem’, ‘diff0’, ‘geo’ and ‘rslc’. The following are my queries:</p>
-</blockquote>
-<blockquote>
-<p>Can i proceed or should i rename any of the folders to proceed? In which path should i place this PSI folder?</p>
-</blockquote>
-<ul>
-<li><p>Answer<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/workflow-between-snap-and-stamps/3211/512" title="step forum @falahfakhri">4</a></p>
-<p>  1-move the ‘PSI’ folder to your Linux directory,</p>
-<p>  2- use the shell to create a new folder, (LINUX)</p>
-<p>  mkdir ~&#x2F;INSAR_master_date</p>
-<p>  3- copy the folder ‘PSI’ into this folder ‘INSAR_master_date’</p>
-<p>  cp -&#x2F;PSI -&#x2F;INSAR_master_date</p>
-<p>  Now you’re ready to start as explained in the previous post.</p>
-</li>
-</ul>
-<h3 id="Matlab"><a href="#Matlab" class="headerlink" title="Matlab"></a>Matlab</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">module avail</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">module matlab</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">matlab</span></span><br></pre></td></tr></table></figure>
-
-
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/05/StaMPS-InSAR-research-based-on-ENVISAT-using-LiDO3/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -955,82 +989,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://mengyuchi.github.io/2022/03/16/MyFirstArticle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Yuchi Meng">
-      <meta itemprop="description" content="BVB und Badminton">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuchi's BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/16/MyFirstArticle/" class="post-title-link" itemprop="url">MyFirstArticle</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-03-16 16:44:03 / Modified: 20:46:04" itemprop="dateCreated datePublished" datetime="2022-03-16T16:44:03+01:00">2022-03-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Testing/" itemprop="url" rel="index"><span itemprop="name">Testing</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h2><p>Hello</p>
-<h2 id="Dont-Respond"><a href="#Dont-Respond" class="headerlink" title="Dont Respond"></a>Dont Respond</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/03/16/MyFirstArticle/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1102,20 +1060,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

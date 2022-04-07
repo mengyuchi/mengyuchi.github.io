@@ -20,17 +20,23 @@
     var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="BVB und Badminton">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yuchi&#39;s BLOG">
-<meta property="og:url" content="http://mengyuchi.github.io/tags/LiDO3/index.html">
+  <meta name="description" content="IntroWorking step and parameter setting in SARscape.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Land subsidence in Xuzhou using Sentinel1A PS-InSAR in SARScape">
+<meta property="og:url" content="http://mengyuchi.github.io/2022/04/07/Land-subsidence-in-Xuzhou-using-Sentinel1A-PS-InSAR-in-SARScape/index.html">
 <meta property="og:site_name" content="Yuchi&#39;s BLOG">
-<meta property="og:description" content="BVB und Badminton">
+<meta property="og:description" content="IntroWorking step and parameter setting in SARscape.">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-07T08:54:23.000Z">
+<meta property="article:modified_time" content="2022-04-07T15:52:18.295Z">
 <meta property="article:author" content="Yuchi Meng">
+<meta property="article:tag" content="InSAR">
+<meta property="article:tag" content="Land Subsidence">
+<meta property="article:tag" content="Sentinel1-A">
+<meta property="article:tag" content="PS-InSAR">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://mengyuchi.github.io/tags/LiDO3/">
+<link rel="canonical" href="http://mengyuchi.github.io/2022/04/07/Land-subsidence-in-Xuzhou-using-Sentinel1A-PS-InSAR-in-SARScape/">
 
 
 <script id="page-configurations">
@@ -38,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Tag: LiDO3 | Yuchi's BLOG</title>
+  <title>Land subsidence in Xuzhou using Sentinel1A PS-InSAR in SARScape | Yuchi's BLOG</title>
   
 
 
@@ -157,51 +163,126 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">LiDO3
-          <small>Tag</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://mengyuchi.github.io/2022/04/07/Land-subsidence-in-Xuzhou-using-Sentinel1A-PS-InSAR-in-SARScape/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Yuchi Meng">
+      <meta itemprop="description" content="BVB und Badminton">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuchi's BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Land subsidence in Xuzhou using Sentinel1A PS-InSAR in SARScape
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-04-07 10:54:23 / Modified: 17:52:18" itemprop="dateCreated datePublished" datetime="2022-04-07T10:54:23+02:00">2022-04-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SAR/" itemprop="url" rel="index"><span itemprop="name">SAR</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>Working step and parameter setting in SARscape.</p>
+<span id="more"></span>
+
+<h2 id="Geocoding"><a href="#Geocoding" class="headerlink" title="Geocoding"></a>Geocoding</h2><p>lat&#x2F;lon 34.15’5.27”N,117.11’10.17”E</p>
+<p>117.18564917852<br>34.245620476831</p>
+<p>G_SI_velocity_geo in SBAS result<br>  File: 3250.7017,3217.9978<br>  Data: [-0.020012]</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-04-05T15:15:43+02:00"
-              content="2022-04-05">
-          04-05
-        </time>
-      </div>
+  </div>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/04/05/StaMPS-InSAR-research-based-on-ENVISAT-using-LiDO3/" itemprop="url">
-            <span itemprop="name">StaMPS-InSAR research based on ENVISAT using LiDO3</span>
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
           </a>
-      </div>
-
-    </header>
-  </article>
-
+        </div>
     </div>
   </div>
-  
-  
-  
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/InSAR/" rel="tag"># InSAR</a>
+              <a href="/tags/Land-Subsidence/" rel="tag"># Land Subsidence</a>
+              <a href="/tags/Sentinel1-A/" rel="tag"># Sentinel1-A</a>
+              <a href="/tags/PS-InSAR/" rel="tag"># PS-InSAR</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/04/05/StaMPS-InSAR-research-based-on-ENVISAT-using-LiDO3/" rel="prev" title="StaMPS-InSAR research based on ENVISAT using LiDO3">
+      <i class="fa fa-chevron-left"></i> StaMPS-InSAR research based on ENVISAT using LiDO3
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -254,6 +335,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Geocoding"><span class="nav-number">1.1.</span> <span class="nav-text">Geocoding</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
