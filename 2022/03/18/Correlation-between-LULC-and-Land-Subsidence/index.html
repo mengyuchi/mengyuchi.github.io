@@ -1,26 +1,22 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="Investigation on the correlation between land subsidence and LULCBackgroundTo understand the correlation between LULC and Land Subsidence.   Previous studies carried out in a regional-scale might be u">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Yuchi Meng">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Investigation on the correlation between land subsidence and LULCBackgroundTo understand the correlation between LULC and Land Subsidence.   Previous studies carried out in a regional-scale might be u">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Correlation between LULC and Land Subsidence">
 <meta property="og:url" content="http://mengyuchi.github.io/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/index.html">
@@ -42,197 +38,219 @@
 <meta property="article:tag" content="InSAR">
 <meta property="article:tag" content="LULC">
 <meta property="article:tag" content="Land Subsidence">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://mengyuchi.github.io/subsidence.jpg">
+  
+  
+  <title>Correlation between LULC and Land Subsidence - Yuchi&#39;s BLOG</title>
 
-<link rel="canonical" href="http://mengyuchi.github.io/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
-  };
-</script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
-  <title>Correlation between LULC and Land Subsidence | Yuchi's BLOG</title>
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
   
 
 
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
+<link  rel="stylesheet" href="/css/main.css" />
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+<!-- 自定义样式保持在最底部 -->
 
-</head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
 
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Yuchi's BLOG</h1>
-      <span class="logo-line-after"><i></i></span>
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
     </a>
-      <p class="site-subtitle" itemprop="description">GISer</p>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
-
-  </li>
-  </ul>
 </nav>
 
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Correlation between LULC and Land Subsidence">
+              
+            </span>
 
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
             
-
-    
+              <div class="mt-3">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://mengyuchi.github.io/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Yuchi Meng">
-      <meta itemprop="description" content="BVB und Badminton">
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-18 17:52" pubdate>
+        March 18, 2022 pm
+      </time>
     </span>
+  
+</div>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuchi's BLOG">
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      13k 字
     </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Correlation between LULC and Land Subsidence
-        </h1>
+  
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      110 分钟
+    </span>
+  
 
-              <time title="Created: 2022-03-18 17:52:50" itemprop="dateCreated datePublished" datetime="2022-03-18T17:52:50+01:00">2022-03-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-31 09:59:00" itemprop="dateModified" datetime="2022-03-31T09:59:00+02:00">2022-03-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SAR/" itemprop="url" rel="index"><span itemprop="name">SAR</span></a>
-                </span>
-            </span>
+  
+  
+</div>
+
+            
+          </div>
 
           
-
         </div>
-      </header>
+      </div>
+    </div>
+  </header>
 
+  <main>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-        <h1 id="Investigation-on-the-correlation-between-land-subsidence-and-LULC"><a href="#Investigation-on-the-correlation-between-land-subsidence-and-LULC" class="headerlink" title="Investigation on the correlation between land subsidence and LULC"></a>Investigation on the correlation between land subsidence and LULC</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>To understand the correlation between LULC and Land Subsidence. </p>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Correlation between LULC and Land Subsidence</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Investigation-on-the-correlation-between-land-subsidence-and-LULC"><a href="#Investigation-on-the-correlation-between-land-subsidence-and-LULC" class="headerlink" title="Investigation on the correlation between land subsidence and LULC"></a>Investigation on the correlation between land subsidence and LULC</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>To understand the correlation between LULC and Land Subsidence. </p>
 <blockquote>
 <p><em><strong>Previous</strong></em> studies carried out in a regional-scale might be useful for estimating the correlation between land subsidence and groundwater extraction, but inadequate for local safety management as subsidence may vary over different areas with detailed characters<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8519236" title="Zheyuan Du; Linlin Gu. INVESTIGATION ON THE CORRELATION BETWEEN THE SUBSIDENCE PATTERN AND LAND USE IN BANDUNG, INDONESIA WITH BOTH SENTINEL-1/2 AND ALOS-2 SATELLITE IMAGES.">1</a>.</p>
 <p>The study is foused promarily on subsidence pheomenon in local, can patchy scales, repectively with <strong>Sentinel-1</strong> dataset acquired from May 2017 and November 2021. </p>
@@ -244,8 +262,8 @@
 
 <h2 id="Dataset-and-Methodology"><a href="#Dataset-and-Methodology" class="headerlink" title="Dataset and Methodology"></a>Dataset and Methodology</h2><p>131 C-Band Sentinel-1A image (Orb-142 Frame-106 Ascending) from May 2017 to Nov. 2021 were exploited to map the land subsidence in Xuzhou City, Jiangsu, China. </p>
 <p>Figure 1 depict the sentinel-1A based mean velocity maps in LOS direction from ascending mode as regards to the regional-scale land subsidence in Xuzhou. The displacement results are resampled to a grid of <strong>30 * 30 m</strong>.</p>
-<p><img src="/subsidence.jpg" alt="subsidence map in xuzhou"></p>
-<p><img src="/Correlatoin.jpg" alt="correlation between the PS point measurements within ROI"></p>
+<p><img src="/subsidence.jpg" srcset="/img/loading.gif" lazyload alt="subsidence map in xuzhou"></p>
+<p><img src="/Correlatoin.jpg" srcset="/img/loading.gif" lazyload alt="correlation between the PS point measurements within ROI"></p>
 <blockquote>
 <p>As xuzhou is a very large metropolitan, in order to study the local subsidence throughly, the ideal way is to segregate the entire ROI into target sub-zones. </p>
 <p>Hence, the local council can deal with these zones separately, and this could also help these organizations to achieve the maximum efficiency. </p>
@@ -278,14 +296,14 @@
 <p>Furthermore, we chose the groundwater monitoring wells near the subsidence features, to compare subsidence changes with groundwater level changes. Because we only had permission to obtain the groundwater level before 2015, only the subsidence obtained by Radarsat-2 from 2012 to 2015 is included in this analysis.</p>
 </blockquote>
 <h3 id="Results-in-BTH"><a href="#Results-in-BTH" class="headerlink" title="Results in BTH"></a>Results in BTH</h3><p>In Figure , Zhou and Gong<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/12/3/457?type=check_update&version=1" title="Chaofan Zhou; Huili Gong. Land Subsidence Response to Different Land Use Types and Water Resource Utilization in Beijing-Tianjin-Hebei, China">2</a> find that the spatial distribution of the land subsidence rates in Beijing is quite different. The <strong>annual subsidence</strong> increased from 2012 to 2013, during which the maximum subsidence increased from 120 mm to 148 mm. The <strong>maximum subsidence</strong> decreased from 148 mm in 2016 to 106 mm in 2018. Furthermore, the <strong>area of land subsidence</strong> exceeding 50 mm (Figure) is calculated and four subsidence features (Figure) are identified.</p>
-<p><img src="/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/result1.jpg" alt="Subsidence results"></p>
+<p><img src="/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/result1.jpg" srcset="/img/loading.gif" lazyload alt="Subsidence results"></p>
 <p>From 2012 to 2014, the <strong>area of land subsidence over 50 mm</strong> shows an increasing trend from 308 km<sup>2</sup> to 374 km<sup>2</sup> even though the <strong>maximum subsidence</strong> decreased from 148 in 2013 to 131 in 2014. After 2014, the <strong>area of land subsidence over 50 mm</strong> and the <strong>annual subsidence</strong> especially show a <em>decreasing</em> trend. </p>
 <p>As seen in figure above, the <strong>subsidence</strong> in the Jinzhan and Heizhuanghu area shows a <em>similar trend</em>, which <em>increased</em> from 2012 to 2013 and <em>decreased</em> from 2013 to 2018. Significantly, this <strong>subsidence</strong> was maintained at approximately 40 mm from 2012 to 2018 in the Beijing Airport area, so we should pay attention to its development.</p>
 <p>Nevertheless, although the land subsidence decreased, but the <strong>subsidence range in space</strong> did not decrease.</p>
 <h3 id="Accuracy-Assessemtn-of-InSAR-Resules-and-Leveling-Data"><a href="#Accuracy-Assessemtn-of-InSAR-Resules-and-Leveling-Data" class="headerlink" title="Accuracy Assessemtn of InSAR Resules and Leveling Data"></a>Accuracy Assessemtn of InSAR Resules and Leveling Data</h3><blockquote>
 <p>To evaluate the <em>accuracy</em> between the <strong>InSAR-derived subsidence</strong> from the Radarsat-2 and Sentinel-1 data and the <strong>leveling data</strong>, we converted the InSAR results into vertical displacements using a <em>trigonometric equation</em> and neglected the horizontal component of movement. </p>
 </blockquote>
-<p><img src="/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/leveling.jpg" alt="InSAR result and Leveling Data"></p>
+<p><img src="/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/leveling.jpg" srcset="/img/loading.gif" lazyload alt="InSAR result and Leveling Data"></p>
 <h3 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h3><h4 id="Land-Subsidence-with-different-land-use-type"><a href="#Land-Subsidence-with-different-land-use-type" class="headerlink" title="Land Subsidence with different land use type"></a>Land Subsidence with different land use type</h4><p>As seen in Figure and Table, the land-use in subsidence features of Xuzhou is relatively complex<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/12/3/457?type=check_update&version=1" title="Chaofan Zhou; Huili Gong. Land Subsidence Response to Different Land Use Types and Water Resource Utilization in Beijing-Tianjin-Hebei, China">2</a>. The maximun subsidence is in XXX areas exceeds 100 mm&#x2F;year. In Yunlong area, the <em>dense residential land</em> and <em>high population density</em> in the area lead to a considerable water demand. </p>
 <p>As for Feng-Pei county, the <em>dense population</em> as well as <em>agricultural and industrial lands</em> there all result in an increasing demand of water and furture aggravation of land subsidence. A large number of water-consuming plants and crops are planted in this region, and 85% of the well water is used for residents’ lives and agricultured production. </p>
 <p>Unlike the Feng-Pei area, Gulou mainly fouces on industry, mainly the coal industry, in particular, involves high water consumption industry. Industry with high water consumption may leads to the serious development of land subsidence in this area. </p>
@@ -298,12 +316,12 @@
 <blockquote>
 <p>In summary, after 2015, the exploitation of underground water decreased and the supply of surface water increased, which slowed the land subsidence in BTH.</p>
 </blockquote>
-<p><img src="/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/water.jpg" alt="Water Resources utilization"></p>
+<p><img src="/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/water.jpg" srcset="/img/loading.gif" lazyload alt="Water Resources utilization"></p>
 <h5 id="The-reason-that-behind-groundwater-level-fluctuation"><a href="#The-reason-that-behind-groundwater-level-fluctuation" class="headerlink" title="The reason that behind groundwater level fluctuation"></a>The reason that behind groundwater level fluctuation</h5><p>The <strong>groundwater level</strong> is the <em>lowest</em> around May to August in wells h to j, possibly because these wells are located in Hengshui of the Hebei area, which is one of the national grain bases.</p>
 <p>Because the irrigation period of this crop is February and March, and the precipitation is lower at this time, the groundwater exploitation volume is large, and the groundwater level drops significantly.</p>
 <p>Furthermore, the comparison results of land subsidence changes and groundwater level changes reveal that the subsidence changes are <em>consistent</em> with the groundwater level changes, showing a <em>seasonal trend</em>. Meanwhile, we found that there is a <em>time lag</em> between land subsidence and groundwater level.</p>
 <h5 id="Time-lag-investigation-betweeb-subsidence-change-and-grooundwater-level-change"><a href="#Time-lag-investigation-betweeb-subsidence-change-and-grooundwater-level-change" class="headerlink" title="Time lag investigation betweeb subsidence change and grooundwater level change"></a>Time lag investigation betweeb subsidence change and grooundwater level change</h5><p>Furthermore, we applied the <strong>IRF method</strong> to investigate the lag time between subsidence change and groundwater level change. The <strong>ADF test</strong> and <strong>IRF results</strong> are shown in Table 3 and Figure 14, respectively. It can be seen from Figure 15 that groundwater level change has an <em>obvious effect</em> on land subsidence at each subsidence feature, and this effect has a lag effect.</p>
-<p><img src="/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/orthogonal_impulse_response.jpg" alt="Orthogonal impulse response"></p>
+<p><img src="/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/orthogonal_impulse_response.jpg" srcset="/img/loading.gif" lazyload alt="Orthogonal impulse response"></p>
 <h3 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h3><p>Because of the rapid growth of <strong>population</strong> and the <strong>development of industry</strong> and <strong>agriculture</strong> in BTH, the <strong>regional water demand</strong> is huge. However, the over-exploitation of groundwater in the BTH is obvious due to the shortage of water resources, which leads to the serious land subsidence in BTH. The serious subsidence in BTH resulted in the elevation loss, damage of roads, bridges, underground pipes and other municipal facilities, urban flooding and hydrops.</p>
 <h1 id="Land-Subsidence-under-Different-Land-Use-in-the-Eastern-Beijing-Plain"><a href="#Land-Subsidence-under-Different-Land-Use-in-the-Eastern-Beijing-Plain" class="headerlink" title="Land Subsidence under Different Land Use in the Eastern Beijing Plain"></a>Land Subsidence under Different Land Use in the Eastern Beijing Plain</h1><p>This paper is organized as follows. We first present the <strong>location and geological settings</strong> of Beijing plain, followed by the <strong>data</strong> and <strong>method</strong> used in this study. After we summarize the <strong>settlement information</strong> obtained using SBAS technique and compare our results with <strong>leveling observations</strong> in our study area, we present the <em>distribution characteristics</em> of <strong>land subsidence</strong> under <strong>different land use</strong> . We then discuss the <em>causes</em> of <strong>subsidence</strong> and why the settlement occurred only in these specific locations . Finally, we give some conclusions of this paper<a target="_blank" rel="noopener" href="https://www.tandfonline.com/doi/full/10.1080/15481603.2016.1227297" title="Chaofan Zhou, Huili Gong. Land Subsidence under different land use in the eastern Beijing Plain, China 2005-2013 revealed by InSAR timeseries analysis">3</a>.</p>
 <h2 id="Data-Source-1"><a href="#Data-Source-1" class="headerlink" title="Data Source"></a>Data Source</h2><p>In this paper, we have two part of SAR data, one is 47 <strong>ENVISAT ASAR</strong> ascending orbit images via June 2003 and August 2010, another is 29 <strong>RADARSAT-2</strong> images which were acquired from the descending orbit between November 2010 and September 2014.</p>
@@ -340,260 +358,225 @@
 </ul>
 <h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><h3 id="Time-Series-land-subsidence"><a href="#Time-Series-land-subsidence" class="headerlink" title="Time Series land subsidence"></a>Time Series land subsidence</h3><p>The land subsidence rate maps generated from the ENVISAT ASAR and RADARSAT-2 data are shown in Figure, respectively. The results indicated that the <em>spatial distribution</em> of the land subsidence rates varies widely.</p>
 <p>For 2005 - 2010, we detected 13,107 SFP pixels through the SBAS technique; the maximum mean land subsidence rate reached 32.11 mm&#x2F;a and the minimum mean land subsidence rate reached 7.3 mm&#x2F;a. For 2011 - 2013, we detected 56,626 PS points through the IPTA method; the mean land subsidence rate ranged from 143.43 to 8.2 mm&#x2F;a.</p>
-<p><img src="/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/subsidence2.jpg" alt="Land subsidence rates from 2005 to 2013 in the study area."></p>
+<p><img src="/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/subsidence2.jpg" srcset="/img/loading.gif" lazyload alt="Land subsidence rates from 2005 to 2013 in the study area."></p>
 <p>Land subsidence areas showed <em>uneven distribution characteristics</em>. The research area is located in the key <strong>mining area of groundwater</strong>, and the land-use type is rich, which maybe leads to the uneven development trend of land subsidence from 2005 to 2013.</p>
 <h3 id="SBAS-accuracy-assessment"><a href="#SBAS-accuracy-assessment" class="headerlink" title="SBAS accuracy assessment"></a>SBAS accuracy assessment</h3><p>To ensure the accuracy of SBAS and IPTA monitoring data, we compared land subsidence results, respectively, derived by SBAS and IPTA with <strong>level monitoring</strong> results. </p>
 <p>Here, we chose PS points (the SFP points of the SBAS method) within 100 m of the leveling benchmarks, and we averaged the displacement values around the benchmarks.</p>
-<p><img src="/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/comparison.jpg" alt="Comparison between SBAS-derived and IPTA-derived land subsidence and leveling measurements."></p>
+<p><img src="/2022/03/18/Correlation-between-LULC-and-Land-Subsidence/comparison.jpg" srcset="/img/loading.gif" lazyload alt="Comparison between SBAS-derived and IPTA-derived land subsidence and leveling measurements."></p>
 <p>As seen, there is great agreement between SBAS, IPTA, and leveling measurements. However, certain error between the two measurement results is inevitable.</p>
 <p>The correlation coefficient (the confidence level at 95%) was 0.945 for 2006, 0.98 for 2007, 0.995 for 2011, and 0.994 for 2012.</p>
-<h3 id="Spatial-characteristics-of-land-subsidence-in-different-land-use"><a href="#Spatial-characteristics-of-land-subsidence-in-different-land-use" class="headerlink" title="Spatial characteristics of land subsidence in different land use"></a>Spatial characteristics of land subsidence in different land use</h3><p><img src="/Characteristic.jpg" alt="Spatial characteristics of land subsidence in the Laiguangying land subsidence area presented according to the different land uses"></p>
+<h3 id="Spatial-characteristics-of-land-subsidence-in-different-land-use"><a href="#Spatial-characteristics-of-land-subsidence-in-different-land-use" class="headerlink" title="Spatial characteristics of land subsidence in different land use"></a>Spatial characteristics of land subsidence in different land use</h3><p><img src="/Characteristic.jpg" srcset="/img/loading.gif" lazyload alt="Spatial characteristics of land subsidence in the Laiguangying land subsidence area presented according to the different land uses"></p>
 <h3 id="Subsidence-due-to-groundwater-in-agricultural-and-industrial-areas"><a href="#Subsidence-due-to-groundwater-in-agricultural-and-industrial-areas" class="headerlink" title="Subsidence due to groundwater in agricultural and industrial areas"></a>Subsidence due to groundwater in agricultural and industrial areas</h3><p>The groundwater level in the Beijing plain rapidly decreased because of the large amount of groundwater extraction that led to land subsidence. From 2003, with the rapid development<br>and increasing groundwater exploitation in the eastern suburbs of Beijing, the regional groundwater level was gradually reduced, leading to an expansion of the groundwater overdraft area, and the groundwater level decline increasing year after year.</p>
 <p>Unfortunately, most detailed information about groundwater mining in recent years in Beijing is not publically accessible. Therefore, in this study, we only had groundwater<br>information for 2005 - 2013 from four groundwater level monitoring wells located in the study areas.</p>
 <p>The land subsidence trend was consistent with the dynamic change of the groundwater level, the groundwater level was in a state of continuous decline, and the ground subsidence was continuously increasing.</p>
 
-    </div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/SAR/">SAR</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/InSAR/">InSAR</a>
+                    
+                      <a class="hover-with-bg" href="/tags/LULC/">LULC</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Land-Subsidence/">Land Subsidence</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/21/Intro-for-Land-Subsidence/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Intro for Land Subsidence</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/18/InSAR-Basics/">
+                        <span class="hidden-mobile">InSAR Basics</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-    
-    
-    
-        <div class="reward-container">
-  <div></div>
-  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    Donate
-  </button>
-  <div id="qr" style="display: none;">
-
-  </div>
-</div>
-
-        
-
-  <div class="followme">
-    <p>Welcome to my other publishing channels</p>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
-            <span class="icon">
-              <i class="fab fa-weixin"></i>
-            </span>
-
-            <span class="label">WeChat</span>
-          </a>
+            
+          </article>
         </div>
+      </div>
     </div>
-  </div>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/InSAR/" rel="tag"># InSAR</a>
-              <a href="/tags/LULC/" rel="tag"># LULC</a>
-              <a href="/tags/Land-Subsidence/" rel="tag"># Land Subsidence</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/03/18/InSAR-Basics/" rel="prev" title="InSAR Basics">
-      <i class="fa fa-chevron-left"></i> InSAR Basics
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/03/21/Intro-for-Land-Subsidence/" rel="next" title="Intro for Land Subsidence">
-      Intro for Land Subsidence <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
     
-  </article>
-  
-  
-  
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
 
 
+    
 
-          </div>
-          
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Investigation-on-the-correlation-between-land-subsidence-and-LULC"><span class="nav-number">1.</span> <span class="nav-text">Investigation on the correlation between land subsidence and LULC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">1.1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dataset-and-Methodology"><span class="nav-number">1.2.</span> <span class="nav-text">Dataset and Methodology</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Land-Subsidence-response-to-Different-Land-Use-Type-in-BTH"><span class="nav-number">2.</span> <span class="nav-text">Land Subsidence response to Different Land Use Type in BTH</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Research-Content"><span class="nav-number">2.1.</span> <span class="nav-text">Research Content</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Source"><span class="nav-number">2.1.1.</span> <span class="nav-text">Data Source</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sentinel-1A"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Sentinel-1A</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DEM"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">DEM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Groundwater-Monitoring-Well"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">Groundwater Monitoring Well</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Results-in-BTH"><span class="nav-number">2.1.2.</span> <span class="nav-text">Results in BTH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accuracy-Assessemtn-of-InSAR-Resules-and-Leveling-Data"><span class="nav-number">2.1.3.</span> <span class="nav-text">Accuracy Assessemtn of InSAR Resules and Leveling Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Discussion"><span class="nav-number">2.1.4.</span> <span class="nav-text">Discussion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Land-Subsidence-with-different-land-use-type"><span class="nav-number">2.1.4.1.</span> <span class="nav-text">Land Subsidence with different land use type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Land-Subsidence-Response-to-different-water-use"><span class="nav-number">2.1.4.2.</span> <span class="nav-text">Land Subsidence Response to different water use</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-reason-that-behind-groundwater-level-fluctuation"><span class="nav-number">2.1.4.2.1.</span> <span class="nav-text">The reason that behind groundwater level fluctuation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Time-lag-investigation-betweeb-subsidence-change-and-grooundwater-level-change"><span class="nav-number">2.1.4.2.2.</span> <span class="nav-text">Time lag investigation betweeb subsidence change and grooundwater level change</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusions"><span class="nav-number">2.1.5.</span> <span class="nav-text">Conclusions</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Land-Subsidence-under-Different-Land-Use-in-the-Eastern-Beijing-Plain"><span class="nav-number">3.</span> <span class="nav-text">Land Subsidence under Different Land Use in the Eastern Beijing Plain</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Source-1"><span class="nav-number">3.1.</span> <span class="nav-text">Data Source</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Processing"><span class="nav-number">3.2.</span> <span class="nav-text">Data Processing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SBAS"><span class="nav-number">3.2.1.</span> <span class="nav-text">SBAS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPTA"><span class="nav-number">3.2.2.</span> <span class="nav-text">IPTA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result"><span class="nav-number">3.3.</span> <span class="nav-text">Result</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-Series-land-subsidence"><span class="nav-number">3.3.1.</span> <span class="nav-text">Time Series land subsidence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SBAS-accuracy-assessment"><span class="nav-number">3.3.2.</span> <span class="nav-text">SBAS accuracy assessment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spatial-characteristics-of-land-subsidence-in-different-land-use"><span class="nav-number">3.3.3.</span> <span class="nav-text">Spatial characteristics of land subsidence in different land use</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subsidence-due-to-groundwater-in-agricultural-and-industrial-areas"><span class="nav-number">3.3.4.</span> <span class="nav-text">Subsidence due to groundwater in agricultural and industrial areas</span></a></li></ol></li></ol></li></ol></div>
+        <div class="list-group" id="local-search-result"></div>
       </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Yuchi Meng"
-      src="/images/avatar.JPG">
-  <p class="site-author-name" itemprop="name">Yuchi Meng</p>
-  <div class="site-description" itemprop="description">BVB und Badminton</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">15</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">19</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/mengyuchi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;mengyuchi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:mengyuchile@gmail.com" title="E-Mail → mailto:mengyuchile@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://twitter.com/mengyuchile" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;mengyuchile" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://instagram.com/yuuchiiiiiiiiii" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yuuchiiiiiiiiii" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
-      </span>
-  </div>
-
-
-
-      </div>
-
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Yuchi Meng</span>
+  </div>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
 
   
 
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
-
-
-
-
-
-
-
-
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
   
 
+
+
   
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
 
 </body>
 </html>

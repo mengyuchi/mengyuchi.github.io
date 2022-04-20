@@ -1,26 +1,22 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="IntroThis post is about working in Land Subsidence in Feng-Pei county in Xuzhou city. Cause the only free and available SAR dataset in this area is Sentinel-1A, so we downloaded 20 scenes SLC data to">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Yuchi Meng">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="IntroThis post is about working in Land Subsidence in Feng-Pei county in Xuzhou city. Cause the only free and available SAR dataset in this area is Sentinel-1A, so we downloaded 20 scenes SLC data to">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Land Subsidence in Xuzhou Feng-Pei County using StaMPS in LiDO3(1)">
 <meta property="og:url" content="http://mengyuchi.github.io/2022/04/07/Land-Subsidence-in-Xuzhou-Feng-Pei-County/index.html">
@@ -39,204 +35,226 @@
 <meta property="article:tag" content="Xuzhou">
 <meta property="article:tag" content="StaMPS-InSAR">
 <meta property="article:tag" content="snap2stamps">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://mengyuchi.github.io/2022/04/07/Land-Subsidence-in-Xuzhou-Feng-Pei-County/Dataset.png">
+  
+  
+  <title>Land Subsidence in Xuzhou Feng-Pei County using StaMPS in LiDO3(1) - Yuchi&#39;s BLOG</title>
 
-<link rel="canonical" href="http://mengyuchi.github.io/2022/04/07/Land-Subsidence-in-Xuzhou-Feng-Pei-County/">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
-  };
-</script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
-  <title>Land Subsidence in Xuzhou Feng-Pei County using StaMPS in LiDO3(1) | Yuchi's BLOG</title>
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
   
 
 
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
+<link  rel="stylesheet" href="/css/main.css" />
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+<!-- 自定义样式保持在最底部 -->
 
-</head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
 
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Yuchi's BLOG</h1>
-      <span class="logo-line-after"><i></i></span>
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
     </a>
-      <p class="site-subtitle" itemprop="description">GISer</p>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
-
-  </li>
-  </ul>
 </nav>
 
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Land Subsidence in Xuzhou Feng-Pei County using StaMPS in LiDO3(1)">
+              
+            </span>
 
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
             
-
-    
+              <div class="mt-3">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://mengyuchi.github.io/2022/04/07/Land-Subsidence-in-Xuzhou-Feng-Pei-County/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Yuchi Meng">
-      <meta itemprop="description" content="BVB und Badminton">
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-07 20:56" pubdate>
+        April 7, 2022 pm
+      </time>
     </span>
+  
+</div>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuchi's BLOG">
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      12k 字
     </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Land Subsidence in Xuzhou Feng-Pei County using StaMPS in LiDO3(1)
-        </h1>
+  
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      103 分钟
+    </span>
+  
 
-              <time title="Created: 2022-04-07 20:56:30" itemprop="dateCreated datePublished" datetime="2022-04-07T20:56:30+02:00">2022-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 09:04:27" itemprop="dateModified" datetime="2022-04-20T09:04:27+02:00">2022-04-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SAR/" itemprop="url" rel="index"><span itemprop="name">SAR</span></a>
-                </span>
-            </span>
+  
+  
+</div>
+
+            
+          </div>
 
           
-
         </div>
-      </header>
+      </div>
+    </div>
+  </header>
 
+  <main>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-        <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This post is about working in Land Subsidence in Feng-Pei county in Xuzhou city. Cause the only free and available SAR dataset in this area is Sentinel-1A, so we downloaded 20 scenes SLC data to process.</p>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Land Subsidence in Xuzhou Feng-Pei County using StaMPS in LiDO3(1)</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This post is about working in Land Subsidence in Feng-Pei county in Xuzhou city. Cause the only free and available SAR dataset in this area is Sentinel-1A, so we downloaded 20 scenes SLC data to process.</p>
 <span id="more"></span>
 
-<h1 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h1><p><img src="/2022/04/07/Land-Subsidence-in-Xuzhou-Feng-Pei-County/Dataset.png" alt="Sentinel data overview by ASF"></p>
+<h1 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h1><p><img src="/2022/04/07/Land-Subsidence-in-Xuzhou-Feng-Pei-County/Dataset.png" srcset="/img/loading.gif" lazyload alt="Sentinel data overview by ASF"></p>
 <h1 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h1><p>In this process, we use snap2stamps to prepare INSAR_master_date folder for StaMPS. </p>
 <h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><p>Cause snap2stamps needs python 2 environment, so we use anaconda<a target="_blank" rel="noopener" href="https://www.anaconda.com/" title="Anaconda official">1</a> to manage python environment and easy switch between python3 and python 2.</p>
 <p>Switching between Python 2 and Python 3 environments<a target="_blank" rel="noopener" href="https://docs.anaconda.com/anaconda/user-guide/tasks/switch-environment/" title="Anaconda switch between python2 and python3">2</a>:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda create --name py2 python=2.7</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda activate py2 <span class="comment"># active python 2.7</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda deactivate <span class="comment"># deactivate</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pyhon</span> </span><br><span class="line">Python 2.7.18 |Anaconda, Inc.| (default, Apr 23 2020, 17:26:54) [MSC v.1500 64 bit (AMD64)] on win32</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; <span class="built_in">exit</span>()</span></span><br><span class="line"></span><br><span class="line">(base) C:/Users/mengy&gt;python </span><br><span class="line">Python 3.9.7 (default, Sep 16 2021, 16:59:28) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">conda create --name py2 python=2.7</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">conda activate py2 <span class="hljs-comment"># active python 2.7</span></span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">conda deactivate <span class="hljs-comment"># deactivate</span></span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">pyhon</span> <br>Python 2.7.18 |Anaconda, Inc.| (default, Apr 23 2020, 17:26:54) [MSC v.1500 64 bit (AMD64)] on win32<br>Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.<br><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; <span class="hljs-built_in">exit</span>()</span><br><br>(base) C:/Users/mengy&gt;python <br>Python 3.9.7 (default, Sep 16 2021, 16:59:28) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32<br>Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.<br><br></code></pre></td></tr></table></figure>
 
 <h2 id="SNAP-prepare"><a href="#SNAP-prepare" class="headerlink" title="SNAP prepare"></a>SNAP prepare</h2><ul>
 <li><p>File location: File    I:&#x2F;SAR&#x2F;Data&#x2F;Xuzhou&#x2F;Sentinel&#x2F;Path_142&#x2F;Frame_109</p>
@@ -268,49 +286,49 @@
 <h3 id="Python-environmeng"><a href="#Python-environmeng" class="headerlink" title="Python environmeng"></a>Python environmeng</h3><ul>
 <li>Download python2</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install python</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python --version</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install pip</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo apt install python</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">python --version</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo apt install pip</span><br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>Change the Python3 default version in Ubuntu<a target="_blank" rel="noopener" href="https://linuxhint.com/update_alternatives_ubuntu/" title="How to Use update-alternatives Command on Ubuntu">4</a></li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo update-alternatives --config python</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">update-alternatives: error: no alternatives <span class="keyword">for</span> python3</span> </span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 40</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 20</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo update-alternatives --config python</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo update-alternatives --config python</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">update-alternatives: error: no alternatives <span class="hljs-keyword">for</span> python3</span> <br><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 40</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 20</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo update-alternatives --config python</span><br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>Start working in python2 environment</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python2</span><br><span class="line">Python 2.7.18 (default, Mar  8 2021, 13:02:45)</span><br><span class="line">[GCC 9.3.0] on linux2</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs csharp">$ python2<br>Python <span class="hljs-number">2.7</span><span class="hljs-number">.18</span> (<span class="hljs-literal">default</span>, Mar  <span class="hljs-number">8</span> <span class="hljs-number">2021</span>, <span class="hljs-number">13</span>:<span class="hljs-number">02</span>:<span class="hljs-number">45</span>)<br>[<span class="hljs-meta">GCC 9.3.0</span>] <span class="hljs-keyword">on</span> linux2<br>Type <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> <span class="hljs-keyword">or</span> <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.<br>&gt;&gt;&gt;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Config-snap2stamps"><a href="#Config-snap2stamps" class="headerlink" title="Config snap2stamps"></a>Config snap2stamps</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">######## CONFIGURATION FILE ######</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">##################################</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">PROJECT DEFINITION</span></span><br><span class="line">PROJECTFOLDER=/mnt/i/SAR/Data/Feng_Pei/project</span><br><span class="line">GRAPHSFOLDER=/mnt/i/SAR/Data/Feng_Pei/project/graphs</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#################################</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">PROCESSING PARAMETERS</span></span><br><span class="line">IW1=IW2</span><br><span class="line">MASTER=/mnt/i/SAR/Data/Feng_Pei/project/master/S1A_IW_SLC__1SDV_20161028T101204_20161028T101231_013689_015F45_AEF2_split.dim</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#################################</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">AOI BBOX DEFINITION</span></span><br><span class="line">LONMIN=116.61</span><br><span class="line">LATMIN=34.130</span><br><span class="line">LONMAX=117.335</span><br><span class="line">LATMAX=35.117</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#################################</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">SNAP GPT</span> </span><br><span class="line">GPTBIN_PATH=/mnt/c/&#x27;Program Files&#x27;/snap/bin/gpt.exe</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">GPTBIN_PATH=/home/yuchi/snap/bin/gpt</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#################################</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">COMPUTING RESOURCES TO EMPLOY</span></span><br><span class="line">CPU=4</span><br><span class="line">CACHE=16G</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#################################</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Config-snap2stamps"><a href="#Config-snap2stamps" class="headerlink" title="Config snap2stamps"></a>Config snap2stamps</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">######## CONFIGURATION FILE ######</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">##################################</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">PROJECT DEFINITION</span><br>PROJECTFOLDER=/mnt/i/SAR/Data/Feng_Pei/project<br>GRAPHSFOLDER=/mnt/i/SAR/Data/Feng_Pei/project/graphs<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#################################</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">PROCESSING PARAMETERS</span><br>IW1=IW2<br>MASTER=/mnt/i/SAR/Data/Feng_Pei/project/master/S1A_IW_SLC__1SDV_20161028T101204_20161028T101231_013689_015F45_AEF2_split.dim<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#################################</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">AOI BBOX DEFINITION</span><br>LONMIN=116.61<br>LATMIN=34.130<br>LONMAX=117.335<br>LATMAX=35.117<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#################################</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">SNAP GPT</span> <br>GPTBIN_PATH=/mnt/c/&#x27;Program Files&#x27;/snap/bin/gpt.exe<br><span class="hljs-meta prompt_">#</span><span class="language-bash">GPTBIN_PATH=/home/yuchi/snap/bin/gpt</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#################################</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">COMPUTING RESOURCES TO EMPLOY</span><br>CPU=4<br>CACHE=16G<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#################################</span></span><br><br></code></pre></td></tr></table></figure>
 <h3 id="Working-in-snap2stamps"><a href="#Working-in-snap2stamps" class="headerlink" title="Working in snap2stamps"></a>Working in snap2stamps</h3><ul>
 <li>Go to snap2stamps folder and start processing.</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yuchi@DESKTOP-C79LC47:~$ cd /mnt/i/Software/snap2stampsbin</span><br><span class="line">yuchi@DESKTOP-C79LC47:/mnt/i/Software/snap2stamps$</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">yuchi@DESKTOP-C79LC47:~$ cd /mnt/i/Software/snap2stampsbin<br>yuchi@DESKTOP-C79LC47:/mnt/i/Software/snap2stamps$<br></code></pre></td></tr></table></figure>
 
 <h4 id="Error-1-SyntaxError-invalid-syntax"><a href="#Error-1-SyntaxError-invalid-syntax" class="headerlink" title="Error 1 SyntaxError: invalid syntax:"></a><em>Error 1 SyntaxError: invalid syntax</em>:</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; python slaves_prep.py project.conf</span><br><span class="line"> File &quot;&lt;stdin&gt;&quot;, line 1</span><br><span class="line">   python slaves_prep.py project.conf</span><br><span class="line">                    ^</span><br><span class="line">SyntaxError: invalid syntax</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vim">&gt;&gt;&gt; <span class="hljs-keyword">python</span> slaves_prep.<span class="hljs-keyword">py</span> project.<span class="hljs-keyword">conf</span><br> File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, <span class="hljs-built_in">line</span> <span class="hljs-number">1</span><br>   <span class="hljs-keyword">python</span> slaves_prep.<span class="hljs-keyword">py</span> project.<span class="hljs-keyword">conf</span><br>                    ^<br>SyntaxError: invalid <span class="hljs-keyword">syntax</span><br></code></pre></td></tr></table></figure>
 </blockquote>
 <p><strong>Solution</strong><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/13961140/syntax-error-when-using-command-line-in-python" title="syntax error when using command line in python">5</a>: </p>
 <blockquote>
 <p> Looks like your problem is that you are trying to run python test.py from within the Python interpreter, which is why you’re seeing that traceback.</p>
 <p>Make sure you’re out of the interpreter, then run the python test.py command from bash or command prompt or whatever.</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo update-alternatives --config python</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install pathlib</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python slaves_prep.py project.conf</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo update-alternatives --config python</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">pip install pathlib</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">python slaves_prep.py project.conf</span><br></code></pre></td></tr></table></figure>
 <h4 id="Error2-Can’t-install-pathlib-and-pip2-in-python2"><a href="#Error2-Can’t-install-pathlib-and-pip2-in-python2" class="headerlink" title="Error2 Can’t install pathlib and pip2 in python2"></a><em>Error2 Can’t install pathlib and pip2 in python2</em></h4><p><strong>Solution</strong><a target="_blank" rel="noopener" href="https://www.gungorbudak.com/blog/2018/08/02/correct-installation-and-configuration-of-pip2-and-pip3/" title="Correct Installation and Configuration of pip2 and pip3">6</a>:</p>
 <blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://bootstrap.pypa.io/get-pip.py</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo python2 get-pip.py</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip 20.3.4 from /home/yuchi/.local/lib/python2.7/site-packages/pip (python 2.7)</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip2 install pathlib</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"> python2</span></span><br><span class="line">Python 2.7.18 (default, Mar  8 2021, 13:02:45)</span><br><span class="line">[GCC 9.3.0] on linux2</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; <span class="built_in">help</span>(<span class="string">&#x27;modules&#x27;</span>)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">wget https://bootstrap.pypa.io/get-pip.py</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo python2 get-pip.py</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">pip 20.3.4 from /home/yuchi/.local/lib/python2.7/site-packages/pip (python 2.7)</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">pip2 install pathlib</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash"> python2</span><br>Python 2.7.18 (default, Mar  8 2021, 13:02:45)<br>[GCC 9.3.0] on linux2<br>Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.<br><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; <span class="hljs-built_in">help</span>(<span class="hljs-string">&#x27;modules&#x27;</span>)</span><br></code></pre></td></tr></table></figure>
 </blockquote>
 <ul>
 <li>Start process snap2stamps</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">python slaves_prep.py project.conf</span><br><span class="line"></span><br><span class="line">python splitting_slaves.py project.conf</span><br><span class="line"></span><br><span class="line">python coreg_ifg_topsar.py project.conf</span><br><span class="line"></span><br><span class="line">python stamps_export.py project.conf</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><br>python slaves_prep.py project.conf<br><br>python splitting_slaves.py project.conf<br><br>python coreg_ifg_topsar.py project.conf<br><br>python stamps_export.py project.conf<br><br></code></pre></td></tr></table></figure>
 
-<h4 id="Error-3-subprocess-popen-no-such-file-or-directory-in"><a href="#Error-3-subprocess-popen-no-such-file-or-directory-in" class="headerlink" title="Error 3 subprocess.popen no such file or directory in"></a><em>Error 3 subprocess.popen no such file or directory in</em></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python splitting_slaves.py project.conf </span><br></pre></td></tr></table></figure>
+<h4 id="Error-3-subprocess-popen-no-such-file-or-directory-in"><a href="#Error-3-subprocess-popen-no-such-file-or-directory-in" class="headerlink" title="Error 3 subprocess.popen no such file or directory in"></a><em>Error 3 subprocess.popen no such file or directory in</em></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pyhton">python splitting_slaves.py project.conf <br></code></pre></td></tr></table></figure>
 
 <p><strong>Solution</strong>: Try add an extra parameter shell&#x3D;True to the Popen call<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/9935151/popen-error-errno-2-no-such-file-or-directory" title="Popen error: [Errno 2] No such file or directory">7</a>.</p>
-<h4 id="Error-4-SNAP-STDOUT-x2F-mnt-x2F-i-x2F-SAR-x2F-Data-x2F-Feng-Pei-x2F-project-x2F-graphs-x2F-splitgraph2run-xml-1-x2F-mnt-x2F-c-x2F-Program-not-found-in"><a href="#Error-4-SNAP-STDOUT-x2F-mnt-x2F-i-x2F-SAR-x2F-Data-x2F-Feng-Pei-x2F-project-x2F-graphs-x2F-splitgraph2run-xml-1-x2F-mnt-x2F-c-x2F-Program-not-found-in" class="headerlink" title="Error 4: SNAP STDOUT:&#x2F;mnt&#x2F;i&#x2F;SAR&#x2F;Data&#x2F;Feng_Pei&#x2F;project&#x2F;graphs&#x2F;splitgraph2run.xml: 1: &#x2F;mnt&#x2F;c&#x2F;Program: not found in"></a><em>Error 4</em>: SNAP STDOUT:&#x2F;mnt&#x2F;i&#x2F;SAR&#x2F;Data&#x2F;Feng_Pei&#x2F;project&#x2F;graphs&#x2F;splitgraph2run.xml: 1: &#x2F;mnt&#x2F;c&#x2F;Program: not found in</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python splitting_slaves.py project.conf</span><br></pre></td></tr></table></figure>
+<h4 id="Error-4-SNAP-STDOUT-x2F-mnt-x2F-i-x2F-SAR-x2F-Data-x2F-Feng-Pei-x2F-project-x2F-graphs-x2F-splitgraph2run-xml-1-x2F-mnt-x2F-c-x2F-Program-not-found-in"><a href="#Error-4-SNAP-STDOUT-x2F-mnt-x2F-i-x2F-SAR-x2F-Data-x2F-Feng-Pei-x2F-project-x2F-graphs-x2F-splitgraph2run-xml-1-x2F-mnt-x2F-c-x2F-Program-not-found-in" class="headerlink" title="Error 4: SNAP STDOUT:&#x2F;mnt&#x2F;i&#x2F;SAR&#x2F;Data&#x2F;Feng_Pei&#x2F;project&#x2F;graphs&#x2F;splitgraph2run.xml: 1: &#x2F;mnt&#x2F;c&#x2F;Program: not found in"></a><em>Error 4</em>: SNAP STDOUT:&#x2F;mnt&#x2F;i&#x2F;SAR&#x2F;Data&#x2F;Feng_Pei&#x2F;project&#x2F;graphs&#x2F;splitgraph2run.xml: 1: &#x2F;mnt&#x2F;c&#x2F;Program: not found in</h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">python</span> splitting_slaves.<span class="hljs-keyword">py</span> project.<span class="hljs-keyword">conf</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>Solution</strong>: Edit conf file GPTBIN_PATH&#x3D;&#x2F;mnt&#x2F;c&#x2F;‘Program Files’&#x2F;snap&#x2F;bin&#x2F;gpt.exe instead of GPTBIN_PATH&#x3D;&#x2F;mnt&#x2F;c&#x2F;Program Files&#x2F;snap&#x2F;bin&#x2F;gpt.exe</p>
-<h4 id="Error-5-GDAL-not-found-on-system-in-step2"><a href="#Error-5-GDAL-not-found-on-system-in-step2" class="headerlink" title="Error 5 GDAL not found on system in step2"></a><em>Error 5 GDAL not found on system in step2</em></h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[18] Folder: 20170225</span><br><span class="line">/mnt/i/SAR/Data/Feng_Pei/project/slaves/20170225</span><br><span class="line">[&#x27;/mnt/i/SAR/Data/Feng_Pei/project/slaves/20170225/S1A_IW_SLC__1SDV_20170225T101159_20170225T101226_015439_01957D_63E5.zip&#x27;]</span><br><span class="line">FILE(s) : /mnt/i/SAR/Data/Feng_Pei/project/slaves/20170225/S1A_IW_SLC__1SDV_20170225T101159_20170225T101226_015439_01957D_63E5.zip</span><br><span class="line">[&quot;/mnt/c/&#x27;Program Files&#x27;/snap/bin/gpt.exe&quot;, &#x27;/mnt/i/SAR/Data/Feng_Pei/project/graphs/splitgraph2run.xml&#x27;, &#x27;-c&#x27;, &#x27;16G&#x27;, &#x27;-q&#x27;, &#x27;4&#x27;]</span><br><span class="line">SNAP STDOUT:INFO: org.esa.s2tbx.dataio.gdal.GDALVersion: GDAL not found on system. Internal GDAL 3.0.0 from distribution will be used. (f1)</span><br><span class="line">INFO: org.esa.s2tbx.dataio.gdal.GDALVersion: Internal GDAL 3.0.0 set to be used by SNAP.</span><br><span class="line">INFO: org.esa.snap.core.gpf.operators.tooladapter.ToolAdapterIO: Initializing external tool adapters</span><br><span class="line">INFO: org.esa.snap.core.util.EngineVersionCheckActivator: Please check regularly for new updates for the best SNAP experience.</span><br><span class="line">INFO: org.esa.s2tbx.dataio.gdal.GDALVersion: Internal GDAL 3.0.0 set to be used by SNAP.</span><br><span class="line">Usage:</span><br><span class="line">  gpt &lt;op&gt;|&lt;graph-file&gt; [options] [&lt;source-file-1&gt; &lt;source-file-2&gt; ...]</span><br><span class="line">  Description:</span><br><span class="line">  This tool is used to execute SNAP raster data operators in batch-mode. The</span><br><span class="line">  operators can be used stand-alone or combined as a directed acyclic graph</span><br><span class="line">  (DAG). Processing graphs are represented using XML. More info about</span><br><span class="line">  processing graphs, the operator API, and the graph XML format can be found</span><br><span class="line">  in the SNAP documentation.</span><br></pre></td></tr></table></figure>
+<h4 id="Error-5-GDAL-not-found-on-system-in-step2"><a href="#Error-5-GDAL-not-found-on-system-in-step2" class="headerlink" title="Error 5 GDAL not found on system in step2"></a><em>Error 5 GDAL not found on system in step2</em></h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs shell">[18] Folder: 20170225<br>/mnt/i/SAR/Data/Feng_Pei/project/slaves/20170225<br>[&#x27;/mnt/i/SAR/Data/Feng_Pei/project/slaves/20170225/S1A_IW_SLC__1SDV_20170225T101159_20170225T101226_015439_01957D_63E5.zip&#x27;]<br>FILE(s) : /mnt/i/SAR/Data/Feng_Pei/project/slaves/20170225/S1A_IW_SLC__1SDV_20170225T101159_20170225T101226_015439_01957D_63E5.zip<br>[&quot;/mnt/c/&#x27;Program Files&#x27;/snap/bin/gpt.exe&quot;, &#x27;/mnt/i/SAR/Data/Feng_Pei/project/graphs/splitgraph2run.xml&#x27;, &#x27;-c&#x27;, &#x27;16G&#x27;, &#x27;-q&#x27;, &#x27;4&#x27;]<br>SNAP STDOUT:INFO: org.esa.s2tbx.dataio.gdal.GDALVersion: GDAL not found on system. Internal GDAL 3.0.0 from distribution will be used. (f1)<br>INFO: org.esa.s2tbx.dataio.gdal.GDALVersion: Internal GDAL 3.0.0 set to be used by SNAP.<br>INFO: org.esa.snap.core.gpf.operators.tooladapter.ToolAdapterIO: Initializing external tool adapters<br>INFO: org.esa.snap.core.util.EngineVersionCheckActivator: Please check regularly for new updates for the best SNAP experience.<br>INFO: org.esa.s2tbx.dataio.gdal.GDALVersion: Internal GDAL 3.0.0 set to be used by SNAP.<br>Usage:<br>  gpt &lt;op&gt;|&lt;graph-file&gt; [options] [&lt;source-file-1&gt; &lt;source-file-2&gt; ...]<br>  Description:<br>  This tool is used to execute SNAP raster data operators in batch-mode. The<br>  operators can be used stand-alone or combined as a directed acyclic graph<br>  (DAG). Processing graphs are represented using XML. More info about<br>  processing graphs, the operator API, and the graph XML format can be found<br>  in the SNAP documentation.<br></code></pre></td></tr></table></figure>
 
 <p>Regarding GDAL versions compatible with SNAP, these are:</p>
 <p>Windows: 2.1.x - 3.0.x<br>Linux: 2.0.x - 3.0.x<br>Mac: 2.0.x - 3.0.x</p>
@@ -318,7 +336,7 @@
 <p>And the file is hidden in home&#x2F;yuchi&#x2F;.snap&#x2F;etc&#x2F;s2tbx.properties, use <em>show hidden</em> to locate file.</p>
 <p><strong>Solution</strong></p>
 <p>Change of two attributes in range and azimute for snap V.7 and later<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/snap2stamps-error/16768/150?page=8" title="STEP Forum">8</a>.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Try to change </span><br><span class="line"><span class="tag">&lt;<span class="name">useSuppliedShifts</span>&gt;</span>false<span class="tag">&lt;/<span class="name">useSuppliedShifts</span>&gt;</span> to </span><br><span class="line"><span class="tag">&lt;<span class="name">useSuppliedRangeShift</span>&gt;</span>false<span class="tag">&lt;/<span class="name">useSuppliedRangeShift</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">useSuppliedAzimuthShift</span>&gt;</span>false<span class="tag">&lt;/<span class="name">useSuppliedAzimuthShift</span>&gt;</span> </span><br><span class="line">in coreg_ifg_computation.xml file This option is changed to two attributes in range and azimute for snap V.7</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml">Try to change <br><span class="hljs-tag">&lt;<span class="hljs-name">useSuppliedShifts</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">useSuppliedShifts</span>&gt;</span> to <br><span class="hljs-tag">&lt;<span class="hljs-name">useSuppliedRangeShift</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">useSuppliedRangeShift</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">useSuppliedAzimuthShift</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">useSuppliedAzimuthShift</span>&gt;</span> <br>in coreg_ifg_computation.xml file This option is changed to two attributes in range and azimute for snap V.7<br></code></pre></td></tr></table></figure>
 
 <p><strong>IMPORTANT: snap2stamps is a dead end, change to SNAP desktop!</strong></p>
 <p><strong>UPDATE</strong></p>
@@ -328,10 +346,10 @@
 <blockquote>
 <p>Building S1TBX from the source<a target="_blank" rel="noopener" href="https://github.com/senbox-org/s1tbx" title="The SENTINEL-1 Toolbox">12</a></p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/senbox-org/s1tbx.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/senbox-org/snap-desktop.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/senbox-org/snap-engine.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/senbox-org/snap-installer.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">mvn clean install</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">If unit tests are failing, you can use the following to skip the tests</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">mvn clean install -Dmaven.test.skip=<span class="literal">true</span></span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/senbox-org/s1tbx.git</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/senbox-org/snap-desktop.git</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/senbox-org/snap-engine.git</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/senbox-org/snap-installer.git</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">mvn clean install</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">If unit tests are failing, you can use the following to skip the tests</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">mvn clean install -Dmaven.test.skip=<span class="hljs-literal">true</span></span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="Error-6-mvn-clean-install"><a href="#Error-6-mvn-clean-install" class="headerlink" title="Error 6 mvn clean install"></a><em>Error 6 mvn clean install</em></h4><p>Building SNAP from sources : errors during the “mvn clean install”<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/building-snap-from-sources-errors-during-the-mvn-clean-install/10626" title="Building SNAP from sources : errors during the mvn clean install">13</a>.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[INFO] Ceres Runtime Library 9.0.0-SNAPSHOT ............... FAILURE</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">[<span class="hljs-built_in">INFO</span>] Ceres Runtime Library 9.0.0-SNAPSHOT <span class="hljs-built_in">..</span><span class="hljs-built_in">..</span><span class="hljs-built_in">..</span><span class="hljs-built_in">..</span><span class="hljs-built_in">..</span><span class="hljs-built_in">..</span><span class="hljs-built_in">..</span>. FAILURE<br></code></pre></td></tr></table></figure>
 
 <p><strong>Solution by marpet @ STEPForum</strong></p>
 <p>This happens when you use Java 9 or 10. SNAP is not yet compatible with these Java versions<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/building-snap-from-sources-errors-during-the-mvn-clean-install/10626" title="Building SNAP from sources : errors during the mvn clean install">13</a>.<br>You can either switch to Java 8, that’s what I would suggest, or you can change how Java is handling these incompatibility issues.</p>
@@ -339,14 +357,14 @@
 <p>Installing Open JDK 8 on Debian or Ubuntu Systems<a target="_blank" rel="noopener" href="https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOpenJdkDeb.html" title="Installing Open JDK 8 on Debian or Ubuntu Systems">15</a>.</p>
 <h4 id="SNAP-successly-installed-in-Ubuntu"><a href="#SNAP-successly-installed-in-Ubuntu" class="headerlink" title="SNAP successly installed in Ubuntu"></a>SNAP successly installed in Ubuntu</h4><p>Check post ‘<a href="https://mengyuchi.github.io/2022/04/14/Setup-and-Problem-Solving-in-WSL2/">Setup and Problem-Solving in WSL2</a>‘ for details in SNAP install in WSL. </p>
 <h3 id="Add-breakpoints-in-python"><a href="#Add-breakpoints-in-python" class="headerlink" title="Add breakpoints in python"></a>Add breakpoints in python</h3><p>The module pdb defines an interactive source code debugger for Python programs<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/pdb.html" title="pdb — The Python Debugger">10</a>.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">yuchi@DESKTOP-C79LC47:/mnt/i/Software/snap2stamps/bin$ python -m pdb splitting_slaves.py project.conf</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">/mnt/i/Software/snap2stamps/bin/splitting_slaves.py(15)&lt;module&gt;()</span></span><br><span class="line"><span class="meta prompt_">-&gt; </span><span class="language-bash">import os</span></span><br><span class="line">(Pdb) b splitting_slaves.py:78</span><br><span class="line">Breakpoint 1 at /mnt/i/Software/snap2stamps/bin/splitting_slaves.py:78</span><br><span class="line">(Pdb) c</span><br><span class="line">/mnt/i/SAR/Data/Feng_Pei/project</span><br><span class="line">/mnt/i/Software/snap2stamps/graphs</span><br><span class="line">IW2</span><br><span class="line">/mnt/c/&#x27;Program Files&#x27;/snap/bin/gpt.exe</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">####################################################################</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># TOPSAR Splitting and Apply Orbit</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">####################################################################</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">/mnt/i/Software/snap2stamps/bin/splitting_slaves.py(78)&lt;module&gt;()</span></span><br><span class="line"><span class="meta prompt_">-&gt; </span><span class="language-bash">k=k+1</span></span><br><span class="line">(Pdb) p filename</span><br><span class="line">*** NameError: NameError(&quot;name &#x27;filename&#x27; is not defined&quot;,)</span><br><span class="line">(Pdb) p k</span><br><span class="line">0</span><br><span class="line">(Pdb) p slavefolder</span><br><span class="line">&#x27;/mnt/i/SAR/Data/Feng_Pei/project/slaves&#x27;</span><br><span class="line">(Pdb) p acdatefolder</span><br><span class="line">&#x27;20150730&#x27;</span><br><span class="line">(Pdb) p args</span><br><span class="line">*** NameError: NameError(&quot;name &#x27;args&#x27; is not defined&quot;,)</span><br><span class="line">(Pdb) p graphfolder</span><br><span class="line">&#x27;/mnt/i/SAR/Data/Feng_Pei/project/graphs&#x27;</span><br><span class="line">(Pdb)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs shell">yuchi@DESKTOP-C79LC47:/mnt/i/Software/snap2stamps/bin$ python -m pdb splitting_slaves.py project.conf<br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">/mnt/i/Software/snap2stamps/bin/splitting_slaves.py(15)&lt;module&gt;()</span><br><span class="hljs-meta prompt_">-&gt; </span><span class="language-bash">import os</span><br>(Pdb) b splitting_slaves.py:78<br>Breakpoint 1 at /mnt/i/Software/snap2stamps/bin/splitting_slaves.py:78<br>(Pdb) c<br>/mnt/i/SAR/Data/Feng_Pei/project<br>/mnt/i/Software/snap2stamps/graphs<br>IW2<br>/mnt/c/&#x27;Program Files&#x27;/snap/bin/gpt.exe<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">####################################################################</span></span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># TOPSAR Splitting and Apply Orbit</span></span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">####################################################################</span></span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">/mnt/i/Software/snap2stamps/bin/splitting_slaves.py(78)&lt;module&gt;()</span><br><span class="hljs-meta prompt_">-&gt; </span><span class="language-bash">k=k+1</span><br>(Pdb) p filename<br>*** NameError: NameError(&quot;name &#x27;filename&#x27; is not defined&quot;,)<br>(Pdb) p k<br>0<br>(Pdb) p slavefolder<br>&#x27;/mnt/i/SAR/Data/Feng_Pei/project/slaves&#x27;<br>(Pdb) p acdatefolder<br>&#x27;20150730&#x27;<br>(Pdb) p args<br>*** NameError: NameError(&quot;name &#x27;args&#x27; is not defined&quot;,)<br>(Pdb) p graphfolder<br>&#x27;/mnt/i/SAR/Data/Feng_Pei/project/graphs&#x27;<br>(Pdb)<br></code></pre></td></tr></table></figure>
 
 <h4 id="Error-7-Unknown-element-‘useSuppliedShifts’"><a href="#Error-7-Unknown-element-‘useSuppliedShifts’" class="headerlink" title="Error 7 Unknown element ‘useSuppliedShifts’"></a><em>Error 7 Unknown element ‘useSuppliedShifts’</em></h4><p>Error: [NodeId: Enhanced-Spectral-Diversity] Operator ‘SpectralDiversityOp’: Unknown element ‘useSuppliedShifts’</p>
 <p><strong>Solution</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Try to change &lt;useSuppliedShifts&gt;false&lt;/useSuppliedShifts&gt; to &lt;useSuppliedRangeShift&gt;false&lt;/useSuppliedRangeShift&gt; &lt;useSuppliedAzimuthShift&gt;false&lt;/useSuppliedAzimuthShift&gt; in coreg_ifg_computation.xml file This option is changed to two attributes in range and azimute for snap V.7[16]</span><br></pre></td></tr></table></figure>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xquery">Try <span class="hljs-keyword">to</span> change <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">useSuppliedShifts</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">useSuppliedShifts</span>&gt;</span></span> <span class="hljs-keyword">to</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">useSuppliedRangeShift</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">useSuppliedRangeShift</span>&gt;</span></span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">useSuppliedAzimuthShift</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">useSuppliedAzimuthShift</span>&gt;</span></span> <span class="hljs-keyword">in</span> coreg_ifg_computation.xml file This <span class="hljs-keyword">option</span> <span class="hljs-literal">is</span> changed <span class="hljs-keyword">to</span> two attributes <span class="hljs-keyword">in</span> range <span class="hljs-keyword">and</span> azimute <span class="hljs-keyword">for</span> snap V.<span class="hljs-number">7</span>[<span class="hljs-number">16</span>]<br></code></pre></td></tr></table></figure>
 
 <h4 id="Error-8-Java-Heap-Space-Error"><a href="#Error-8-Java-Heap-Space-Error" class="headerlink" title="Error 8 Java Heap Space Error"></a><em>Error 8 Java Heap Space Error</em></h4><p><strong>Solution</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">I upgraded my system RAM from 8 Gb to 16 Gb.</span><br><span class="line">I even tried increasing the size of xmx parameter to 32Gb in SNAP interface[17].</span><br><span class="line"></span><br><span class="line">Increasing the available memory only has an effect if your PC has this amount of RAM. It only defines how much of your RAM can be used by Java (SNAP in this case).</span><br><span class="line">For example, if you have 8 GB of RAM, increasing the max value to 16 GB has no effect.</span><br><span class="line">m in this context stands or megabytes and the values should ideally be a multiple of 512[18].</span><br></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">I upgraded my <span class="hljs-keyword">system</span> RAM <span class="hljs-built_in">from</span> <span class="hljs-number">8</span> Gb <span class="hljs-built_in">to</span> <span class="hljs-number">16</span> Gb.<br>I even tried increasing <span class="hljs-keyword">the</span> size <span class="hljs-keyword">of</span> xmx parameter <span class="hljs-built_in">to</span> <span class="hljs-number">32</span>Gb <span class="hljs-keyword">in</span> SNAP interface[<span class="hljs-number">17</span>].<br><br>Increasing <span class="hljs-keyword">the</span> available memory only has <span class="hljs-keyword">an</span> effect <span class="hljs-keyword">if</span> your PC has this amount <span class="hljs-keyword">of</span> RAM. It only defines how much <span class="hljs-keyword">of</span> your RAM can be used <span class="hljs-keyword">by</span> Java (SNAP <span class="hljs-keyword">in</span> this <span class="hljs-keyword">case</span>).<br>For example, <span class="hljs-keyword">if</span> you have <span class="hljs-number">8</span> GB <span class="hljs-keyword">of</span> RAM, increasing <span class="hljs-keyword">the</span> <span class="hljs-built_in">max</span> <span class="hljs-built_in">value</span> <span class="hljs-built_in">to</span> <span class="hljs-number">16</span> GB has no effect.<br>m <span class="hljs-keyword">in</span> this context stands <span class="hljs-keyword">or</span> megabytes <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> values should ideally be <span class="hljs-keyword">a</span> multiple <span class="hljs-keyword">of</span> <span class="hljs-number">512</span>[<span class="hljs-number">18</span>].<br></code></pre></td></tr></table></figure>
 
 <h4 id="Error-9-Process-stopped-at-20"><a href="#Error-9-Process-stopped-at-20" class="headerlink" title="Error 9 Process stopped at 20%"></a><em>Error 9 Process stopped at 20%</em></h4><p>&#x2F;mnt&#x2F;i&#x2F;SAR&#x2F;Data&#x2F;Feng_Pei&#x2F;project&#x2F;&#x2F;split&#x2F;20150730&#x2F;20150730_IW2.dim<br>Processing slave file :20150730_IW2.dim</p>
 <p>SNAP STDOUT:INFO: org.esa.snap.core.gpf.operators.tooladapter.ToolAdapterIO: Initializing external tool adapters<br>INFO: org.esa.s2tbx.dataio.gdal.GDALVersion: Incompatible GDAL 3.3.2 found on system. Internal GDAL 3.0.0 from distribution will be used.<br>INFO: org.esa.s2tbx.dataio.gdal.GDALVersion: Internal GDAL 3.0.0 set to be used by SNAP.<br>INFO: org.esa.snap.core.util.EngineVersionCheckActivator: Please check regularly for new updates for the best SNAP experience.<br>INFO: org.esa.s2tbx.dataio.gdal.GDALVersion: Internal GDAL 3.0.0 set to be used by SNAP.<br>Executing processing graph<br>INFO: org.hsqldb.persist.Logger: dataFileCache open start<br>INFO: org.esa.s1tbx.sentinel1.gpf.SpectralDiversityOp: Shifts written to file: &#x2F;home&#x2F;yuchi&#x2F;.snap&#x2F;var&#x2F;log&#x2F;IW2_range_shifts.json<br>INFO: org.esa.s1tbx.sentinel1.gpf.SpectralDiversityOp: Estimating azimuth offset for blocks in overlap: 1&#x2F;6<br>INFO: org.esa.s1tbx.sentinel1.gpf.SpectralDiversityOp: Estimating azimuth offset for blocks in overlap: 2&#x2F;6<br>INFO: org.esa.s1tbx.sentinel1.gpf.SpectralDiversityOp: Estimating azimuth offset for blocks in overlap: 3&#x2F;6<br>INFO: org.esa.s1tbx.sentinel1.gpf.SpectralDiversityOp: Estimating azimuth offset for blocks in overlap: 4&#x2F;6<br>INFO: org.esa.s1tbx.sentinel1.gpf.SpectralDiversityOp: Estimating azimuth offset for blocks in overlap: 5&#x2F;6<br>INFO: org.esa.s1tbx.sentinel1.gpf.SpectralDiversityOp: Estimating azimuth offset for blocks in overlap: 6&#x2F;6<br>INFO: org.esa.s1tbx.sentinel1.gpf.SpectralDiversityOp: Shifts written to file: &#x2F;home&#x2F;yuchi&#x2F;.snap&#x2F;var&#x2F;log&#x2F;IW2_azimuth_shifts.json<br>….10%….20%.<br>Finished process in 761.911759138 seconds.</p>
@@ -363,253 +381,223 @@
 </li>
 </ul>
 
-    </div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/SAR/">SAR</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/InSAR/">InSAR</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Land-Subsidence/">Land Subsidence</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Sentinel1-A/">Sentinel1-A</a>
+                    
+                      <a class="hover-with-bg" href="/tags/PS-InSAR/">PS-InSAR</a>
+                    
+                      <a class="hover-with-bg" href="/tags/LiDO3/">LiDO3</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Xuzhou/">Xuzhou</a>
+                    
+                      <a class="hover-with-bg" href="/tags/StaMPS-InSAR/">StaMPS-InSAR</a>
+                    
+                      <a class="hover-with-bg" href="/tags/snap2stamps/">snap2stamps</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/14/Setup-and-Problem-Solving-in-WSL2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Setup and Problem-Solving in WSL2</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/07/Land-subsidence-in-Xuzhou-using-Sentinel1A-PS-InSAR-in-SARScape/">
+                        <span class="hidden-mobile">Land subsidence in Xuzhou using Sentinel1A PS-InSAR in SARScape</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-    
-    
-    
-        <div class="reward-container">
-  <div></div>
-  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    Donate
-  </button>
-  <div id="qr" style="display: none;">
-
-  </div>
-</div>
-
-        
-
-  <div class="followme">
-    <p>Welcome to my other publishing channels</p>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
-            <span class="icon">
-              <i class="fab fa-weixin"></i>
-            </span>
-
-            <span class="label">WeChat</span>
-          </a>
+            
+          </article>
         </div>
+      </div>
     </div>
-  </div>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/InSAR/" rel="tag"># InSAR</a>
-              <a href="/tags/Land-Subsidence/" rel="tag"># Land Subsidence</a>
-              <a href="/tags/Sentinel1-A/" rel="tag"># Sentinel1-A</a>
-              <a href="/tags/PS-InSAR/" rel="tag"># PS-InSAR</a>
-              <a href="/tags/LiDO3/" rel="tag"># LiDO3</a>
-              <a href="/tags/Xuzhou/" rel="tag"># Xuzhou</a>
-              <a href="/tags/StaMPS-InSAR/" rel="tag"># StaMPS-InSAR</a>
-              <a href="/tags/snap2stamps/" rel="tag"># snap2stamps</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/04/07/Land-subsidence-in-Xuzhou-using-Sentinel1A-PS-InSAR-in-SARScape/" rel="prev" title="Land subsidence in Xuzhou using Sentinel1A PS-InSAR in SARScape">
-      <i class="fa fa-chevron-left"></i> Land subsidence in Xuzhou using Sentinel1A PS-InSAR in SARScape
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/04/14/Setup-and-Problem-Solving-in-WSL2/" rel="next" title="Setup and Problem-Solving in WSL2">
-      Setup and Problem-Solving in WSL2 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
     
-  </article>
-  
-  
-  
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
 
 
+    
 
-          </div>
-          
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dataset"><span class="nav-number">2.</span> <span class="nav-text">Dataset</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Process"><span class="nav-number">3.</span> <span class="nav-text">Process</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda"><span class="nav-number">3.1.</span> <span class="nav-text">Anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SNAP-prepare"><span class="nav-number">3.2.</span> <span class="nav-text">SNAP prepare</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#snap2stamps"><span class="nav-number">3.3.</span> <span class="nav-text">snap2stamps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-environmeng"><span class="nav-number">3.3.1.</span> <span class="nav-text">Python environmeng</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Config-snap2stamps"><span class="nav-number">3.3.2.</span> <span class="nav-text">Config snap2stamps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Working-in-snap2stamps"><span class="nav-number">3.3.3.</span> <span class="nav-text">Working in snap2stamps</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Error-1-SyntaxError-invalid-syntax"><span class="nav-number">3.3.3.1.</span> <span class="nav-text">Error 1 SyntaxError: invalid syntax:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Error2-Can%E2%80%99t-install-pathlib-and-pip2-in-python2"><span class="nav-number">3.3.3.2.</span> <span class="nav-text">Error2 Can’t install pathlib and pip2 in python2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Error-3-subprocess-popen-no-such-file-or-directory-in"><span class="nav-number">3.3.3.3.</span> <span class="nav-text">Error 3 subprocess.popen no such file or directory in</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Error-4-SNAP-STDOUT-x2F-mnt-x2F-i-x2F-SAR-x2F-Data-x2F-Feng-Pei-x2F-project-x2F-graphs-x2F-splitgraph2run-xml-1-x2F-mnt-x2F-c-x2F-Program-not-found-in"><span class="nav-number">3.3.3.4.</span> <span class="nav-text">Error 4: SNAP STDOUT:&#x2F;mnt&#x2F;i&#x2F;SAR&#x2F;Data&#x2F;Feng_Pei&#x2F;project&#x2F;graphs&#x2F;splitgraph2run.xml: 1: &#x2F;mnt&#x2F;c&#x2F;Program: not found in</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Error-5-GDAL-not-found-on-system-in-step2"><span class="nav-number">3.3.3.5.</span> <span class="nav-text">Error 5 GDAL not found on system in step2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Error-6-mvn-clean-install"><span class="nav-number">3.3.3.6.</span> <span class="nav-text">Error 6 mvn clean install</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SNAP-successly-installed-in-Ubuntu"><span class="nav-number">3.3.3.7.</span> <span class="nav-text">SNAP successly installed in Ubuntu</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-breakpoints-in-python"><span class="nav-number">3.3.4.</span> <span class="nav-text">Add breakpoints in python</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Error-7-Unknown-element-%E2%80%98useSuppliedShifts%E2%80%99"><span class="nav-number">3.3.4.1.</span> <span class="nav-text">Error 7 Unknown element ‘useSuppliedShifts’</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Error-8-Java-Heap-Space-Error"><span class="nav-number">3.3.4.2.</span> <span class="nav-text">Error 8 Java Heap Space Error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Error-9-Process-stopped-at-20"><span class="nav-number">3.3.4.3.</span> <span class="nav-text">Error 9 Process stopped at 20%</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Working-in-SNAP-Desktop"><span class="nav-number">3.3.5.</span> <span class="nav-text">Working in SNAP Desktop</span></a></li></ol></li></ol></li></ol></div>
+        <div class="list-group" id="local-search-result"></div>
       </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Yuchi Meng"
-      src="/images/avatar.JPG">
-  <p class="site-author-name" itemprop="name">Yuchi Meng</p>
-  <div class="site-description" itemprop="description">BVB und Badminton</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">15</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">19</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/mengyuchi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;mengyuchi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:mengyuchile@gmail.com" title="E-Mail → mailto:mengyuchile@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://twitter.com/mengyuchile" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;mengyuchile" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://instagram.com/yuuchiiiiiiiiii" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yuuchiiiiiiiiii" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
-      </span>
-  </div>
-
-
-
-      </div>
-
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Yuchi Meng</span>
+  </div>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
 
   
 
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
-
-
-
-
-
-
-
-
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
   
 
+
+
   
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
 
 </body>
 </html>

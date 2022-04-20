@@ -1,26 +1,22 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="Getting into Land Subsidence Mornitoring using ENVISAT DatasetThis post is about knowladge build of land subsidence mornitoring using ENVISAT1 dataset.  (a) Illustration of ENVISAT ASAR geometry for t">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Yuchi Meng">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Getting into Land Subsidence Mornitoring using ENVISAT DatasetThis post is about knowladge build of land subsidence mornitoring using ENVISAT1 dataset.  (a) Illustration of ENVISAT ASAR geometry for t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Getting into Land Subsidence Mornitoiring using ENVISAT Dataset">
 <meta property="og:url" content="http://mengyuchi.github.io/2022/04/01/Getting-into-Land-Subsidence-Mornitoiring-useing-ENVISAT-Dataset/index.html">
@@ -34,201 +30,223 @@
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="InSAR">
 <meta property="article:tag" content="Land Subsidence">
-<meta property="article:tag" content="Reposititory">
 <meta property="article:tag" content="ENVISAT">
 <meta property="article:tag" content="StamPS">
-<meta name="twitter:card" content="summary">
+<meta property="article:tag" content="Reposititory">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://mengyuchi.github.io/2022/04/01/Getting-into-Land-Subsidence-Mornitoiring-useing-ENVISAT-Dataset/ENVISAT.png">
+  
+  
+  <title>Getting into Land Subsidence Mornitoiring using ENVISAT Dataset - Yuchi&#39;s BLOG</title>
 
-<link rel="canonical" href="http://mengyuchi.github.io/2022/04/01/Getting-into-Land-Subsidence-Mornitoiring-useing-ENVISAT-Dataset/">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
-  };
-</script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
-  <title>Getting into Land Subsidence Mornitoiring using ENVISAT Dataset | Yuchi's BLOG</title>
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
   
 
 
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
+<link  rel="stylesheet" href="/css/main.css" />
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+<!-- 自定义样式保持在最底部 -->
 
-</head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
 
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Yuchi's BLOG</h1>
-      <span class="logo-line-after"><i></i></span>
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
     </a>
-      <p class="site-subtitle" itemprop="description">GISer</p>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
-
-  </li>
-  </ul>
 </nav>
 
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Getting into Land Subsidence Mornitoiring using ENVISAT Dataset">
+              
+            </span>
 
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
             
-
-    
+              <div class="mt-3">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://mengyuchi.github.io/2022/04/01/Getting-into-Land-Subsidence-Mornitoiring-useing-ENVISAT-Dataset/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.JPG">
-      <meta itemprop="name" content="Yuchi Meng">
-      <meta itemprop="description" content="BVB und Badminton">
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-01 17:48" pubdate>
+        April 1, 2022 pm
+      </time>
     </span>
+  
+</div>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuchi's BLOG">
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
     </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Getting into Land Subsidence Mornitoiring using ENVISAT Dataset
-        </h1>
+  
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      13 分钟
+    </span>
+  
 
-              <time title="Created: 2022-04-01 17:48:11" itemprop="dateCreated datePublished" datetime="2022-04-01T17:48:11+02:00">2022-04-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-06 20:54:25" itemprop="dateModified" datetime="2022-04-06T20:54:25+02:00">2022-04-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SAR/" itemprop="url" rel="index"><span itemprop="name">SAR</span></a>
-                </span>
-            </span>
+  
+  
+</div>
+
+            
+          </div>
 
           
-
         </div>
-      </header>
+      </div>
+    </div>
+  </header>
 
+  <main>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-        <h1 id="Getting-into-Land-Subsidence-Mornitoring-using-ENVISAT-Dataset"><a href="#Getting-into-Land-Subsidence-Mornitoring-using-ENVISAT-Dataset" class="headerlink" title="Getting into Land Subsidence Mornitoring using ENVISAT Dataset"></a>Getting into Land Subsidence Mornitoring using ENVISAT Dataset</h1><p>This post is about knowladge build of land subsidence mornitoring using ENVISAT<a target="_blank" rel="noopener" href="https://earth.esa.int/web/eoportal/satellite-missions/e/envisat" title="Basics of EnviSat (Environmental Satellite)">1</a> dataset.</p>
-<p><img src="/2022/04/01/Getting-into-Land-Subsidence-Mornitoiring-useing-ENVISAT-Dataset/ENVISAT.png" alt="ENVISAT ASAR"></p>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Getting into Land Subsidence Mornitoiring using ENVISAT Dataset</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Getting-into-Land-Subsidence-Mornitoring-using-ENVISAT-Dataset"><a href="#Getting-into-Land-Subsidence-Mornitoring-using-ENVISAT-Dataset" class="headerlink" title="Getting into Land Subsidence Mornitoring using ENVISAT Dataset"></a>Getting into Land Subsidence Mornitoring using ENVISAT Dataset</h1><p>This post is about knowladge build of land subsidence mornitoring using ENVISAT<a target="_blank" rel="noopener" href="https://earth.esa.int/web/eoportal/satellite-missions/e/envisat" title="Basics of EnviSat (Environmental Satellite)">1</a> dataset.</p>
+<p><img src="/2022/04/01/Getting-into-Land-Subsidence-Mornitoiring-useing-ENVISAT-Dataset/ENVISAT.png" srcset="/img/loading.gif" lazyload alt="ENVISAT ASAR"></p>
 <p>(a) Illustration of ENVISAT ASAR geometry for the Wide-swath Mode, which consists of five narrow-swath beams, each covering a width between 70 and 100 km. Source: ESA 2002. The width of the wide-swath image is about 400 km. (b) Illustration and main terms of satellite SAR geometry. Source: Robinson 2004. Courtesy: Springer, Praxis Publishing Ltd<a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/263040396_Sea_Ice_Monitoring_by_Remote_Sensing" title="Sea Ice Monitoring by Remote Sensing">2</a>. </p>
 <span id="more"></span>
 
@@ -236,22 +254,22 @@
 <blockquote>
 <p>@ABraun<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/how-to-prepare-ers-envisat-images-stack-for-psi-in-snap5/6346/13" title="STEP fprum">3</a> </p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Stripmap data is less difficult, because you don&#x27;t need Split, Deburst...</span><br><span class="line"></span><br><span class="line">For using ENVISAT in StaMPS I recommend</span><br><span class="line"></span><br><span class="line">Subset (if necessary)</span><br><span class="line">Apply orbit file</span><br><span class="line">coregistration (one master, multiple slaves)</span><br><span class="line">Interferogram generation (including topographic phase removal)</span><br><span class="line">StaMPS export with the outcomes of #3 and #4</span><br></pre></td></tr></table></figure>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-variable">Stripmap</span> <span class="hljs-variable">data</span> <span class="hljs-variable">is</span> <span class="hljs-variable">less</span> <span class="hljs-variable">difficult</span><span class="hljs-operator">,</span> <span class="hljs-variable">because</span> <span class="hljs-variable">you</span> <span class="hljs-variable">don</span><span class="hljs-operator">&#x27;</span><span class="hljs-variable">t</span> <span class="hljs-variable">need</span> <span class="hljs-built_in">Split</span><span class="hljs-operator">,</span> <span class="hljs-variable">Deburst</span><span class="hljs-operator">...</span><br><br><span class="hljs-built_in">For</span> <span class="hljs-variable">using</span> <span class="hljs-variable">ENVISAT</span> <span class="hljs-variable">in</span> <span class="hljs-variable">StaMPS</span> <span class="hljs-built_in">I</span> <span class="hljs-variable">recommend</span><br><br><span class="hljs-built_in">Subset</span> <span class="hljs-punctuation">(</span><span class="hljs-variable">if</span> <span class="hljs-variable">necessary</span><span class="hljs-punctuation">)</span><br><span class="hljs-built_in">Apply</span> <span class="hljs-variable">orbit</span> <span class="hljs-variable">file</span><br><span class="hljs-variable">coregistration</span> <span class="hljs-punctuation">(</span><span class="hljs-variable">one</span> <span class="hljs-variable">master</span><span class="hljs-operator">,</span> <span class="hljs-variable">multiple</span> <span class="hljs-variable">slaves</span><span class="hljs-punctuation">)</span><br><span class="hljs-variable">Interferogram</span> <span class="hljs-variable">generation</span> <span class="hljs-punctuation">(</span><span class="hljs-variable">including</span> <span class="hljs-variable">topographic</span> <span class="hljs-variable">phase</span> <span class="hljs-variable">removal</span><span class="hljs-punctuation">)</span><br><span class="hljs-variable">StaMPS</span> <span class="hljs-variable">export</span> <span class="hljs-variable">with</span> <span class="hljs-variable">the</span> <span class="hljs-variable">outcomes</span> <span class="hljs-variable">of</span> <span class="hljs-type">#3</span> <span class="hljs-variable">and</span> <span class="hljs-type">#4</span><br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>So where do I download Envest images?</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">here: https://esar-ds.eo.esa.int/oads/access/collection</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">here: https:<span class="hljs-regexp">//</span>esar-ds.eo.esa.int<span class="hljs-regexp">/oads/</span>access/collection<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>Which image mode should I download?</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IMS because it has phase information.</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">IMS because <span class="hljs-keyword">it</span> has phase information.<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>Can I process different Tracks together?</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">no, InSAR requires data from the same track.</span><br></pre></td></tr></table></figure>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-literal">no</span>, InSAR requires data <span class="hljs-keyword">from</span> the same track.<br></code></pre></td></tr></table></figure>
 
 <h1 id="Data-Process"><a href="#Data-Process" class="headerlink" title="Data Process"></a>Data Process</h1><h2 id="SNAP"><a href="#SNAP" class="headerlink" title="SNAP"></a>SNAP</h2><ul>
 <li><p>Apply orbit file </p>
@@ -266,7 +284,7 @@
 <blockquote>
 <p>POLYGON ((117.426 34.548, 116.711 34.548, 116.711 33.922, 117.426 33.922, 117.426 34.548))</p>
 </blockquote>
-<p><img src="/2022/04/01/Getting-into-Land-Subsidence-Mornitoiring-useing-ENVISAT-Dataset/subset1.png" alt="subset by SNAP"></p>
+<p><img src="/2022/04/01/Getting-into-Land-Subsidence-Mornitoiring-useing-ENVISAT-Dataset/subset1.png" srcset="/img/loading.gif" lazyload alt="subset by SNAP"></p>
 <blockquote>
 <p>POLYGON ((117.408 34.501, 117.408 33.922, 116.711 33.922, 116.711 34.501, 117.408 34.501))</p>
 </blockquote>
@@ -281,250 +299,217 @@
 </ul>
 <h2 id="StamPS-InSAR"><a href="#StamPS-InSAR" class="headerlink" title="StamPS-InSAR"></a>StamPS-InSAR</h2><p>StaMPS PS analysis is performed within MATLAB, using the main function stamps(), which takes the first and last StaMPS-step as main arguments. To run StaMPS complete with default arguments, use stamps(1,8)<a target="_blank" rel="noopener" href="https://gitlab.com/Rexthor/gis-blog/-/blob/master/StaMPS/2-4_StaMPS-steps.md" title="StaMPS tutorial by Matthias Schloegl">4</a>.</p>
 
-    </div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/SAR/">SAR</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/InSAR/">InSAR</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Land-Subsidence/">Land Subsidence</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ENVISAT/">ENVISAT</a>
+                    
+                      <a class="hover-with-bg" href="/tags/StamPS/">StamPS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Reposititory/">Reposititory</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/05/StaMPS-InSAR-research-based-on-ENVISAT-using-LiDO3/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">StaMPS-InSAR research based on ENVISAT using LiDO3</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/31/Study-of-Present-and-future-subsidence-of-the-Vietnamese-Mekong-delta/">
+                        <span class="hidden-mobile">Study of Present and future subsidence of the Vietnamese Mekong delta</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-    
-    
-    
-        <div class="reward-container">
-  <div></div>
-  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    Donate
-  </button>
-  <div id="qr" style="display: none;">
-
-  </div>
-</div>
-
-        
-
-  <div class="followme">
-    <p>Welcome to my other publishing channels</p>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
-            <span class="icon">
-              <i class="fab fa-weixin"></i>
-            </span>
-
-            <span class="label">WeChat</span>
-          </a>
+            
+          </article>
         </div>
+      </div>
     </div>
-  </div>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/InSAR/" rel="tag"># InSAR</a>
-              <a href="/tags/Land-Subsidence/" rel="tag"># Land Subsidence</a>
-              <a href="/tags/Reposititory/" rel="tag"># Reposititory</a>
-              <a href="/tags/ENVISAT/" rel="tag"># ENVISAT</a>
-              <a href="/tags/StamPS/" rel="tag"># StamPS</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/03/31/Study-of-Present-and-future-subsidence-of-the-Vietnamese-Mekong-delta/" rel="prev" title="Study of Present and future subsidence of the Vietnamese Mekong delta">
-      <i class="fa fa-chevron-left"></i> Study of Present and future subsidence of the Vietnamese Mekong delta
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/04/05/StaMPS-InSAR-research-based-on-ENVISAT-using-LiDO3/" rel="next" title="StaMPS-InSAR research based on ENVISAT using LiDO3">
-      StaMPS-InSAR research based on ENVISAT using LiDO3 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
     
-  </article>
-  
-  
-  
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
 
 
+    
 
-          </div>
-          
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Getting-into-Land-Subsidence-Mornitoring-using-ENVISAT-Dataset"><span class="nav-number">1.</span> <span class="nav-text">Getting into Land Subsidence Mornitoring using ENVISAT Dataset</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Process"><span class="nav-number">2.</span> <span class="nav-text">Data Process</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SNAP"><span class="nav-number">2.1.</span> <span class="nav-text">SNAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StamPS-InSAR"><span class="nav-number">2.2.</span> <span class="nav-text">StamPS-InSAR</span></a></li></ol></li></ol></div>
+        <div class="list-group" id="local-search-result"></div>
       </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Yuchi Meng"
-      src="/images/avatar.JPG">
-  <p class="site-author-name" itemprop="name">Yuchi Meng</p>
-  <div class="site-description" itemprop="description">BVB und Badminton</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">15</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">19</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/mengyuchi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;mengyuchi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:mengyuchile@gmail.com" title="E-Mail → mailto:mengyuchile@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://twitter.com/mengyuchile" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;mengyuchile" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://instagram.com/yuuchiiiiiiiiii" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yuuchiiiiiiiiii" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
-      </span>
-  </div>
-
-
-
-      </div>
-
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Yuchi Meng</span>
+  </div>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
 
   
 
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
-
-
-
-
-
-
-
-
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
   
 
+
+
   
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
 
 </body>
 </html>
