@@ -16,12 +16,12 @@
   <meta name="author" content="Yuchi Meng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="IntroWorking step and parameter setting in SARscape.">
+    <meta name="description" content="Intro Working step and parameter setting in SARscape.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Land subsidence in Xuzhou using Sentinel1A PS-InSAR in SARScape">
 <meta property="og:url" content="http://mengyuchi.github.io/2022/04/07/Land-subsidence-in-Xuzhou-using-Sentinel1A-PS-InSAR-in-SARScape/index.html">
 <meta property="og:site_name" content="Yuchi&#39;s BLOG">
-<meta property="og:description" content="IntroWorking step and parameter setting in SARscape.">
+<meta property="og:description" content="Intro Working step and parameter setting in SARscape.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-07T08:54:23.000Z">
 <meta property="article:modified_time" content="2022-04-07T18:58:27.779Z">
@@ -71,7 +71,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -156,6 +156,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -175,7 +187,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/index_img/insar.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -201,7 +213,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      240 字
+      245 字
     </span>
   
 
@@ -215,6 +227,14 @@
   
 
   
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
   
 </div>
 
@@ -242,12 +262,16 @@
             <h1 style="display: none">Land subsidence in Xuzhou using Sentinel1A PS-InSAR in SARScape</h1>
             
             <div class="markdown-body">
-              <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>Working step and parameter setting in SARscape.</p>
+              <h1 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h1>
+<p>Working step and parameter setting in SARscape.</p>
 <span id="more"></span>
-
-<h2 id="Geocoding"><a href="#Geocoding" class="headerlink" title="Geocoding"></a>Geocoding</h2><p>lat&#x2F;lon 34.15’5.27”N,117.11’10.17”E</p>
-<p>117.18564917852<br>34.245620476831</p>
-<p>G_SI_velocity_geo in SBAS result<br>  File: 3250.7017,3217.9978<br>  Data: [-0.020012]</p>
+<h2 id="geocoding"><a class="markdownIt-Anchor" href="#geocoding"></a> Geocoding</h2>
+<p>lat/lon 34.15’5.27&quot;N,117.11’10.17&quot;E</p>
+<p>117.18564917852<br />
+34.245620476831</p>
+<p>G_SI_velocity_geo in SBAS result<br />
+File: 3250.7017,3217.9978<br />
+Data: [-0.020012]</p>
 <p>Stuck at Geocoding (mean), waiting for response! Pls!!</p>
 
             </div>
@@ -372,6 +396,30 @@
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
 
   
 
@@ -429,6 +477,8 @@
   
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

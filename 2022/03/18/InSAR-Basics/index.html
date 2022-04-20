@@ -16,15 +16,15 @@
   <meta name="author" content="Yuchi Meng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="InSAR Basic Whats SAR InSARSBAS-InSARSmall baseline differential interferograms generation  The differential interferometric phase is as follows: $$\varphi_{dint} &#x3D; \varphi_{def}+\varphi_{topo}+\">
+    <meta name="description" content="InSAR Basic  Whats SAR InSAR  SBAS-InSAR Small baseline differential interferograms generation The differential interferometric phase is as follows: φdint&#x3D;φdef+φtopo+φatm+φorbit+φnoise\varphi_{dint} &#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="InSAR Basics">
 <meta property="og:url" content="http://mengyuchi.github.io/2022/03/18/InSAR-Basics/index.html">
 <meta property="og:site_name" content="Yuchi&#39;s BLOG">
-<meta property="og:description" content="InSAR Basic Whats SAR InSARSBAS-InSARSmall baseline differential interferograms generation  The differential interferometric phase is as follows: $$\varphi_{dint} &#x3D; \varphi_{def}+\varphi_{topo}+\">
+<meta property="og:description" content="InSAR Basic  Whats SAR InSAR  SBAS-InSAR Small baseline differential interferograms generation The differential interferometric phase is as follows: φdint&#x3D;φdef+φtopo+φatm+φorbit+φnoise\varphi_{dint} &#x3D;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-18T13:48:12.000Z">
-<meta property="article:modified_time" content="2022-03-25T14:36:18.659Z">
+<meta property="article:modified_time" content="2022-04-20T18:54:32.838Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="InSAR">
 <meta property="article:tag" content="Reposititory">
@@ -68,7 +68,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -153,6 +153,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -172,7 +184,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/index_img/insar.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -198,7 +210,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      1.6k 字
     </span>
   
 
@@ -207,11 +219,19 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13 分钟
+      14 分钟
     </span>
   
 
   
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
   
 </div>
 
@@ -240,19 +260,29 @@
             
             <div class="markdown-body">
               <p>InSAR Basic</p>
-<h1 id="Whats-SAR-InSAR"><a href="#Whats-SAR-InSAR" class="headerlink" title="Whats SAR InSAR"></a>Whats SAR InSAR</h1><h1 id="SBAS-InSAR"><a href="#SBAS-InSAR" class="headerlink" title="SBAS-InSAR"></a>SBAS-InSAR</h1><p><strong>Small baseline differential interferograms generation</strong> </p>
+<h1 id="whats-sar-insar"><a class="markdownIt-Anchor" href="#whats-sar-insar"></a> Whats SAR InSAR</h1>
+<h1 id="sbas-insar"><a class="markdownIt-Anchor" href="#sbas-insar"></a> SBAS-InSAR</h1>
+<p><strong>Small baseline differential interferograms generation</strong></p>
 <p>The differential interferometric phase is as follows:</p>
-<p>$$\varphi_{dint} &#x3D; \varphi_{def}+\varphi_{topo}+\varphi_{atm}+\varphi_{orbit}+\varphi_{noise}$$</p>
-<p>where $\varphi_{dint}$ is the differential interferometric phase, $\varphi_{def}$ is the deformation phase including the line deformation and non-line deformation phases, $\varphi_{topo}$ is the topographic phase, $\varphi_{atm}$ is the atmpspheric phase, $\varphi_{orbit}$ is the orbit phase, and $\varphi_{noise}$ is the noise phase.</p>
-<h2 id="Katex-Test"><a href="#Katex-Test" class="headerlink" title="Katex Test"></a>Katex Test</h2><p>Aha! $E &#x3D; mc^{2}$.</p>
-<p>$$\begin{equation} \label{eq1}<br>e&#x3D;mc^2<br>\end{equation}$$</p>
-<p>$$<br>\left(\beta m c^2 + c \left(\sum_{n&#x3D;1}^3\alpha_n p_n\right)\right) \psi(x,t)<br>&#x3D; i\hbar \frac{\partial \psi(x,t)}{\partial t}<br>$$</p>
-<h2 id="Interferometric-point-analysis"><a href="#Interferometric-point-analysis" class="headerlink" title="Interferometric point analysis"></a>Interferometric point analysis</h2><blockquote>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>φ</mi><mrow><mi>d</mi><mi>i</mi><mi>n</mi><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>φ</mi><mrow><mi>d</mi><mi>e</mi><mi>f</mi></mrow></msub><mo>+</mo><msub><mi>φ</mi><mrow><mi>t</mi><mi>o</mi><mi>p</mi><mi>o</mi></mrow></msub><mo>+</mo><msub><mi>φ</mi><mrow><mi>a</mi><mi>t</mi><mi>m</mi></mrow></msub><mo>+</mo><msub><mi>φ</mi><mrow><mi>o</mi><mi>r</mi><mi>b</mi><mi>i</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>φ</mi><mrow><mi>n</mi><mi>o</mi><mi>i</mi><mi>s</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\varphi_{dint} = \varphi_{def}+\varphi_{topo}+\varphi_{atm}+\varphi_{orbit}+\varphi_{noise}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">d</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8694379999999999em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">d</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8694379999999999em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.28055599999999997em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">b</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>where <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>φ</mi><mrow><mi>d</mi><mi>i</mi><mi>n</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\varphi_{dint}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">d</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the differential interferometric phase, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>φ</mi><mrow><mi>d</mi><mi>e</mi><mi>f</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\varphi_{def}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">d</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> is the deformation phase including the line deformation and non-line deformation phases, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>φ</mi><mrow><mi>t</mi><mi>o</mi><mi>p</mi><mi>o</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\varphi_{topo}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.28055599999999997em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> is the topographic phase, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>φ</mi><mrow><mi>a</mi><mi>t</mi><mi>m</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\varphi_{atm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the atmpspheric phase, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>φ</mi><mrow><mi>o</mi><mi>r</mi><mi>b</mi><mi>i</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\varphi_{orbit}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">b</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the orbit phase, and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>φ</mi><mrow><mi>n</mi><mi>o</mi><mi>i</mi><mi>s</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\varphi_{noise}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the noise phase.</p>
+<h2 id="katex-test"><a class="markdownIt-Anchor" href="#katex-test"></a> Katex Test</h2>
+<p>Aha! <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E = mc^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>.</p>
+\begin{equation} \label{eq1}
+e=mc^2
+\end{equation}
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mo fence="true">(</mo><mi>β</mi><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup><mo>+</mo><mi>c</mi><mrow><mo fence="true">(</mo><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mn>3</mn></munderover><msub><mi>α</mi><mi>n</mi></msub><msub><mi>p</mi><mi>n</mi></msub><mo fence="true">)</mo></mrow><mo fence="true">)</mo></mrow><mi>ψ</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>i</mi><mi mathvariant="normal">ℏ</mi><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>ψ</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>t</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\left(\beta m c^2 + c \left(\sum_{n=1}^3\alpha_n p_n\right)\right) \psi(x,t)
+= i\hbar \frac{\partial \psi(x,t)}{\partial t}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.068226em;vertical-align:-1.267113em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">(</span></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="mord mathdefault">m</span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">(</span></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8011130000000004em;"><span style="top:-1.882887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.267113em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size4">)</span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size4">)</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">ψ</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.113em;vertical-align:-0.686em;"></span><span class="mord mathdefault">i</span><span class="mord">ℏ</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord mathdefault">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord mathdefault" style="margin-right:0.03588em;">ψ</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h2 id="interferometric-point-analysis"><a class="markdownIt-Anchor" href="#interferometric-point-analysis"></a> Interferometric point analysis</h2>
+<blockquote>
 <p>The <strong>residual phase</strong> includes the atmospheric, non-linear deformation, and noise phases.</p>
 <p>The <strong>non-linear phase</strong> shows a high correlation in the spatial domain, while the atmospheric delay shows a high correlation in the spatial domain and low correlation in the temporal domain.</p>
 <p><strong>Noise</strong> shows a low correlation in both the spatial and temporal domains.</p>
 </blockquote>
-<h3 id="Low-pass-and-High-pass-filter"><a href="#Low-pass-and-High-pass-filter" class="headerlink" title="Low-pass and High-pass filter"></a>Low-pass and High-pass filter</h3><p>First, the <em>low-pass</em> filtering in the <strong>spatial domain</strong> is used to suppress the noise phase from the residual. Secondly, in the <strong>temporal domain</strong>, the <em>low-pass</em> filtering is again used for spatially filtered residual phases to <em><strong>identify the non-linear phase</strong></em>. Thirdly, we superpose the non-linear phase to the linear phase to acquire the complete deformation phase. Finally, <em>phase unwrapping</em> is used to acquire the deformation with point targets.</p>
+<h3 id="low-pass-and-high-pass-filter"><a class="markdownIt-Anchor" href="#low-pass-and-high-pass-filter"></a> Low-pass and High-pass filter</h3>
+<p>First, the <em>low-pass</em> filtering in the <strong>spatial domain</strong> is used to suppress the noise phase from the residual. Secondly, in the <strong>temporal domain</strong>, the <em>low-pass</em> filtering is again used for spatially filtered residual phases to <em><strong>identify the non-linear phase</strong></em>. Thirdly, we superpose the non-linear phase to the linear phase to acquire the complete deformation phase. Finally, <em>phase unwrapping</em> is used to acquire the deformation with point targets.</p>
 
             </div>
             <hr>
@@ -370,6 +400,30 @@
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
 
   
 
@@ -428,6 +482,8 @@
 
 
 
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
 
 
 
@@ -445,6 +501,13 @@
 
 
 
+
+  
+
+  
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
+  
 
 
 

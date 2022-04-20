@@ -71,7 +71,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"mengyuchi.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -156,6 +156,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -175,7 +187,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/index_img/insar.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -216,6 +228,14 @@
 
   
   
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
 </div>
 
             
@@ -242,27 +262,30 @@
             <h1 style="display: none">Setup and Problem-Solving in WSL2</h1>
             
             <div class="markdown-body">
-              <p>Notes about working in WSL! </p>
+              <p>Notes about working in WSL!</p>
 <span id="more"></span>
-
-<h1 id="How-to-set-up-working-X11-forwarding-on-WSL2"><a href="#How-to-set-up-working-X11-forwarding-on-WSL2" class="headerlink" title="How to set up working X11 forwarding on WSL2?"></a>How to set up working X11 forwarding on WSL2?</h1><ul>
+<h1 id="how-to-set-up-working-x11-forwarding-on-wsl2"><a class="markdownIt-Anchor" href="#how-to-set-up-working-x11-forwarding-on-wsl2"></a> How to set up working X11 forwarding on WSL2?</h1>
+<ul>
 <li>Installing the desktop (GUI) in WSL</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><pre><code class="hljs shell">sudo apt update<br>sudo apt upgrade<br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p>Then by the following command, we can install the light ubuntu desktop</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt install lxde<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>In the next step, the <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/vcxsrv/files/latest/download">VcXsrv Windows X</a> Server utility should be installed in windows.<br>After installation, we should open VCxsrv software and set the Initial setting.<br>Then we should run the following commands in ubuntu terminal<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/psi-using-snap-stamps-workflow-in-windows-subsystem-for-linux-wsl/23004" title="PSI using SNAP-STaMPS workflow in Windows Subsystem for Linux (WSL)">1</a>.</p>
+<p>In the next step, the <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/vcxsrv/files/latest/download">VcXsrv Windows X</a> Server utility should be installed in windows.<br />
+After installation, we should open VCxsrv software and set the Initial setting.<br />
+Then we should run the following commands in ubuntu terminal<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/psi-using-snap-stamps-workflow-in-windows-subsystem-for-linux-wsl/23004" title="PSI using SNAP-STaMPS workflow in Windows Subsystem for Linux (WSL)">1</a>.</p>
 </blockquote>
 <p><strong>make sure to check ‘disable access control’ when configure Xlancher</strong></p>
-<p>Add the following to your ~&#x2F;.bashrc<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/61110603/how-to-set-up-working-x11-forwarding-on-wsl2" title="How to set up working X11 forwarding on WSL2">2</a>:</p>
+<p>Add the following to your ~/.bashrc<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/61110603/how-to-set-up-working-x11-forwarding-on-wsl2" title="How to set up working X11 forwarding on WSL2">2</a>:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">export DISPLAY=$(ip route list default | awk &#x27;&#123;print $3&#125;&#x27;):0<br>export LIBGL_ALWAYS_INDIRECT=1<br>startlxde <br><span class="hljs-meta prompt_"># </span><span class="language-bash">main <span class="hljs-built_in">command</span> to run the desktop</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">each time that we want to use it we should rerun the last three commands</span><br></code></pre></td></tr></table></figure>
 <p>*: If you use VcXSrv you can enable public access for your X server by disabling Access Control on the Extra Settings.</p>
-<h1 id="Install-SNAP-in-WSL"><a href="#Install-SNAP-in-WSL" class="headerlink" title="Install SNAP in WSL"></a>Install SNAP in WSL</h1><h2 id="Download-SNAP-and-Install"><a href="#Download-SNAP-and-Install" class="headerlink" title="Download SNAP and Install"></a>Download SNAP and Install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">yuchi@DESKTOP-C79LC47:~/Downloads/snap$ wget https://download.esa.int/step/snap/8.0/installers/esa-snap_sentinel_unix_8_0.sh<br><br>yuchi@DESKTOP-C79LC47:~/Downloads/snap$ chmod +x esa-snap_sentinel_unix_8_0.sh<br>yuchi@DESKTOP-C79LC47:~/Downloads/snap$ ./esa-snap_sentinel_unix_8_0.sh<br></code></pre></td></tr></table></figure>
-<p><img src="/2022/04/14/Setup-and-Problem-Solving-in-WSL2/SNAP_install.png" srcset="/img/loading.gif" lazyload alt="SNAP install in WSL"></p>
+<h1 id="install-snap-in-wsl"><a class="markdownIt-Anchor" href="#install-snap-in-wsl"></a> Install SNAP in WSL</h1>
+<h2 id="download-snap-and-install"><a class="markdownIt-Anchor" href="#download-snap-and-install"></a> Download SNAP and Install</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">yuchi@DESKTOP-C79LC47:~/Downloads/snap$ wget https://download.esa.int/step/snap/8.0/installers/esa-snap_sentinel_unix_8_0.sh<br><br>yuchi@DESKTOP-C79LC47:~/Downloads/snap$ chmod +x esa-snap_sentinel_unix_8_0.sh<br>yuchi@DESKTOP-C79LC47:~/Downloads/snap$ ./esa-snap_sentinel_unix_8_0.sh<br></code></pre></td></tr></table></figure>
+<p><img src="SNAP_install.png" srcset="/img/loading.gif" lazyload alt="SNAP install in WSL" /></p>
 <p>All DONE! Enjoy SNAP in WSL.</p>
 <p><strong>Suddenly all worked out when download snap2stamps in WSL2, but not runing in actural windows.</strong>.</p>
 <p>Enjoy processing!</p>
@@ -385,6 +408,30 @@
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
 
   
 
@@ -442,6 +489,8 @@
   
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
