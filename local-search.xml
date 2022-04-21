@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Correlation between LULC and Land Subsidence</title>
+    <link href="/2022/04/21/Correlation-between-LULC-and-Land-Subsidence-1/"/>
+    <url>/2022/04/21/Correlation-between-LULC-and-Land-Subsidence-1/</url>
+    
+    <content type="html"><![CDATA[<h1 id="background"><a class="markdownIt-Anchor" href="#background"></a> Background</h1><p>To understand the correlation between LULC and Land Subsidence.</p><blockquote><p><em><strong>Previous</strong></em> studies carried out in a regional-scale might be useful for estimating the correlation between land subsidence and groundwater extraction, but inadequate for local safety management as subsidence may vary over different areas with detailed characters<a href="https://ieeexplore.ieee.org/document/8519236" title="Zheyuan Du, Linlin Gu. INVESTIGATION ON THE CORRELATION BETWEEN THE SUBSIDENCE PATTERN AND LAND USE IN BANDUNG, INDONESIA WITH BOTH SENTINEL-1/2 AND ALOS-2 SATELLITE IMAGES.">1</a>.</p><span id="more"></span><p>The study is foused promarily on subsidence pheomenon in local, can patchy scales, repectively with <strong>Sentinel-1</strong> dataset acquired from May 2017 and November 2021.</p><p>In order to undetstand the subsidence in a more systematic way, some -20cm <strong>subsidence zones</strong> have been selected and analyzed.</p><p>Further analyses conducted over <strong>multiple scales</strong> show that <em>industrial usage</em> of groundwater is not always the dominant factor that causes the land subsidence and indeed it does not always create large land subsidence either. Regions experiencing subsidence is due to a combined impact of a number of factors, e.g., <em>residential</em>, <em>industrial</em> or <em>agricultural activities</em>.</p></blockquote><p>Several types of land subsidence could be expected to occur in xuzhou region.</p><h2 id="aim-of-this-study"><a class="markdownIt-Anchor" href="#aim-of-this-study"></a> Aim of this study</h2><ul><li><p>analyse the spatial pattern of horizontal movement with both descending and ascending pairs.</p></li><li><p>quantify the rate and magnitude of land subsidence over subsiding zones during 3year period.</p></li><li><p>investgate spatially explicit variations in selected hot-spot regions,</p></li></ul><h1 id="dataset-and-methodology"><a class="markdownIt-Anchor" href="#dataset-and-methodology"></a> Dataset and Methodology</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>SAR</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>InSAR</tag>
+      
+      <tag>Land Subsidence</tag>
+      
+      <tag>LULC</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Xuzhou Feng-Pei County using Sentinel1A in LiDO3</title>
     <link href="/2022/04/20/Xuzhou-Feng-Pei-County-using-Sentinel1A-in-LiDO3/"/>
     <url>/2022/04/20/Xuzhou-Feng-Pei-County-using-Sentinel1A-in-LiDO3/</url>
@@ -228,9 +257,9 @@
       
       <tag>InSAR</tag>
       
-      <tag>LULC</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>LULC</tag>
       
       <tag>Vietname</tag>
       
@@ -313,9 +342,9 @@
       
       <tag>InSAR</tag>
       
-      <tag>LULC</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>LULC</tag>
       
     </tags>
     
