@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mengyuchi.github.io/2022/03/18/InSAR-Basics/ps_insar.jpg">
 <meta property="article:published_time" content="2022-03-18T13:48:12.000Z">
-<meta property="article:modified_time" content="2022-04-22T10:44:40.939Z">
+<meta property="article:modified_time" content="2022-04-22T15:03:51.763Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="InSAR">
 <meta property="article:tag" content="Reposititory">
@@ -212,7 +212,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.3k 字
+      7.9k 字
     </span>
   
 
@@ -221,7 +221,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      53 分钟
+      67 分钟
     </span>
   
 
@@ -360,6 +360,26 @@
 <td><em>clap_beta</em></td>
 <td>0.3</td>
 <td>Weighting parameter for phase filtering (CLAP <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span> term).</td>
+</tr>
+<tr>
+<td><em>weed_standard_dev</em></td>
+<td>1</td>
+<td><strong>Threshold standard deviation</strong>. For each pixel, the phase noise standard deviation for all pixel pairs including the pixel is calculated. If the minimum standard deviation is greater than the threshold, the pixel is dropped. If set to 10, no noise-based weeding is performed. <br></br>Increasing the SD increases the selected PS but also the noise level.(1-1.2) are good initial values.</td>
+</tr>
+<tr>
+<td><em>weed_time_win</em></td>
+<td>730</td>
+<td><strong>Smoothing window (in days)</strong> for estimating phase noise distribution for each pair of <strong>neighbouring pixels</strong>. The time series phase for each pair is smoothed using a <strong>Gaussian-weighted piecewise linear fit</strong>. <em>weed-time-win</em> specifies the standard deviation of the Gaussian. The original phase minus the smoothed phase is assumed to be noise.</td>
+</tr>
+<tr>
+<td><em>weed_neighbours</em></td>
+<td>‘n’</td>
+<td>Flag for proximity weeding. If set to ‘y’, pixels are dropped based in their proximity to each other.<br></br>A Scatterer that is bright can dominate pixels other than the pixel corresponding to its physical location. The error in look angle and squint angle due to the offset of the pixel from the physical location usually results in these pixels not being selected as PS. However, the slight oversampling of the resolution cells can cause pixels immediately adjacent to the PS pixel to be dominated by the same scatterer where the error may be sufficiently small that the pixel appears stable. To avoid picking these pixels, we assume that adjacent pixels selected as PS are due to the same dominant scatterer. As we expect the pixel that corresponds to the physical location to have the highest SNR, for groups of adjacent stable pixels we select as the PS only the pixel with the highest value of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>γ</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">\gamma_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.05556em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.<br></br>Should be set to ‘y’</td>
+</tr>
+<tr>
+<td>unwrap_prefilter_flag</td>
+<td>‘y’</td>
+<td>Prefilter phase before unwrapping to reduce noise. <strong>SCLA (spatially-correlated look angle)</strong> and <strong>AOE (atmosphere and orbit error)</strong> subtraction is applied when step 6 is redone after step 7. To avoid subtraction use <em>scla_reset</em></td>
 </tr>
 <tr>
 <td></td>
