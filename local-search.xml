@@ -22,9 +22,9 @@
       
       <tag>ENVISAT</tag>
       
-      <tag>Xuzhou</tag>
-      
       <tag>StaMPS-InSAR</tag>
+      
+      <tag>Xuzhou</tag>
       
       <tag>R</tag>
       
@@ -59,11 +59,11 @@
       
       <tag>PS-InSAR</tag>
       
-      <tag>LiDO3</tag>
+      <tag>StaMPS-InSAR</tag>
       
       <tag>Xuzhou</tag>
       
-      <tag>StaMPS-InSAR</tag>
+      <tag>LiDO3</tag>
       
       <tag>snap2stamps</tag>
       
@@ -127,11 +127,11 @@
       
       <tag>PS-InSAR</tag>
       
-      <tag>LiDO3</tag>
+      <tag>StaMPS-InSAR</tag>
       
       <tag>Xuzhou</tag>
       
-      <tag>StaMPS-InSAR</tag>
+      <tag>LiDO3</tag>
       
       <tag>snap2stamps</tag>
       
@@ -226,13 +226,13 @@
       
       <tag>InSAR</tag>
       
-      <tag>Reposititory</tag>
-      
       <tag>Land Subsidence</tag>
       
       <tag>ENVISAT</tag>
       
       <tag>StamPS</tag>
+      
+      <tag>Reposititory</tag>
       
     </tags>
     
@@ -315,9 +315,9 @@
     
     <tags>
       
-      <tag>Reposititory</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>Reposititory</tag>
       
     </tags>
     
