@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mengyuchi.github.io/2022/04/20/Xuzhou-Feng-Pei-County-using-Sentinel1A-in-LiDO3/StaMPS_v_do_1st.png">
 <meta property="article:published_time" content="2022-04-20T07:06:21.000Z">
-<meta property="article:modified_time" content="2022-04-22T16:09:38.178Z">
+<meta property="article:modified_time" content="2022-04-27T08:38:09.578Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="InSAR">
 <meta property="article:tag" content="Land Subsidence">
@@ -218,7 +218,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.7k 字
+      8.5k 字
     </span>
   
 
@@ -227,7 +227,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      48 分钟
+      72 分钟
     </span>
   
 
@@ -308,6 +308,33 @@ snap_8.0.9/s1tbx/modules/ext/org.jlinda.jlinda-nest/org-jblas/jblas.jar</p>
 <blockquote>
 <p>Note In case of re-running Step 6 after a full StaMPS run, estimates of SCLA and master atmosphere and orbit error (AOE) will be subtracted before unwrapping. If you do not wish this to occur, reset these estimates before running Step 6 again with <em>scla_reset</em>. This is useful if one is interested in local signals only, or when looking for landslides in a larger area. This subtraction of SCLA and master AOE has not been implemented with the <em>unwrap_prefilter_flag = ‘n’</em> option.)</p>
 </blockquote>
+<h3 id="how-to-process-in-stamps"><a class="markdownIt-Anchor" href="#how-to-process-in-stamps"></a> How to process in StaMPS</h3>
+<blockquote>
+<p>run steps 1-6<a target="_blank" rel="noopener" href="https://github.com/gjvanleeuwen/SNAP-StaMPS-Visualizing" title="SNAP-StaMPS workflow documentation">5</a><br />
+check <code>ps_plot ('u')</code><br />
+add bad ifgs to scla_drop_index<br />
+run step 7<br />
+check <code>ps_plot('u-dm')</code> is generally smoother<br />
+rerun step 6<br />
+check <code>ps_plot('u')</code><br />
+remove ifgs that have improved in unwrapping result from scla_index and rerun step 7<br />
+rerun step 6 and check again.<br />
+keep doing this process until results are satisfying and command: <code>ps_plot('v-do'. 'ts')</code> to check if the total velocities are okay, if result is not &gt; satisfying try:</p>
+</blockquote>
+<blockquote>
+<p>rerun from step 6 with more goldstein filtering<br />
+rerun from step 5 with a higher <code>merge_resample_size</code><br />
+rerun from step 4 with changes to the <code>weed_standard_dev</code> parameter<br />
+rerun from step 2 with bad ifgs added to <code>drop_ifg_index</code> and possible changes to parameters step 2 and 3</p>
+</blockquote>
+<p>set your reference location for plotting using:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs MATLAB">setparm(<span class="hljs-string">&#x27;ref_centre_lonlat&#x27;</span> , [lon lat])<br>setparm(<span class="hljs-string">&#x27;ref_radius&#x27;</span>, radius_m)<br></code></pre></td></tr></table></figure>
+<p>if all results are satisfying make a kml file with all data for visualization:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs MATLAB"><span class="hljs-comment">% save PS velocity estimation to a mat file</span><br>&gt;&gt; ps_plot(<span class="hljs-string">&#x27;v-d&#x27;</span>, <span class="hljs-number">-1</span>)<br><span class="hljs-comment">% load matfile</span><br>&gt;&gt; load ps_plot_v-d<br><span class="hljs-comment">% save ps.kml (generated from ph_disp for every 10 points with an opacity of 0.4</span><br>&gt;&gt; ps_gescatter(<span class="hljs-string">&#x27;ps.kml&#x27;</span>,ph_disp,<span class="hljs-number">10</span>,<span class="hljs-number">0.4</span>)<br></code></pre></td></tr></table></figure>
+<p>or make a csv file with all data vor visualizations:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs MATLAB">ps_plot(<span class="hljs-string">&#x27;v-do&#x27;</span>, <span class="hljs-string">&#x27;ts&#x27;</span>);<br><span class="hljs-comment">% after the plot has appeared magically, set radius and location by clicking into the plot</span><br>load parms.mat;<br>ps_plot(<span class="hljs-string">&#x27;v-do&#x27;</span>, <span class="hljs-number">-1</span>);<br>load ps_plot_v-do.mat;<br>lon2_str = cellstr(num2str(lon2));<br>lat2_str = cellstr(num2str(lat2));<br>lonlat2_str = strcat(lon2_str, lat2_str);<br><br>lonlat_str = strcat(cellstr(num2str(lonlat(:,<span class="hljs-number">1</span>))), cellstr(num2str(lonlat(:,<span class="hljs-number">2</span>))));<br>ind = <span class="hljs-built_in">ismember</span>(lonlat_str, lonlat2_str);<br><br><span class="hljs-built_in">disp</span> = ph_disp(ind);<br>disp_ts = ph_mm(ind,:);<br>export_res = [lon2 lat2 <span class="hljs-built_in">disp</span> disp_ts];<br><br>metarow = [ref_centre_lonlat NaN transpose(day)<span class="hljs-number">-1</span>];<br>k = <span class="hljs-number">0</span>;<br>export_res = [export_res(<span class="hljs-number">1</span>:k,:); metarow; export_res(k+<span class="hljs-number">1</span>:<span class="hljs-keyword">end</span>,:)];<br>export_res = <span class="hljs-built_in">table</span>(export_res);<br><span class="hljs-built_in">writetable</span>(export_res,<span class="hljs-string">&#x27;stamps_tsexport.csv&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>if you want to use TRAIN check the <a target="_blank" rel="noopener" href="http://davidbekaert.com/download/TRAIN_manual.pdf">TRAIN manual</a> but using linear correction try this:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs MATLAB">aps_linear<br>ps_plot(<span class="hljs-string">&#x27;v-dao&#x27;</span> , <span class="hljs-string">&#x27;a_linear&#x27;</span> , <span class="hljs-string">&#x27;ts&#x27;</span>)<br></code></pre></td></tr></table></figure>
 <h2 id="stamps-plotting"><a class="markdownIt-Anchor" href="#stamps-plotting"></a> StaMPS Plotting</h2>
 <p>Display <strong>wrapped phase</strong> with</p>
 <ul>
@@ -333,6 +360,15 @@ snap_8.0.9/s1tbx/modules/ext/org.jlinda.jlinda-nest/org-jblas/jblas.jar</p>
 <blockquote>
 <p>After running step 7, check that the estimates seem reasonable, i.e. ps plot(‘u-dm’) looks generally smoother than ps plot(‘u’) (note that the default colour scales will be different). If not generally smoother, one or more interferograms have probably been incorrectly unwrapped (usually those with large perpendicular baselines)<a target="_blank" rel="noopener" href="https://github.com/dbekaert/StaMPS/releases/tag/v4.1-beta" title="StaMPS 4.1-beta Manual">4</a>.</p>
 </blockquote>
+<h2 id="post-stamps"><a class="markdownIt-Anchor" href="#post-stamps"></a> Post-StaMPS</h2>
+<p>To convert the corrected LOS displacement from StaMPS into combined ascending and descending vertical displacement I have created a few python scripts to ease this process. The scripts can be downloaded from this git and meed to be adjusted to your folder system<a target="_blank" rel="noopener" href="https://github.com/gjvanleeuwen/SNAP-StaMPS-Visualizing" title="SNAP-StaMPS workflow documentation">5</a>.</p>
+<p>first script to run is vertical_displacement_calculator.py second script to run is asc_desc_combiner.py.</p>
+<h2 id="vertical-displacement"><a class="markdownIt-Anchor" href="#vertical-displacement"></a> Vertical Displacement</h2>
+<blockquote>
+<p>When all images are from the same track, you get the displacement along the line-of-sight (LOS) between the earth and the sensor. If you want to have vertical displacement, you need images from both ascending and descending tracks. There are lots of approaches to achieve this, some are  trightforward, others are more complex. At the moment, none of them is implemented in SNAP<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/matlab-script-for-determining-vertical-displacement-from-snap-stamps-ps-insar-ascending-and-descending-data/15408/8" title="STEP Forum">6</a>.</p>
+</blockquote>
+<h2 id="visualization"><a class="markdownIt-Anchor" href="#visualization"></a> Visualization</h2>
+<p>Visualization of the data in this project is done using QGIS and Python. All scripts used can be found in this Git and shapefiles used can be requested by contacting me directly. Scripts will have to be adjusted to personal file structure and projections to be usable<a target="_blank" rel="noopener" href="https://github.com/gjvanleeuwen/SNAP-StaMPS-Visualizing" title="SNAP-StaMPS workflow documentation">5</a>.</p>
 <h1 id="result"><a class="markdownIt-Anchor" href="#result"></a> Result</h1>
 <h2 id="1st-attempt"><a class="markdownIt-Anchor" href="#1st-attempt"></a> 1st Attempt</h2>
 <p>This attempt was resulted by all parameter set at <strong>default</strong>.</p>
