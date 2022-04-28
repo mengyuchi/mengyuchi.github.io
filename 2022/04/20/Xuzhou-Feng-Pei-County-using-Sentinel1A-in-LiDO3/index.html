@@ -23,9 +23,9 @@
 <meta property="og:site_name" content="Yuchi&#39;s BLOG">
 <meta property="og:description" content="Intro This post is about working in Land Subsidence in Feng-Pei county in Xuzhou city. Cause the only free and available SAR dataset in this area is Sentinel-1A, so we downloaded 20 scenes SLC data t">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://mengyuchi.github.io/2022/04/20/Xuzhou-Feng-Pei-County-using-Sentinel1A-in-LiDO3/StaMPS_v_do_1st.png">
+<meta property="og:image" content="http://mengyuchi.github.io/2022/04/20/Xuzhou-Feng-Pei-County-using-Sentinel1A-in-LiDO3/plot_v_do_1st.png">
 <meta property="article:published_time" content="2022-04-20T07:06:21.000Z">
-<meta property="article:modified_time" content="2022-04-28T14:10:47.425Z">
+<meta property="article:modified_time" content="2022-04-28T15:28:29.659Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="InSAR">
 <meta property="article:tag" content="Land Subsidence">
@@ -36,7 +36,7 @@
 <meta property="article:tag" content="LiDO3">
 <meta property="article:tag" content="snap2stamps">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://mengyuchi.github.io/2022/04/20/Xuzhou-Feng-Pei-County-using-Sentinel1A-in-LiDO3/StaMPS_v_do_1st.png">
+<meta name="twitter:image" content="http://mengyuchi.github.io/2022/04/20/Xuzhou-Feng-Pei-County-using-Sentinel1A-in-LiDO3/plot_v_do_1st.png">
   
   
   <title>Xuzhou Feng-Pei County using Sentinel1A in LiDO3 - Yuchi&#39;s BLOG</title>
@@ -218,7 +218,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      9.6k 字
+      13k 字
     </span>
   
 
@@ -227,7 +227,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      80 分钟
+      107 分钟
     </span>
   
 
@@ -369,10 +369,46 @@ rerun from step 2 with bad ifgs added to <code>drop_ifg_index</code> and possibl
 </blockquote>
 <h2 id="visualization"><a class="markdownIt-Anchor" href="#visualization"></a> Visualization</h2>
 <p>Visualization of the data in this project is done using QGIS and Python. All scripts used can be found in this Git and shapefiles used can be requested by contacting me directly. Scripts will have to be adjusted to personal file structure and projections to be usable<a target="_blank" rel="noopener" href="https://github.com/gjvanleeuwen/SNAP-StaMPS-Visualizing" title="SNAP-StaMPS workflow documentation">5</a>.</p>
+<h1 id="train"><a class="markdownIt-Anchor" href="#train"></a> TRAIN</h1>
+<p>TRAIN - Toolbox for Reducing Atmospheric InSAR Noise<a target="_blank" rel="noopener" href="http://davidbekaert.com/" title="TRAIN - Toolbox for Reducing Atmospheric InSAR Noise">7</a></p>
+<blockquote>
+<p>One of the main challenges in InSAR processing is related to atmospheric delays, especially tropospheric delays. Different correction methods are applied today based on auxiliary data, including GNSS, weather models (e.g. ECMWF ERA-I, WRF, NARR, etc), spectrometer data (MERIS and MODIS), or combinations of different sources. Alternative methods exist to estimate the tropospheric delays from the radar data themselves. The success rate of the different techniques is dependant on multiple factors like temporal and spatial resolution, cloud cover, signal contamination, local topography, etc.</p>
+</blockquote>
+<blockquote>
+<p>Below we provide a set of MATLAB tools that can be use to correct for tropospheric delays in InSAR data. Once set-up for one correction method, the toolbox allows for easy comparison with other methods, as all are formatted in the same way. The toolbox is fully compatible, but not limited, to the Doris and StaMPS (v4.1+ or github) software. Initial debugging has been done for ROI_PAC and PI-rate processed data, but user feedback and reporting will allow for further development. The toolbox includes the correction methods provided below, with a full descriptive manual on the input parameters, and tips/hints in case of problems. The latest developers version of the manual can be downloaded by clicking here. TRAIN is distributed under a GNU-GPL license and available on github.</p>
+</blockquote>
+<h2 id="included-module"><a class="markdownIt-Anchor" href="#included-module"></a> Included module</h2>
+<p>TRAIN is under continuous development with expansion of additional techniques and models. Most of the methods include download scripts and set-up of the source data. In the latest version we include support for the following techniques:</p>
+<ul>
+<li>Spectrometer - MERIS correction (only Envisat support for now)</li>
+<li>Spectrometer - MODIS correction</li>
+<li>Weather model correction - ERA-I, MERRA, MERRA-2, GACOS</li>
+<li>Weather model correction - when running your own Weather Research and Forecasting Model (WRF)</li>
+<li>Phase-based - Power-law correction for tropospheric delays</li>
+<li>Phase-based - Linear phase-topography correction</li>
+</ul>
+<h2 id="correction"><a class="markdownIt-Anchor" href="#correction"></a> Correction</h2>
+<p>Using linear correction try this<a target="_blank" rel="noopener" href="https://github.com/gjvanleeuwen/SNAP-StaMPS-Visualizing" title="SNAP-StaMPS workflow documentation">5</a>:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">aps_linear<br>ps_plot(<span class="hljs-string">&#x27;v-dao&#x27;</span> , <span class="hljs-string">&#x27;a_linear&#x27;</span> , <span class="hljs-string">&#x27;ts&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="notes"><a class="markdownIt-Anchor" href="#notes"></a> Notes</h2>
+<ul>
+<li>
+<p>edit <code>aps_weather_model_times.m</code> to avoid the need for the Financial Toolbox. Simply replace <code>today</code> by <code>floor(now)</code> in line 19.</p>
+</li>
+<li>
+<p>edit <code>aps_weather_model_InSAR.m</code> since <code>setparm_aps('lambda', ...)</code> does not seem to be working correctly. Set <code>lambda = 0.0547</code> (wavelength [m] for S1) in line 74.</p>
+</li>
+<li>
+<p>Conclusions from <em>Hooper et al. (2015)<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0034425715301231?via%3Dihub" title="Statistical comparison of InSAR tropospheric correction techniques. Remote Sensing of Environment, 170 40-47">8</a></em>:</p>
+<blockquote>
+<p>Our analysis included methods based on spectrometer measurements, output of weather models, and empirical interferometric phase-based methods. When available and limited to cloud-free and daylight acquisitions only, we found the spectrometers to provide the largest RMSE reduction. We found that the estimated tropospheric delays using MODIS have at best an accuracy equal to that of MERIS, and at worst twice that of MERIS. We found the phase-based methods (linear and power-law) to outperform the weather model methods in regions where tropospheric delays are mainly correlated with topography. For regions over which this is less apparent, due to turbulence in the troposphere and dynamic local weather, weather models can potentially offer better performance. In those instances where weather models mis-estimate the location of turbulent features, they will have a correspondingly higher RMSE. We did not find a significant improvement when using a local high-resolution weather model (7 km and 2 km) instead of the global reanalysis products. With a longer required runtime, local weather model are less suitable for near real-time InSAR application. From a cloud cover analysis, we found the performance of the different correction methods to worsen with increasing cloud cover, with a ~ 10–20% increase in RMSE for each cloudy SAR date.</p>
+</blockquote>
+</li>
+</ul>
 <h1 id="result"><a class="markdownIt-Anchor" href="#result"></a> Result</h1>
 <h2 id="result-1"><a class="markdownIt-Anchor" href="#result-1"></a> Result 1</h2>
 <p>This attempt was resulted by all parameter set at <strong>default</strong>.</p>
-<p><img src="StaMPS_v_do_1st.png" srcset="/img/loading.gif" lazyload alt="Feng_Pei velocity without DEM error and orbit error" /></p>
+<p><img src="plot_v_do_1st.png" srcset="/img/loading.gif" lazyload alt="Feng_Pei velocity without DEM error and orbit error" /></p>
 <h2 id="result-2"><a class="markdownIt-Anchor" href="#result-2"></a> Result 2</h2>
 <p>Change parameter according to <a target="_blank" rel="noopener" href="https://gitlab.com/Rexthor/gis-blog/-/blob/master/StaMPS/2-4_StaMPS-steps.md#summary">gis_blog</a></p>
 <table>
