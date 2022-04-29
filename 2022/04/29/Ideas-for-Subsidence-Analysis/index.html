@@ -16,28 +16,25 @@
   <meta name="author" content="Yuchi Meng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Getting into Land Subsidence Mornitoring using ENVISAT Dataset This post is about knowladge build of land subsidence mornitoring using ENVISAT1 dataset.  (a) Illustration of ENVISAT ASAR geometry for">
+    <meta name="description" content="Intro Ideas collected from articles about land subsidence analysis.  Spatiotemporal Evolution of Subsidence Bowls The mean deformation rate map was produced from the time-series data of PS points dur">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Getting into Land Subsidence Mornitoiring using ENVISAT Dataset">
-<meta property="og:url" content="http://mengyuchi.github.io/2022/04/01/Getting-into-Land-Subsidence-Mornitoiring-useing-ENVISAT-Dataset/index.html">
+<meta property="og:title" content="Ideas for Land Subsidence Analysis in Xuzhou">
+<meta property="og:url" content="http://mengyuchi.github.io/2022/04/29/Ideas-for-Subsidence-Analysis/index.html">
 <meta property="og:site_name" content="Yuchi&#39;s BLOG">
-<meta property="og:description" content="Getting into Land Subsidence Mornitoring using ENVISAT Dataset This post is about knowladge build of land subsidence mornitoring using ENVISAT1 dataset.  (a) Illustration of ENVISAT ASAR geometry for">
+<meta property="og:description" content="Intro Ideas collected from articles about land subsidence analysis.  Spatiotemporal Evolution of Subsidence Bowls The mean deformation rate map was produced from the time-series data of PS points dur">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://mengyuchi.github.io/2022/04/01/Getting-into-Land-Subsidence-Mornitoiring-useing-ENVISAT-Dataset/ENVISAT.png">
-<meta property="og:image" content="http://mengyuchi.github.io/2022/04/01/Getting-into-Land-Subsidence-Mornitoiring-useing-ENVISAT-Dataset/subset1.png">
-<meta property="article:published_time" content="2022-04-01T15:48:11.000Z">
-<meta property="article:modified_time" content="2022-04-06T18:54:25.029Z">
+<meta property="og:image" content="http://mengyuchi.github.io/_post/Ideas-for-Subsidence-Analysis/Cumulative_deformation.jpg">
+<meta property="article:published_time" content="2022-04-29T14:19:17.000Z">
+<meta property="article:modified_time" content="2022-04-29T14:39:25.751Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="Land Subsidence">
 <meta property="article:tag" content="InSAR">
 <meta property="article:tag" content="Reposititory">
-<meta property="article:tag" content="ENVISAT">
-<meta property="article:tag" content="StamPS">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://mengyuchi.github.io/2022/04/01/Getting-into-Land-Subsidence-Mornitoiring-useing-ENVISAT-Dataset/ENVISAT.png">
+<meta name="twitter:image" content="http://mengyuchi.github.io/_post/Ideas-for-Subsidence-Analysis/Cumulative_deformation.jpg">
   
   
-  <title>Getting into Land Subsidence Mornitoiring using ENVISAT Dataset - Yuchi&#39;s BLOG</title>
+  <title>Ideas for Land Subsidence Analysis in Xuzhou - Yuchi&#39;s BLOG</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -195,7 +192,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Getting into Land Subsidence Mornitoiring using ENVISAT Dataset">
+            <span class="h2" id="subtitle" title="Ideas for Land Subsidence Analysis in Xuzhou">
               
             </span>
 
@@ -205,8 +202,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-01 17:48" pubdate>
-        April 1, 2022 pm
+      <time datetime="2022-04-29 16:19" pubdate>
+        April 29, 2022 pm
       </time>
     </span>
   
@@ -216,7 +213,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      2.3k 字
     </span>
   
 
@@ -225,7 +222,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13 分钟
+      20 分钟
     </span>
   
 
@@ -262,62 +259,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Getting into Land Subsidence Mornitoiring using ENVISAT Dataset</h1>
+            <h1 style="display: none">Ideas for Land Subsidence Analysis in Xuzhou</h1>
             
             <div class="markdown-body">
-              <h1 id="getting-into-land-subsidence-mornitoring-using-envisat-dataset"><a class="markdownIt-Anchor" href="#getting-into-land-subsidence-mornitoring-using-envisat-dataset"></a> Getting into Land Subsidence Mornitoring using ENVISAT Dataset</h1>
-<p>This post is about knowladge build of land subsidence mornitoring using ENVISAT<a target="_blank" rel="noopener" href="https://earth.esa.int/web/eoportal/satellite-missions/e/envisat" title="Basics of EnviSat (Environmental Satellite)">1</a> dataset.</p>
-<p><img src="ENVISAT.png" srcset="/img/loading.gif" lazyload alt="ENVISAT ASAR" /></p>
-<p>(a) Illustration of ENVISAT ASAR geometry for the Wide-swath Mode, which consists of five narrow-swath beams, each covering a width between 70 and 100 km. Source: ESA 2002. The width of the wide-swath image is about 400 km. (b) Illustration and main terms of satellite SAR geometry. Source: Robinson 2004. Courtesy: Springer, Praxis Publishing Ltd<a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/263040396_Sea_Ice_Monitoring_by_Remote_Sensing" title="Sea Ice Monitoring by Remote Sensing">2</a>.</p>
-<span id="more"></span>
+              <h1 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h1>
+<p>Ideas collected from articles about land subsidence analysis.</p>
+<h1 id="spatiotemporal-evolution-of-subsidence-bowls"><a class="markdownIt-Anchor" href="#spatiotemporal-evolution-of-subsidence-bowls"></a> Spatiotemporal Evolution of Subsidence Bowls</h1>
+<p>The mean deformation rate map was produced from the time-series data of PS points during the study period (2003–2015). It is clear that the main land subsidence region is located in the East and north parts of the Beijing Plain (Haidian and Tongzhou district). The deformation rate ranges from 􀀀138.8 to +13.9 mm/year. This serious land subsidence with a rapid rate and a wide range of values has been observed in previous studies<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/10/4/552" title="Spatiotemporal Evolution of Land Subsidence in the Beijing Plain 2003–2015 Using Persistent Scatterer Interferometry (PSI) with Multi-Source SAR Data">1</a>.</p>
+<p>As there is a clear distinction across the <em>-40 mm/year</em> deformation line in the map, we used the <em>-40 mm/year</em> deformation line as a boundary of the subsidence regions. Combining with the <em>-60 mm/year</em> deformation line, we found there are mainly seven subsidence bowls in the Beijing Plain:</p>
+<p><img src="/_post/Ideas-for-Subsidence-Analysis/Spatiotemporal_Evolution.jpg" srcset="/img/loading.gif" lazyload alt="Subsidence bowls by mean deformation velocity from 2003 to 2015." /></p>
+<p>In order to analyze the development of the subsidence bowls, points (A–G) located almost in the central part of each of the main seven subsidence bowls, were selected for time series analysis of the deformation.</p>
 <blockquote>
-<p>@ABraun<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/how-to-prepare-ers-envisat-images-stack-for-psi-in-snap5/6346/13" title="STEP fprum">3</a></p>
+<p>The largest subsidence (more than 100 mm/year) occurred in the central part of the CT subsidence bowl, near point A. Similarly, the land subsidence velocities of TZ (point B) and CJ (point C) subsidence bowls were more than 80 mm/year. A notable feature of Figure 7 is that the year of 2007 was a clear turning point, before which the cumulative subsidence of all points (A–G) was mostly stable following an initial period of subsidence in early 2004. In contrast, the cumulative subsidence increased rapidly after the year of 2007. The other important turning point is the year 2012, when the subsidence speed of D and E slowed down relative to the other subsidence bowls, resulting in lower overall subsidence compared to the other bowls by the end of 2015, and the cumulative subsidence of the two bowls was smaller than the other bowls in the end of 2015.</p>
 </blockquote>
-<figure class="highlight mathematica"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-variable">Stripmap</span> <span class="hljs-variable">data</span> <span class="hljs-variable">is</span> <span class="hljs-variable">less</span> <span class="hljs-variable">difficult</span><span class="hljs-operator">,</span> <span class="hljs-variable">because</span> <span class="hljs-variable">you</span> <span class="hljs-variable">don</span><span class="hljs-operator">&#x27;</span><span class="hljs-variable">t</span> <span class="hljs-variable">need</span> <span class="hljs-built_in">Split</span><span class="hljs-operator">,</span> <span class="hljs-variable">Deburst</span><span class="hljs-operator">...</span><br><br><span class="hljs-built_in">For</span> <span class="hljs-variable">using</span> <span class="hljs-variable">ENVISAT</span> <span class="hljs-variable">in</span> <span class="hljs-variable">StaMPS</span> <span class="hljs-built_in">I</span> <span class="hljs-variable">recommend</span><br><br><span class="hljs-built_in">Subset</span> <span class="hljs-punctuation">(</span><span class="hljs-variable">if</span> <span class="hljs-variable">necessary</span><span class="hljs-punctuation">)</span><br><span class="hljs-built_in">Apply</span> <span class="hljs-variable">orbit</span> <span class="hljs-variable">file</span><br><span class="hljs-variable">coregistration</span> <span class="hljs-punctuation">(</span><span class="hljs-variable">one</span> <span class="hljs-variable">master</span><span class="hljs-operator">,</span> <span class="hljs-variable">multiple</span> <span class="hljs-variable">slaves</span><span class="hljs-punctuation">)</span><br><span class="hljs-variable">Interferogram</span> <span class="hljs-variable">generation</span> <span class="hljs-punctuation">(</span><span class="hljs-variable">including</span> <span class="hljs-variable">topographic</span> <span class="hljs-variable">phase</span> <span class="hljs-variable">removal</span><span class="hljs-punctuation">)</span><br><span class="hljs-variable">StaMPS</span> <span class="hljs-variable">export</span> <span class="hljs-variable">with</span> <span class="hljs-variable">the</span> <span class="hljs-variable">outcomes</span> <span class="hljs-variable">of</span> <span class="hljs-type">#3</span> <span class="hljs-variable">and</span> <span class="hljs-type">#4</span><br></code></pre></td></tr></table></figure>
+<p><img src="/_post/Ideas-for-Subsidence-Analysis/Time_series_cumulative_subsidence.jpg" srcset="/img/loading.gif" lazyload alt="Time series cumulative subsidence of the typical points: A–G" /></p>
 <blockquote>
-<p>So where do I download Envest images?</p>
+<p>We examined deformation profiles through time in the northwest–southeast (AA’) and southwest–northeast (BB’) directions. The cumulative deformation of the profiles are shown in Figure 8 from 2003 to 2015. Profile AA’ which is almost along Nankou–Sunhe fault across subsidence bowls CP, CL, CJ and TZ. It is apparent that Fb-1 is located between CP and CL, Fb-2 is located between CL and CJ, and Fb-3 is located between CJ and TZ, which means that the subsidence area is divided into regions along the northwest–southeast direction. From the profile BB’ we can see that there was almost no subsidence in the left part (i.e., southwest), but there was large subsidence (about 500 mm from 2003 to 2015) in the right part (i.e., northeast). We can conclude that there are generally two parts (stable and subsidence areas) along the southwest–northeast direction.</p>
 </blockquote>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">here: https:<span class="hljs-regexp">//</span>esar-ds.eo.esa.int<span class="hljs-regexp">/oads/</span>access/collection<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>Which image mode should I download?</p>
-</blockquote>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">IMS because <span class="hljs-keyword">it</span> has phase information.<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>Can I process different Tracks together?</p>
-</blockquote>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-literal">no</span>, InSAR requires data <span class="hljs-keyword">from</span> the same track.<br></code></pre></td></tr></table></figure>
-<h1 id="data-process"><a class="markdownIt-Anchor" href="#data-process"></a> Data Process</h1>
-<h2 id="snap"><a class="markdownIt-Anchor" href="#snap"></a> SNAP</h2>
-<ul>
-<li>
-<p>Apply orbit file</p>
-</li>
-<li>
-<p>Subset for  ENVISAT dataset</p>
-<p>North</p>
-<p>West</p>
-<p>South</p>
-<p>East</p>
-</li>
-</ul>
-<blockquote>
-<p>POLYGON ((117.426 34.548, 116.711 34.548, 116.711 33.922, 117.426 33.922, 117.426 34.548))</p>
-</blockquote>
-<p><img src="subset1.png" srcset="/img/loading.gif" lazyload alt="subset by SNAP" /></p>
-<blockquote>
-<p>POLYGON ((117.408 34.501, 117.408 33.922, 116.711 33.922, 116.711 34.501, 117.408 34.501))</p>
-</blockquote>
-<ul>
-<li>Coregistration</li>
-</ul>
-<blockquote>
-<p>Find optimal master, others options with default</p>
-</blockquote>
-<ul>
-<li>Interferogram formation with topographic phase removal</li>
-</ul>
-<h2 id="stamps-insar"><a class="markdownIt-Anchor" href="#stamps-insar"></a> StamPS-InSAR</h2>
-<p>StaMPS PS analysis is performed within MATLAB, using the main function stamps(), which takes the first and last StaMPS-step as main arguments. To run StaMPS complete with default arguments, use stamps(1,8)<a target="_blank" rel="noopener" href="https://gitlab.com/Rexthor/gis-blog/-/blob/master/StaMPS/2-4_StaMPS-steps.md" title="StaMPS tutorial by Matthias Schloegl">4</a>.</p>
+<p><img src="/_post/Ideas-for-Subsidence-Analysis/Cumulative_deformation.jpg" srcset="/img/loading.gif" lazyload alt="Cumulative deformation along the profiles A–A’ and B–B’ from 2003 to 2015" /></p>
 
             </div>
             <hr>
@@ -341,10 +300,6 @@
                     
                       <a class="hover-with-bg" href="/tags/Reposititory/">Reposititory</a>
                     
-                      <a class="hover-with-bg" href="/tags/ENVISAT/">ENVISAT</a>
-                    
-                      <a class="hover-with-bg" href="/tags/StamPS/">StamPS</a>
-                    
                   </div>
                 
               </div>
@@ -360,18 +315,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/05/StaMPS-InSAR-research-based-on-ENVISAT-using-LiDO3/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">StaMPS-InSAR research based on ENVISAT using LiDO3</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/31/Study-of-Present-and-future-subsidence-of-the-Vietnamese-Mekong-delta/">
-                        <span class="hidden-mobile">Study of Present and future subsidence of the Vietnamese Mekong delta</span>
+                      <a href="/2022/04/21/Post-StaMPS-Analysis-for-ENVISAT-Dataset-in-Xuzhou/">
+                        <span class="hidden-mobile">Post-StaMPS Analysis for ENVISAT Dataset in Xuzhou</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
