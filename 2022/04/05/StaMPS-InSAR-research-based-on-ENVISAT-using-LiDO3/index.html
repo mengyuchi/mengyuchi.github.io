@@ -16,15 +16,15 @@
   <meta name="author" content="Yuchi Meng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Intro This post is about working steps of StaMPS-InSAR using 13 ENVISAT images in LiDO3.  StamPS-InSAR StaMPS (Stanford Method for Persistent Scatterers) is a software package that implements an InSA">
+    <meta name="description" content="Intro This post is about working steps of StaMPS-InSAR using 13 ENVISAT images in LiDO3.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="StaMPS-InSAR research based on ENVISAT using LiDO3">
 <meta property="og:url" content="http://mengyuchi.github.io/2022/04/05/StaMPS-InSAR-research-based-on-ENVISAT-using-LiDO3/index.html">
 <meta property="og:site_name" content="Yuchi&#39;s BLOG">
-<meta property="og:description" content="Intro This post is about working steps of StaMPS-InSAR using 13 ENVISAT images in LiDO3.  StamPS-InSAR StaMPS (Stanford Method for Persistent Scatterers) is a software package that implements an InSA">
+<meta property="og:description" content="Intro This post is about working steps of StaMPS-InSAR using 13 ENVISAT images in LiDO3.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-05T13:15:43.000Z">
-<meta property="article:modified_time" content="2022-04-22T15:03:02.699Z">
+<meta property="article:modified_time" content="2022-04-29T15:19:54.455Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="InSAR">
 <meta property="article:tag" content="ENVISAT">
@@ -264,9 +264,9 @@
             <div class="markdown-body">
               <h1 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h1>
 <p>This post is about working steps of StaMPS-InSAR using 13 ENVISAT images in LiDO3.</p>
+<span id="more"></span>
 <h2 id="stamps-insar"><a class="markdownIt-Anchor" href="#stamps-insar"></a> StamPS-InSAR</h2>
 <p>StaMPS (Stanford Method for Persistent Scatterers) is a software package that implements an InSAR persistent scatterer (PS) method developed to work even in terrains devoid of man-made structures and/or undergoing non-steady deformation. StaMPS/MTI (Multi-Temporal InSAR) is an extended version of StaMPS that also includes a small baseline method and a combined multi-temporal InSAR method. The original development of StaMPS was undertaken at Stanford University, but subsequent development of StaMPS and StaMPS/MTI has taken place at the University of Iceland, Delft University of Technology, and the University of Leeds. There are also contributions from users of the package based at other institutions<a target="_blank" rel="noopener" href="https://github.com/dbekaert/StaMPS" title="StaMPS - Stanford Method for Persistent Scatterers">1</a>.</p>
-<span id="more"></span>
 <p>StaMPS PS analysis is performed within MATLAB, using the main function stamps(), which takes the first and last StaMPS-step as main arguments. To run StaMPS complete with default arguments, use stamps(1,8)<a target="_blank" rel="noopener" href="https://gitlab.com/Rexthor/gis-blog/-/blob/master/StaMPS/2-4_StaMPS-steps.md" title="StaMPS tutorial by Matthias Schloegl">2</a>.</p>
 <h2 id="train"><a class="markdownIt-Anchor" href="#train"></a> Train</h2>
 <p>The Toolbox for Reducing Atmospheric InSAR Noise - TRAIN - is developed in an effort to include current state of the art tropospheric correction methods into the default InSAR processing chain. Initial development was performed at the University of Leeds. The toolbox consists of a combination of command line scripts, shell scripts, and matlab scripts. More information on software is provided in Chapter 3. TRAIN is independent of the used InSAR processor, as long as the data convention is followed. The toolbox is compatible with the StaMPS software. Further initial efforts have been put to include TRAIN into the default -rate processing chain<a target="_blank" rel="noopener" href="https://github.com/dbekaert/TRAIN" title="Bekaert, D.P.S., Walters, R.J., Wright, T.J., Hooper, A.J., and Parker, D.J. (2015c), Statistical comparison of InSAR tropospheric correction techniques, Remote Sensing of Environment, doi: 10.1016/j.rse.2015.08.035">3</a>.</p>
