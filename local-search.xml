@@ -20,9 +20,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Reposititory</tag>
       
@@ -51,9 +51,9 @@
       
       <tag>ENVISAT</tag>
       
-      <tag>Xuzhou</tag>
-      
       <tag>StaMPS-InSAR</tag>
+      
+      <tag>Xuzhou</tag>
       
       <tag>R</tag>
       
@@ -80,19 +80,19 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
       <tag>PS-InSAR</tag>
       
-      <tag>LiDO3</tag>
+      <tag>StaMPS-InSAR</tag>
       
       <tag>Xuzhou</tag>
       
-      <tag>StaMPS-InSAR</tag>
+      <tag>LiDO3</tag>
       
       <tag>snap2stamps</tag>
       
@@ -148,19 +148,19 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
       <tag>PS-InSAR</tag>
       
-      <tag>LiDO3</tag>
+      <tag>StaMPS-InSAR</tag>
       
       <tag>Xuzhou</tag>
       
-      <tag>StaMPS-InSAR</tag>
+      <tag>LiDO3</tag>
       
       <tag>snap2stamps</tag>
       
@@ -187,9 +187,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
@@ -226,9 +226,9 @@
       
       <tag>LiDO3</tag>
       
-      <tag>Linux</tag>
-      
       <tag>StaMPS</tag>
+      
+      <tag>Linux</tag>
       
     </tags>
     
@@ -253,15 +253,15 @@
     
     <tags>
       
+      <tag>Land Subsidence</tag>
+      
       <tag>InSAR</tag>
       
-      <tag>Land Subsidence</tag>
+      <tag>Reposititory</tag>
       
       <tag>ENVISAT</tag>
       
       <tag>StamPS</tag>
-      
-      <tag>Reposititory</tag>
       
     </tags>
     
@@ -286,9 +286,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Vietname</tag>
       
@@ -371,9 +371,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>LULC</tag>
       
