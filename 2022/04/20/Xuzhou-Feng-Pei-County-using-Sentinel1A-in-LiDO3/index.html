@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://mengyuchi.github.io/2022/04/20/Xuzhou-Feng-Pei-County-using-Sentinel1A-in-LiDO3/plot_v_do_3.png">
 <meta property="og:image" content="http://mengyuchi.github.io/2022/04/20/Xuzhou-Feng-Pei-County-using-Sentinel1A-in-LiDO3/time_series_plot_3.png">
 <meta property="article:published_time" content="2022-04-20T07:06:21.000Z">
-<meta property="article:modified_time" content="2022-05-05T06:55:03.810Z">
+<meta property="article:modified_time" content="2022-05-05T07:37:20.024Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="Land Subsidence">
 <meta property="article:tag" content="InSAR">
@@ -221,7 +221,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      18k 字
+      13k 字
     </span>
   
 
@@ -230,7 +230,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      151 分钟
+      112 分钟
     </span>
   
 
@@ -362,43 +362,6 @@ rerun from step 2 with bad ifgs added to <code>drop_ifg_index</code> and possibl
 <h2 id="vertical-displacement"><a class="markdownIt-Anchor" href="#vertical-displacement"></a> Vertical Displacement</h2>
 <blockquote>
 <p>When all images are from the same track, you get the displacement along the line-of-sight (LOS) between the earth and the sensor. If you want to have vertical displacement, you need images from both ascending and descending tracks. There are lots of approaches to achieve this, some are  trightforward, others are more complex. At the moment, none of them is implemented in SNAP<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/matlab-script-for-determining-vertical-displacement-from-snap-stamps-ps-insar-ascending-and-descending-data/15408/8" title="STEP Forum">6</a>.</p>
-</blockquote>
-<h1 id="stampsmti-visualizer-20-manual"><a class="markdownIt-Anchor" href="#stampsmti-visualizer-20-manual"></a> StaMPS/MTI-Visualizer 2.0 Manual</h1>
-<h2 id="ts-explorer"><a class="markdownIt-Anchor" href="#ts-explorer"></a> TS Explorer</h2>
-<blockquote>
-<p>In the Single TS Selection panel you can choose a case study. The map is automatically adjusted to show the data of the case study. In the map, you can click on each marker (colored points) and a plot of its deformation time series will be plotted in the Single TS Selection panel.<br />
-The number of the selected point is also shown below the plot, this number may be interesting for use in TS Comparison.</p>
-</blockquote>
-<blockquote>
-<p>To add a vertical line of an event of interest to the TS plot choose a date within the time line of the TS plot.</p>
-</blockquote>
-<h2 id="adding-costume-case-study-data"><a class="markdownIt-Anchor" href="#adding-costume-case-study-data"></a> Adding Costume Case Study Data</h2>
-<blockquote>
-<p>To explore and plot costume data, you have to export a dataset from StaMPS/MTI-Matlab in a specific .csv table, create a folder with the name of the case study in the stusi folder of the application and put the .csv table in this folder. After that, reload StaMPS/MTI-Visualizer to choose the new dataset.</p>
-</blockquote>
-<blockquote>
-<p>To prepare the dataset in StaMPS/MTI-Matlab run your process in Matlab until step 6 or further. Create a ‘ts’ plot where you choose a region of interest you want to export. I recommend a search radius of 500m but this depends on point density and study site. If you have trouble because of an error telling something about different dimension during the export, use a search radius that is large enough to fit all your PS in it. We can use this huge table later in R and make a subset there which is easier. In both cases, this action will create some needed objects in Matlab. Which ps_plot you create depends on you, ‘V-DO’, ‘V-D’, ‘V-O’ etc. but be sure that you repeat the same plot without ‘ts’ but with -1 argument after that, see line 1, 3 and 4 in the chunk below. In this example the ‘v-do’ argument must be the same in all lines, adapt it to your chosen method. Additional data is prepared in this step, similar to the googleearth-kml export in StaMPS/MTI.</p>
-</blockquote>
-<blockquote>
-<p>The last adaption is optional, you can change the name of the outpufile.csv in the last line. The file will be written into your SMALL_BASELINES directory. After the export, move the .csv file to your case study folder in stusi directory of the StaMSP-Visualizer application.</p>
-</blockquote>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs matlab">ps_plot(<span class="hljs-string">&#x27;v-doa&#x27;</span>, <span class="hljs-string">&#x27;ts&#x27;</span>);<br>load parms.mat;<br>ps_plot(<span class="hljs-string">&#x27;v-doa&#x27;</span>, <span class="hljs-number">-1</span>);<br>load ps_plot_v-doa.mat<br>lon2_str = cellstr(num2str(lon2));<br>lat2_str = cellstr(num2str(lat2));<br>lonlat2_str = strcat(lon2_str, lat2_str);<br><br>lonlat_str = strcat(cellstr(num2str(lonlat(:,<span class="hljs-number">1</span>))), cellstr(num2str(lonlat(:,<span class="hljs-number">2</span>))));<br>ind = <span class="hljs-built_in">ismember</span>(lonlat_str, lonlat2_str);<br><br><span class="hljs-built_in">disp</span> = ph_disp(ind);<br>export_res = [lon2 lat2 <span class="hljs-built_in">disp</span> ts];<br>metarow = [ref_centre_lonlat NaN transpose(day)<span class="hljs-number">-1</span>];<br>k = <span class="hljs-number">0</span>;<br>export_res = [export_res(<span class="hljs-number">1</span>:k,:); metarow; export_res(k+<span class="hljs-number">1</span>:<span class="hljs-keyword">end</span>,:)];<br>export_res = <span class="hljs-built_in">table</span>(export_res);<br><span class="hljs-built_in">writetable</span>(export_res,<span class="hljs-string">&#x27;stamps_tsexport.csv&#x27;</span>)<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>If the export is not a subset of some measurement points but all points, because you encountered errors during exporting and set the search radius very high, use this R script to spatially subset the csv. table afterwards:</p>
-</blockquote>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs clean">###########################<br>###subset ts plot <span class="hljs-keyword">export</span>###<br>###########################<br>library(sp)<br>library(rgdal)<br>library(rgeos)<br><br>#read subsetpolygon<br>roi &lt;- readOGR(<span class="hljs-string">&quot;/home/user/studysite/roi.kml&quot;</span>)<br>#read exported .csv<br>pnts &lt;- read.csv(<span class="hljs-string">&quot;/home/user/ISNAR_20170310/20170310_all.csv&quot;</span>)<br>#create spatial object<br>lon &lt;- pnts$export_res_<span class="hljs-number">.1</span>[<span class="hljs-number">2</span>:nrow(pnts)]<br>lat &lt;- pnts$export_res_<span class="hljs-number">.2</span>[<span class="hljs-number">2</span>:nrow(pnts)]<br>loc &lt;- data.frame(lon, lat)<br>pnts.geo &lt;- SpatialPointsDataFrame(loc, pnts[<span class="hljs-number">2</span>:nrow(pnts), ],<br>            proj4string = CRS(<span class="hljs-string">&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot;</span>))<br>#spatial subset<br>pnts.sub &lt;- pnts.geo[roi, ]<br>#create table <span class="hljs-keyword">from</span> spatial subset<br>sub.csv &lt;- rbind(pnts[<span class="hljs-number">1</span>, ], pnts.sub@data)<br>#<span class="hljs-keyword">export</span> csv to StaMPS-Visualizer application<br>write.table(sub, file = <span class="hljs-string">&quot;/home/user/stamps_visualizer/stusi/newstudysite/20170310.csv&quot;</span>,<br>            row.names = F, col.names = T, sep = <span class="hljs-string">&quot;,&quot;</span>)<br></code></pre></td></tr></table></figure>
-<h2 id="ts-comparison"><a class="markdownIt-Anchor" href="#ts-comparison"></a> TS Comparison</h2>
-<blockquote>
-<p>After you have explored your points, you might want to compare some of the single time series. During exploration you can see the point number after you have clicked on a marker on the map. Note your points of interest and change to TS Comparison here you can compare up to five time series, by choosing the case study and the numbers of points you have noted.</p>
-</blockquote>
-<h2 id="error-1"><a class="markdownIt-Anchor" href="#error-1"></a> <em>Error 1</em></h2>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; export_res = [lon2 lat2 <span class="hljs-built_in">disp</span> disp_ts];<br>Error using horzcat<br>Dimensions of arrays being concatenated are not consistent.<br></code></pre></td></tr></table></figure>
-<p><strong>Solution</strong></p>
-<blockquote>
-<p>sorry, I was a bit imprecise. First when you execute the ps_plot with ts option, you have to select a really large radius which includes all measurement points of your processed data, which results in a really large csv table which you have to export using the usual way, the error will not occur, because no subset is made and all points are used to create the table…therefore no uneven objects can be created. Using this table, the work around in R described in the manual, can be used to subset the points of interest outside Matlab to avoid the error you have been encountered, what you need is an additional polygon which describes the area you are interested in. I suggest to create it in google earth and export it in the .kml format. It is even possible to load the large csv table into StaMPS-Visualizer, but your computer will have to do a lot of rendering to display all points within the csv table…</p>
-</blockquote>
-<blockquote>
-<p>Hence, you do not have to weed your points<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/stamps-visualizer-snap-stamps-workflow/9613/26" title="STEP Forum">9</a>.</p>
 </blockquote>
 <h2 id="visualization"><a class="markdownIt-Anchor" href="#visualization"></a> Visualization</h2>
 <p>Visualization of the data in this project is done using QGIS and Python. All scripts used can be found in this Git and shapefiles used can be requested by contacting me directly. Scripts will have to be adjusted to personal file structure and projections to be usable<a target="_blank" rel="noopener" href="https://github.com/gjvanleeuwen/SNAP-StaMPS-Visualizing" title="SNAP-StaMPS workflow documentation">5</a>.</p>
@@ -585,7 +548,7 @@ The number of the selected point is also shown below the plot, this number may b
                     
                       <a href="/2022/04/21/Post-StaMPS-Analysis-for-ENVISAT-Dataset-in-Xuzhou/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Post-StaMPS Analysis for ENVISAT Dataset in Xuzhou</span>
+                        <span class="hidden-mobile">Post-StaMPS Analysis in Xuzhou</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
