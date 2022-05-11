@@ -23,14 +23,18 @@
 <meta property="og:site_name" content="Yuchi&#39;s BLOG">
 <meta property="og:description" content="Intro  StaMPS-Visualizer A Shiny application for visualizing DInSAR results processed by StaMPS&#x2F;MTI1.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://mengyuchi.github.io/2022/04/21/Post-StaMPS-Analysis-in-Xuzhou/Feng_visualizer.png">
+<meta property="og:image" content="http://mengyuchi.github.io/2022/04/21/Post-StaMPS-Analysis-in-Xuzhou/Panan_visualizer1.png">
+<meta property="og:image" content="http://mengyuchi.github.io/2022/04/21/Post-StaMPS-Analysis-in-Xuzhou/Panan_visualizer2.png">
 <meta property="article:published_time" content="2022-04-21T15:12:27.000Z">
-<meta property="article:modified_time" content="2022-05-05T19:13:05.447Z">
+<meta property="article:modified_time" content="2022-05-11T07:56:38.166Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="ENVISAT">
 <meta property="article:tag" content="StaMPS-InSAR">
 <meta property="article:tag" content="Xuzhou">
 <meta property="article:tag" content="StaMPS-Visualizer">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://mengyuchi.github.io/2022/04/21/Post-StaMPS-Analysis-in-Xuzhou/Feng_visualizer.png">
   
   
   <title>Post-StaMPS Analysis in Xuzhou - Yuchi&#39;s BLOG</title>
@@ -212,7 +216,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      9.9k 字
+      10k 字
     </span>
   
 
@@ -221,7 +225,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      83 分钟
+      84 分钟
     </span>
   
 
@@ -344,13 +348,13 @@ I try to change (delete “.”) in your R script, turns out it works. I try to 
 <li>Process StaMPS until step 6 or further<a target="_blank" rel="noopener" href="https://thho.shinyapps.io/StaMPS_Visualizer/#importbl" title="StaMPS-Visualizer 3.0 Manual">3</a></li>
 <li>Use the following lines in Matlab to export the data. Run the code line by line and follow the instructions in the comments</li>
 </ul>
-<h2 id="import-custom-stamps-data"><a class="markdownIt-Anchor" href="#import-custom-stamps-data"></a> Import custom StaMPS data</h2>
+<h3 id="import-custom-stamps-data"><a class="markdownIt-Anchor" href="#import-custom-stamps-data"></a> Import custom StaMPS data</h3>
 <p>After the export from Matlab/StaMPS was successful, the <code>.csv</code> table can be imported to the Visualizer:</p>
 <p>move the <code>.csv</code> file to th <code>StaMPS_Visualizer/input/stusi directory</code><br />
 open or restart the app<br />
 now the new study site can be selected in the Visualizer control panel<br />
 If you encounter a pop up error message after you have selected your import, follow the instructions of in the message.</p>
-<h2 id="export-custom-data-from-snap-baseline-plot"><a class="markdownIt-Anchor" href="#export-custom-data-from-snap-baseline-plot"></a> Export custom data from SNAP (baseline plot)</h2>
+<h3 id="export-custom-data-from-snap-baseline-plot"><a class="markdownIt-Anchor" href="#export-custom-data-from-snap-baseline-plot"></a> Export custom data from SNAP (baseline plot)</h3>
 <p>Create a coregistered stack product (InSAR stack) in SNAP. Be sure that the prime image is the first in the stack!<br />
 in SNAP go to View –&gt; Tool Windows –&gt; Radar –&gt; InSAR Stack and choose the Baseline Chart tab<br />
 Copy the chart to clipboard (on right side the upper icon)<br />
@@ -358,10 +362,17 @@ open a text editor and paste the chart<br />
 delete all white spaces and exchange the ? in the first row to be a 0 (zero)<br />
 when you use Linux, save chart info to a .csv file and use this: <code>sed -i 's/?/0/g' &lt;file_with_chart_info.csv&gt; | sed 's/ //g'</code><br />
 save the resulting table as <code>&lt;name&gt;.csv</code></p>
-<h2 id="import-custom-baseline-plot-data"><a class="markdownIt-Anchor" href="#import-custom-baseline-plot-data"></a> Import custom baseline plot data</h2>
+<h3 id="import-custom-baseline-plot-data"><a class="markdownIt-Anchor" href="#import-custom-baseline-plot-data"></a> Import custom baseline plot data</h3>
 <p>move the <code>.csv</code> file to th StaMPS_Visualizer/input/baseline_info directory<br />
 open or restart the app<br />
 now the new baseline chart can be selected in the Baseline Plot tab</p>
+<h2 id="result-of-fengkml"><a class="markdownIt-Anchor" href="#result-of-fengkml"></a> Result of Feng.kml</h2>
+<p>Create <code>Feng.kml</code> in google maps and use <code>subset_ts_plot_export.R</code> to subset all PS points within roi.</p>
+<p><img src="Feng_visualizer.png" srcset="/img/loading.gif" lazyload alt="PS results of Feng County in StaMPS_Visualizer" /></p>
+<h2 id="result-of-panankml"><a class="markdownIt-Anchor" href="#result-of-panankml"></a> Result of Panan.kml</h2>
+<p>Create <code>Panan.kml</code> in google maps and use <code>subset_ts_plot_export.R</code> to subset all PS points within roi.</p>
+<p><img src="Panan_visualizer1.png" srcset="/img/loading.gif" lazyload alt="PS results of Panan Lake in StaMPS_Visualizer" /></p>
+<p><img src="Panan_visualizer2.png" srcset="/img/loading.gif" lazyload alt="PS results of Panan Lake in StaMPS_Visualizer" /></p>
 
             </div>
             <hr>
