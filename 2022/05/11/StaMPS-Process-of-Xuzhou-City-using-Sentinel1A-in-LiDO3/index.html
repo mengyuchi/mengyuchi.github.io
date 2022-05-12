@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mengyuchi.github.io/2022/05/11/StaMPS-Process-of-Xuzhou-City-using-Sentinel1A-in-LiDO3/Geographical-location-of-Xuzhou-city-Jiangsu-Province-China.png">
 <meta property="article:published_time" content="2022-05-11T10:04:54.000Z">
-<meta property="article:modified_time" content="2022-05-11T16:25:34.642Z">
+<meta property="article:modified_time" content="2022-05-12T18:32:43.266Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="Land Subsidence">
 <meta property="article:tag" content="InSAR">
@@ -218,7 +218,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.2k 字
+      7.6k 字
     </span>
   
 
@@ -227,7 +227,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      52 分钟
+      64 分钟
     </span>
   
 
@@ -341,10 +341,37 @@ Right: 117.713315</p>
 <p>Run the python scripts of snap2stamp directly in your shell:</p>
 </li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">slave sorting</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(fast) 2-3 seconds</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-keyword">in</span> WSL</span><br>python slaves_prep.py project.conf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">slave splitting and orbit correction</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(this takes some time, approx. 50 seconds per slave) 120 seconds per slave</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-keyword">in</span> WSL</span><br>python splitting_slaves.py project.conf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">master-slave coregistration and interferometric generation</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(this takes some time, approx. 180 seconds per slave)</span><br>python coreg_ifg_topsar.py project.conf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">ouput data generation <span class="hljs-keyword">in</span> StaMPS compatible format</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(approx. 30 seconds)</span><br>python stamps_export.py project.conf<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">slave sorting</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(fast) 2-3 seconds</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-keyword">in</span> WSL</span><br>python slaves_prep.py project.conf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">slave splitting and orbit correction</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(this takes some time, approx. 50 seconds per slave) 120 seconds per slave</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-keyword">in</span> WSL</span><br><br>python splitting_slaves.py project.conf<br></code></pre></td></tr></table></figure>
 <ul>
-<li>The data final output structure after performing the last step should contain these four folders: <code>rslc</code>, <code>diff0</code>, <code>geo</code> and <code>dem</code>.</li>
+<li>
+<p>Copy Xuzhou_city folder to LiDO use Winscp and run the fellowing scripts in LiDO.</p>
+</li>
+<li>
+<p>Edit the <code>project.conf</code> file in <code>\work\smyumeng\snap2stamps\bin</code>:</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs conf">######### CONFIGURATION FILE ######<br>###################################<br># PROJECT DEFINITION<br>PROJECTFOLDER=/work/smyumeng/Sentinel_PS/Xuzhou_city/<br>GRAPHSFOLDER=/work/smyumeng/snap2stamps/graphs<br>##################################<br># PROCESSING PARAMETERS<br>IW1=IW2<br>MASTER=/work/smyumeng/Sentinel_PS/Xuzhou_city/master/S1A_IW_SLC__1SDV_20190919T101207_20190919T101235_029089_034D30_8446_split.dim<br>##################################<br># AOI BBOX DEFINITION<br>LONMIN=116.811255<br>LATMIN=34.022282<br>LONMAX=117.713315<br>LATMAX=34.585279<br>##################################<br># SNAP GPT <br>GPTBIN_PATH=/home/smyumeng/snap/bin/gpt<br>##################################<br># COMPUTING RESOURCES TO EMPLOY<br>CPU=16<br>CACHE=160G<br>##################################<br></code></pre></td></tr></table></figure>
+</li>
 </ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">master-slave coregistration and interferometric generation</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(this takes some time, approx. 180 seconds per slave)</span><br>python coreg_ifg_topsar.py project.conf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">ouput data generation <span class="hljs-keyword">in</span> StaMPS compatible format</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(approx. 30 seconds)</span><br>python stamps_export.py project.conf<br></code></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>The data final output structure after performing the last step should contain these four folders: <code>rslc</code>, <code>diff0</code>, <code>geo</code> and <code>dem</code>.</p>
+</li>
+<li>
+<p>Check for empty interferograms. If any exist, remove files containing the date of the empty file from the folders <code>rslc</code> and <code>diff0</code>. Otherwise, this will throw warnings related to 0 mean amplitude during the final preparation step use in stamps (i.e. <code>mt_prep_snap</code>) and eventually screw up the selection of PS candidates.</p>
+</li>
+<li>
+<p>copy <code>INSAR_master_date</code> folder from MATLAB workstation</p>
+</li>
+<li>
+<p>prepare the data set for final use in StaMPS</p>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs"><br></code></pre></td></tr></table></figure>
+<ul>
+<li>launch <code>matlab</code> to continue with StaMPS PS analysis</li>
+</ul>
+<h2 id="matlab"><a class="markdownIt-Anchor" href="#matlab"></a> MATLAB</h2>
+<p>In LiDO, <code>cd</code> to shell scripts folder. In this case is <code>cd /work/smyumeng/project/sentinel_scripts</code>, edit script <code>stamps13</code>, <code>stamps678</code> and run shell scripts.</p>
 
             </div>
             <hr>
