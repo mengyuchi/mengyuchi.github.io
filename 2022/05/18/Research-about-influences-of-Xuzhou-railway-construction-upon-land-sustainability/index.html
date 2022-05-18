@@ -16,27 +16,24 @@
   <meta name="author" content="Yuchi Meng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="This post is about post-SARscape-PSinsar analysis for Xuzhou city in ArcGIS and RStudio.  R-ArcGIS bridge R is an open-source statistical computing language that offers a large suite of data analysis">
+    <meta name="description" content="Intro This post is about the influences of metro contrution upon land subsidence in Xuzhou.  About Xuzhou metro The Xuzhou Metro is a rapid transit system in Xuzhou, Jiangsu Province, China. Construc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Post-PS-SARscape Analysis in ArcGIS Pro">
-<meta property="og:url" content="http://mengyuchi.github.io/2022/05/17/Post-PS-SARscape-Analysis-in-ArcGIS-Pro/index.html">
+<meta property="og:title" content="Research about influences of Xuzhou metro construction upon land sustainability">
+<meta property="og:url" content="http://mengyuchi.github.io/2022/05/18/Research-about-influences-of-Xuzhou-railway-construction-upon-land-sustainability/index.html">
 <meta property="og:site_name" content="Yuchi&#39;s BLOG">
-<meta property="og:description" content="This post is about post-SARscape-PSinsar analysis for Xuzhou city in ArcGIS and RStudio.  R-ArcGIS bridge R is an open-source statistical computing language that offers a large suite of data analysis">
+<meta property="og:description" content="Intro This post is about the influences of metro contrution upon land subsidence in Xuzhou.  About Xuzhou metro The Xuzhou Metro is a rapid transit system in Xuzhou, Jiangsu Province, China. Construc">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://mengyuchi.github.io/2022/05/17/Post-PS-SARscape-Analysis-in-ArcGIS-Pro/r.jpg">
-<meta property="article:published_time" content="2022-05-17T10:25:43.000Z">
-<meta property="article:modified_time" content="2022-05-17T18:59:39.089Z">
+<meta property="og:image" content="http://mengyuchi.github.io/2022/05/18/Research-about-influences-of-Xuzhou-metro-construction-upon-land-sustainability/line1.jpg">
+<meta property="article:published_time" content="2022-05-18T19:13:44.000Z">
+<meta property="article:modified_time" content="2022-05-18T19:52:33.278Z">
 <meta property="article:author" content="Yuchi Meng">
-<meta property="article:tag" content="PS-InSAR">
-<meta property="article:tag" content="SARscape">
-<meta property="article:tag" content="ArcGIS Pro">
-<meta property="article:tag" content="R">
-<meta property="article:tag" content="RStudio">
+<meta property="article:tag" content="Land Subsidence">
+<meta property="article:tag" content="Xuzhou">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://mengyuchi.github.io/2022/05/17/Post-PS-SARscape-Analysis-in-ArcGIS-Pro/r.jpg">
+<meta name="twitter:image" content="http://mengyuchi.github.io/2022/05/18/Research-about-influences-of-Xuzhou-metro-construction-upon-land-sustainability/line1.jpg">
   
   
-  <title>Post-PS-SARscape Analysis in ArcGIS Pro - Yuchi&#39;s BLOG</title>
+  <title>Research about influences of Xuzhou metro construction upon land sustainability - Yuchi&#39;s BLOG</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -189,12 +186,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/2022/05/17/Post-PS-SARscape-Analysis-in-ArcGIS-Pro/connect.png') no-repeat center center;
+         style="background: url('/2022/05/18/Research-about-influences-of-Xuzhou-metro-construction-upon-land-sustainability/xuzhou_railway.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Post-PS-SARscape Analysis in ArcGIS Pro">
+            <span class="h2" id="subtitle" title="Research about influences of Xuzhou metro construction upon land sustainability">
               
             </span>
 
@@ -204,8 +201,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-17 12:25" pubdate>
-        May 17, 2022 pm
+      <time datetime="2022-05-18 21:13" pubdate>
+        May 18, 2022 pm
       </time>
     </span>
   
@@ -215,7 +212,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      2.5k 字
     </span>
   
 
@@ -224,7 +221,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20 分钟
+      22 分钟
     </span>
   
 
@@ -261,26 +258,22 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Post-PS-SARscape Analysis in ArcGIS Pro</h1>
+            <h1 style="display: none">Research about influences of Xuzhou metro construction upon land sustainability</h1>
             
             <div class="markdown-body">
-              <p>This post is about post-SARscape-PSinsar analysis for Xuzhou city in ArcGIS and RStudio.</p>
-<h1 id="r-arcgis-bridge"><a class="markdownIt-Anchor" href="#r-arcgis-bridge"></a> R-ArcGIS bridge</h1>
-<p>R is an open-source statistical computing language that offers a large suite of data analysis and statistical tools. You can use R to extend the capabilities of ArcGIS and allow for more robust spatial and non-spatial data analysis. In this tutorial, a process will be outlined which will guide you through configuring ArcGIS with the RArcGIS bridge to enable you to access ArcGIS datasets in R, install third-party R packages, and execute R tools configured as script tools in an ArcGIS toolbox. By establishing this link, you will be able to develop R programs that interoperate with ArcGIS datasets, and create custom geoprocessing tools that use R functionality within an ArcGIS Pro or ArcGIS Desktop  environment<a target="_blank" rel="noopener" href="https://highered-esricanada.github.io/r-arcgis-tutorials/1-Getting-Started.pdf" title="Tutorial for ArcGIS Pro 2.2 / ArcGIS Desktop 10.6.1 Getting Started with the R-ArcGIS Bridge">1</a>.</p>
-<h2 id="background-information"><a class="markdownIt-Anchor" href="#background-information"></a> Background Information</h2>
-<blockquote>
-<p>ArcGIS offers a multitude of statistical tools for data analysis. These tools are especially useful when working with GIS data, as they can help you extract information that might not be apparent by looking at a map. The tools available in ArcGIS include basic descriptive statistics (e.g., mean, median, standard deviation), and a variety of spatial statistics, many of which can be found in the Spatial Statistics Toolbox. You are encouraged to use these built-in tools where applicable.</p>
-</blockquote>
-<blockquote>
-<p>While these resources can be beneficial, certain common non-spatial analysis techniques (e.g., ANOVA, correlation, etc.) are not available from within ArcGIS. If you need to apply such techniques, you may have to draw on other statistical software, and exporting data from ArcGIS to a third-party system to perform a simple test can be time consuming and sometimes cumbersome. Being able to communicate with other statistical software systems directly from within ArcGIS helps to alleviate this problem. This is made possible by the R-ArcGIS Bridge by connecting ArcGIS to the R statistical computing software.</p>
-</blockquote>
-<blockquote>
-<p>R is an open-source statistical computing language that offers a large suite of data analysis and statistical tools. R also has an active and growing user community of data scientists, academics, and software engineers who are constantly implementing new tools and techniques that keep R up to date with the latest research methods. Harnessing these tools can reduce some of the work of performing statistical tests, and is a reason to consider using R with ArcGIS.</p>
-</blockquote>
-<blockquote>
-<p>Setting up the R-ArcGIS Bridge to establish the link between ArcGIS and R is a relatively straightforward process. By completing this tutorial, you will have successfully installed the R-ArcGIS Bridge. This initial setup is a requirement for associated tutorial that teach you to work with ArcGIS data in R, and create custom R tools that can be execute from ArcGIS.</p>
-</blockquote>
-<h2 id=""><a class="markdownIt-Anchor" href="#"></a> </h2>
+              <h1 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h1>
+<p>This post is about the influences of metro contrution upon land subsidence in Xuzhou.</p>
+<h1 id="about-xuzhou-metro"><a class="markdownIt-Anchor" href="#about-xuzhou-metro"></a> About Xuzhou metro</h1>
+<p>The Xuzhou Metro is a rapid transit system in Xuzhou, Jiangsu Province, China. Construction began in February 2014, and Line 1 was opened on September-28-2019, Line 2 was opened on November-28-2020, and Line 3 was opened on June-28-2021<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Xuzhou_Metro" title="Xuzhou Metro">1</a>.</p>
+<p>By 2020, the network is scheduled to comprise three lines with a total length of about 67 kilometres. The total investment is expected to be 44.3 billion renminbi.The system is planned to comprise 11 lines and 323 kilometres of track when fully built out.</p>
+<p>In its first year of operation the ridership was 7.5 million (2019).</p>
+<h1 id="line-1"><a class="markdownIt-Anchor" href="#line-1"></a> Line 1</h1>
+<p>Line 1 began construction in February 2014. The first phase is 21.967 kilometres (13.6 mi) in length, and has 18 stations (17 underground and one elevated). It runs from Luwo in the west to Xuzhoudong Railway Station in the east. In June 2018, the civil engineering construction work was reported to be 95% complete, leaving mostly track laying, decorations, and electromechanical installations to be completed. On August 30, 2018, railway work was declared complete, and electromechanical installations and decorations declared as “under intense progress”. It was opened on September 28, 2019. Line 1 runs in east–west, starting from Luwo Station in Tongshan District in the west, and ending at Xuzhoudong Railway Station in Jiawang District in the east. It passes through Quanshan District, Gulou District, and Yunlong District, covering the east–west passenger flow corridor of Xuzhou City. Important nodes in Xuzhou city downtown, Bashan Area, and Chengdong New District connect to commercial centers such as People’s Square, Pengcheng Square, Huaihai Square and Wanda Plaza, and quickly connect with the two major comprehensive passenger transport hubs, Xuzhou Railway Station and Xuzhoudong Railway Station.</p>
+<p>Line 1 opened on September 28, 2019. This was the first metro line in Xuzhou city. As of November 2020, Line 1 has a total length of 21.97 km (13.65 mi), of which the line is elevated for 0.571 km (0.355 mi), underground for 20.996 km (13.046 mi), and at-grade for 0.4 km (0.25 mi). There are a total of 18 stations, including one elevated station and 17 underground stations. Rolling stock for line 1 is six-section B-type trains. As of November 2020, the average daily ridership of Line 1 is 56,500, and the single-day ridership record is 150,000, set on October 2, 2019. Yearly ridership for 2020 on line 1 was 19 million.</p>
+<h1 id="line-2"><a class="markdownIt-Anchor" href="#line-2"></a> Line 2</h1>
+<p>Line 2, opened on November 28, 2020, is 24.25 kilometres (15.07 mi) long with 20 underground stations. The line is fully underground Xuzhou Metro Line 2 was the second metro line in Xuzhou city to open. It is a north–south to east–west backbone line that runs through the old city and Xuzhou New District, covering the north and southeast passenger flow corridors of the city, connecting the Jiulishan area, the old city and the new city.</p>
+<h2 id="dalonghu-phase-1"><a class="markdownIt-Anchor" href="#dalonghu-phase-1"></a> Dalonghu - Phase 1</h2>
+<p>Station Dalonghu was successfully topped out in 2017-03-14<a target="_blank" rel="noopener" href="https://www.xzdtjt.com/article/11/190/2722.html" title="Dalonghu Station">2</a>.</p>
 
             </div>
             <hr>
@@ -290,7 +283,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/PS-InSAR/">PS-InSAR</a>
+                      <a class="hover-with-bg" href="/categories/Xuzhou/">Xuzhou</a>
                     
                   </div>
                 
@@ -298,15 +291,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/PS-InSAR/">PS-InSAR</a>
+                      <a class="hover-with-bg" href="/tags/Land-Subsidence/">Land Subsidence</a>
                     
-                      <a class="hover-with-bg" href="/tags/SARscape/">SARscape</a>
-                    
-                      <a class="hover-with-bg" href="/tags/ArcGIS-Pro/">ArcGIS Pro</a>
-                    
-                      <a class="hover-with-bg" href="/tags/R/">R</a>
-                    
-                      <a class="hover-with-bg" href="/tags/RStudio/">RStudio</a>
+                      <a class="hover-with-bg" href="/tags/Xuzhou/">Xuzhou</a>
                     
                   </div>
                 
@@ -323,18 +310,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/18/Research-about-influences-of-Xuzhou-railway-construction-upon-land-sustainability/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Research about influences of Xuzhou metro construction upon land sustainability</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/11/StaMPS-Process-of-Xuzhou-City-using-Sentinel1A-in-LiDO3/">
-                        <span class="hidden-mobile">StaMPS Process of Xuzhou City using Sentinel1A in LiDO3</span>
+                      <a href="/2022/05/17/Post-PS-SARscape-Analysis-in-ArcGIS-Pro/">
+                        <span class="hidden-mobile">Post-PS-SARscape Analysis in ArcGIS Pro</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
