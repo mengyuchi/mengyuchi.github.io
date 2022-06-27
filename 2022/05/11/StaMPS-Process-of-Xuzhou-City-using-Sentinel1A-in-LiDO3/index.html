@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mengyuchi.github.io/2022/05/11/StaMPS-Process-of-Xuzhou-City-using-Sentinel1A-in-LiDO3/Geographical-location-of-Xuzhou-city-Jiangsu-Province-China.png">
 <meta property="article:published_time" content="2022-05-11T10:04:54.000Z">
-<meta property="article:modified_time" content="2022-06-09T17:54:36.408Z">
+<meta property="article:modified_time" content="2022-06-27T09:49:03.248Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="Land Subsidence">
 <meta property="article:tag" content="InSAR">
@@ -218,7 +218,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      12k 字
+      14k 字
     </span>
   
 
@@ -227,7 +227,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      103 分钟
+      115 分钟
     </span>
   
 
@@ -434,6 +434,46 @@ Right: 117.713315</p>
 </table>
 <p>Rerun step6</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">sbatch </span>stamps6.<span class="hljs-keyword">sh</span><br></code></pre></td></tr></table></figure>
+<h2 id="post-stamps"><a class="markdownIt-Anchor" href="#post-stamps"></a> Post-StaMPS</h2>
+<p>After getting the result of stamps, copy the files to windows through Winscp, furthur analysis is in Matlab.</p>
+<h3 id="write-csv-file-in-matlab"><a class="markdownIt-Anchor" href="#write-csv-file-in-matlab"></a> Write csv file in Matlab</h3>
+<p>Make a <code>csv</code> file with all data vor visualizations:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs MATLAB">ps_plot(<span class="hljs-string">&#x27;v-do&#x27;</span>, <span class="hljs-string">&#x27;ts&#x27;</span>);<br><span class="hljs-comment">% after the plot has appeared magically, set radius and location by clicking into the plot</span><br><span class="hljs-comment">% set radius to 50000 m, and set a point in plot</span><br><span class="hljs-comment">% Please select a point on the figure to plot time series (TS)</span><br><span class="hljs-comment">% Selected point coordinates (lon,lat):117.161, 34.1283</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs matlab">load parms.mat;<br>ps_plot(<span class="hljs-string">&#x27;v-do&#x27;</span>, <span class="hljs-number">-1</span>);<br>load ps_plot_v-do.mat;<br>lon2_str = cellstr(num2str(lon2));<br>lat2_str = cellstr(num2str(lat2));<br>lonlat2_str = strcat(lon2_str, lat2_str);<br><br>lonlat_str = strcat(cellstr(num2str(lonlat(:,<span class="hljs-number">1</span>))), cellstr(num2str(lonlat(:,<span class="hljs-number">2</span>))));<br>ind = <span class="hljs-built_in">ismember</span>(lonlat_str, lonlat2_str);<br><br><span class="hljs-built_in">disp</span> = ph_disp(ind);<br>disp_ts = ph_mm(ind,:);<br>export_res = [lon2 lat2 <span class="hljs-built_in">disp</span> disp_ts];<br><br>metarow = [ref_centre_lonlat NaN transpose(day)<span class="hljs-number">-1</span>];<br>k = <span class="hljs-number">0</span>;<br>export_res = [export_res(<span class="hljs-number">1</span>:k,:); metarow; export_res(k+<span class="hljs-number">1</span>:<span class="hljs-keyword">end</span>,:)];<br>export_res = <span class="hljs-built_in">table</span>(export_res);<br><span class="hljs-built_in">writetable</span>(export_res,<span class="hljs-string">&#x27;stamps_tsexport.csv&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p><img src="ts_plot.png" srcset="/img/loading.gif" lazyload alt="Figure v-do" /></p>
+<h3 id="stamps_visualizer"><a class="markdownIt-Anchor" href="#stamps_visualizer"></a> StamPS_visualizer</h3>
+<ul>
+<li>
+<p>open the <code>StaMPS_Visualizer.Rproj</code> file with Rstudio</p>
+</li>
+<li>
+<p>run <code>install.packages(&quot;renv&quot;)</code> in the R Console</p>
+</li>
+<li>
+<p>run <code>renv::restore()</code> in the R Console to restore the complete environment (this might take some time)</p>
+</li>
+<li>
+<p>go to File --&gt; Open File… and open <code>ui.R</code></p>
+</li>
+<li>
+<p>click on Run App in the upper left panel in the upper right corner</p>
+</li>
+</ul>
+<h4 id="resample-of-stamps-results"><a class="markdownIt-Anchor" href="#resample-of-stamps-results"></a> Resample of stamps results</h4>
+<ul>
+<li>
+<p>Create <code>roi.kml</code> in Google Earth</p>
+</li>
+<li>
+<p>Open R.Studio</p>
+</li>
+<li>
+<p>Open file <code>subset_ts_export.R</code> and edit inputs and outputs</p>
+</li>
+<li>
+<p>Run script</p>
+</li>
+</ul>
 
             </div>
             <hr>
