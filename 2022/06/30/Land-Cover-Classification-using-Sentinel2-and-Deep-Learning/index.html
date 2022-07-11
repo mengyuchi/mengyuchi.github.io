@@ -16,21 +16,42 @@
   <meta name="author" content="Yuchi Meng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="BVB und Badminton">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Archives">
-<meta property="og:url" content="http://mengyuchi.github.io/archives/2022/05/index.html">
+    <meta name="description" content="Intro This post is about getting to know LULC classificaiton using Sentinel 2 based on deep learing.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Land Cover Classification using Sentinel2 and Deep Learning">
+<meta property="og:url" content="http://mengyuchi.github.io/2022/06/30/Land-Cover-Classification-using-Sentinel2-and-Deep-Learning/index.html">
 <meta property="og:site_name" content="Yuchi&#39;s BLOG">
-<meta property="og:description" content="BVB und Badminton">
+<meta property="og:description" content="Intro This post is about getting to know LULC classificaiton using Sentinel 2 based on deep learing.">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-30T09:07:13.000Z">
+<meta property="article:modified_time" content="2022-06-30T19:24:28.723Z">
 <meta property="article:author" content="Yuchi Meng">
+<meta property="article:tag" content="LULC">
+<meta property="article:tag" content="Land Cover Classification">
+<meta property="article:tag" content="Sentinel 2">
+<meta property="article:tag" content="Deep Learning">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>Archives - Yuchi&#39;s BLOG</title>
+  <title>Land Cover Classification using Sentinel2 and Deep Learning - Yuchi&#39;s BLOG</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -57,7 +78,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -165,14 +186,56 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/banners/Greece1.jpg') no-repeat center center;
+         style="background: url('/img/post_banner/PSI_techniques.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Archive">
+            <span class="h2" id="subtitle" title="Land Cover Classification using Sentinel2 and Deep Learning">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-06-30 11:07" pubdate>
+        June 30, 2022 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      622 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -185,52 +248,101 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">21 posts in total.</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2022</p>
-    
-    <a href="/2022/05/18/Research-about-influences-of-Xuzhou-railway-construction-upon-land-sustainability/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Research about influences of Xuzhou metro construction upon land sustainability</span>
-      <time style="float: right;">05-18</time>
-    </a>
-  
-    
-    <a href="/2022/05/17/Post-PS-SARscape-Analysis-in-ArcGIS-Pro/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Post-PS-SARscape Analysis in ArcGIS Pro</span>
-      <time style="float: right;">05-17</time>
-    </a>
-  
-    
-    <a href="/2022/05/11/StaMPS-Process-of-Xuzhou-City-using-Sentinel1A-in-LiDO3/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">StaMPS Process of Xuzhou City using Sentinel1A in LiDO3</span>
-      <time style="float: right;">05-11</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Land Cover Classification using Sentinel2 and Deep Learning</h1>
+            
+            <div class="markdown-body">
+              <h1 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h1>
+<p>This post is about getting to know LULC classificaiton using Sentinel 2 based on deep learing.</p>
+<span id="more"></span>
+<h1 id="sentinel-2"><a class="markdownIt-Anchor" href="#sentinel-2"></a> Sentinel 2</h1>
+<p><a target="_blank" rel="noopener" href="https://sentinel.esa.int/web/sentinel/missions/sentinel-2">Sentinel-2</a> is a mission of two twin satellites, promoted by the European Space Agency, travelling around the Globe, completing a full circle every ten days. The two satellites are flying in the same orbit but phased at 180°, which means that they co-operate to provide freshly captured imagery every five days. One is called S2A and its twin is called S2B<a target="_blank" rel="noopener" href="https://www.staridasgeography.gr/how-to-make-outstanding-maps-with-sentinel-2-and-arcgis-pro-part-1-band-combinations/" title="How to Make Outstanding Maps with Sentinel-2 and ArcGIS Pro – Part 1: Band Combinations">1</a>!</p>
+<h2 id="data-download"><a class="markdownIt-Anchor" href="#data-download"></a> Data Download</h2>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">wget</span> <span class="hljs-built_in">--content-disposition</span> <span class="hljs-built_in">--continue</span> <span class="hljs-built_in">--user=&#123;mengyuchi&#125;</span> <span class="hljs-built_in">--password=&#123;5212109mengle&#125;</span> <span class="hljs-string">&quot;https://scihub.copernicus.eu/dhus/odata/v1/Products(&#x27;9586b4cc-c2bf-4efb-8ee7-87f2ff6f2089&#x27;)/$value&quot;</span><br></code></pre></td></tr></table></figure>
 
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Deep-Learning/">Deep Learning</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/LULC/">LULC</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Land-Cover-Classification/">Land Cover Classification</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Sentinel-2/">Sentinel 2</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Deep-Learning/">Deep Learning</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/18/Research-about-influences-of-Xuzhou-railway-construction-upon-land-sustainability/">
+                        <span class="hidden-mobile">Research about influences of Xuzhou metro construction upon land sustainability</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -313,6 +425,19 @@
   
 
 
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
