@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Getting started with LaTex, VS Code and Overleaf</title>
+    <link href="/2022/09/08/Getting-started-with-LaTex-VS-Code-and-Overleaf/"/>
+    <url>/2022/09/08/Getting-started-with-LaTex-VS-Code-and-Overleaf/</url>
+    
+    <content type="html"><![CDATA[<h1 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h1><p>Start learning to write thesis, papers, reposts, slides or everything you want using LaTex in Visual Studio Code linked with github and overleaf.</p><h1 id="latex"><a class="markdownIt-Anchor" href="#latex"></a> LaTex</h1><blockquote><p><strong>LaTeX</strong> is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation. LaTeX is the de facto standard for the communication and publication of scientific documents. LaTeX is available as free software<a href="https://www.latex-project.org/" title="Latex">1</a>.</p></blockquote><h1 id="tex-live"><a class="markdownIt-Anchor" href="#tex-live"></a> Tex Live</h1><blockquote><p><strong>TeX Live</strong> is intended to be a straightforward way to get up and running with the TeX document production system. It provides a comprehensive TeX system with binaries for most flavors of Unix, including GNU/Linux and macOS, and also Windows. It includes all the major TeX-related programs, macro packages, and fonts that are free software, including support for many languages around the world. Many Unix/GNU/Linux operating systems provide TeX Live via their own distributions and package managers<a href="https://www.tug.org/texlive/" title="Tex Live">2</a>.</p></blockquote><h1 id="latex-workshop-in-vs-code"><a class="markdownIt-Anchor" href="#latex-workshop-in-vs-code"></a> LaTex Workshop in VS Code</h1><blockquote><p>LaTeX Workshop is an extension for Visual Studio Code, aiming to provide core features for LaTeX typesetting with Visual Studio Code<a href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop" title="Visual Studio Code LaTeX Workshop Extension">3</a>.</p></blockquote><p>Make sure after all installations, the LaTeX distribution in system PATH.</p><h1 id="github"><a class="markdownIt-Anchor" href="#github"></a> Github</h1><blockquote><p>If you are a developer, you might be used to versioning everything (hopefully). So why not use GIT in your LaTeX documents as well?</p></blockquote><blockquote><p>If you are only editing it locally, it is just as simple as creating any other repository. But this starts shining when you want to work with others, or you want people to be able to check your work without you heaving to send it to them every time. On top of that, uploading your content to a remote GIT repository can protect you in case of a catastrophic failure in your personal machine<a href="https://medium.com/@rcpassos/writing-latex-documents-in-visual-studio-code-with-latex-workshop-d9af6a6b2815" title="Writing LaTeX Documents In Visual Studio Code With LaTeX Workshop">4</a>.</p></blockquote><h2 id="error-about-contributions-not-display-correctly-in-github"><a class="markdownIt-Anchor" href="#error-about-contributions-not-display-correctly-in-github"></a> Error about contributions not display correctly in Github</h2><p>The reason of contributions are not correctly dispalyed in Github is wrong git setting. After run</p><figure class="highlight shell"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><pre><code class="hljs shell">git config --global user.email &quot;youremail@yourdomain.com&quot;<br>git config --global user.name &quot;Your Name&quot;<br></code></pre></td></tr></table></figure><p>everything works just fine.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Tools</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>LaTex</tag>
+      
+      <tag>Visual Studio Code</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Land Cover Classification using Sentinel2 and Deep Learning</title>
     <link href="/2022/06/30/Land-Cover-Classification-using-Sentinel2-and-Deep-Learning/"/>
     <url>/2022/06/30/Land-Cover-Classification-using-Sentinel2-and-Deep-Learning/</url>
@@ -416,11 +443,11 @@
     
     <tags>
       
+      <tag>LULC</tag>
+      
       <tag>Land Subsidence</tag>
       
       <tag>InSAR</tag>
-      
-      <tag>LULC</tag>
       
       <tag>Vietname</tag>
       
@@ -501,11 +528,11 @@
     
     <tags>
       
+      <tag>LULC</tag>
+      
       <tag>Land Subsidence</tag>
       
       <tag>InSAR</tag>
-      
-      <tag>LULC</tag>
       
     </tags>
     
