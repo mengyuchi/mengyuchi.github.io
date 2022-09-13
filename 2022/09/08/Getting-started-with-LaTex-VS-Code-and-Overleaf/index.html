@@ -24,7 +24,7 @@
 <meta property="og:description" content="Intro Start learning to write thesis, papers, reposts, slides or everything you want using LaTex in Visual Studio Code linked with github and overleaf.  LaTex  LaTeX is a high-quality typesetting sys">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-08T09:30:27.000Z">
-<meta property="article:modified_time" content="2022-09-09T14:53:56.599Z">
+<meta property="article:modified_time" content="2022-09-13T18:29:27.966Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="LaTex">
 <meta property="article:tag" content="Visual Studio Code">
@@ -210,7 +210,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      3k 字
     </span>
   
 
@@ -219,7 +219,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15 分钟
+      26 分钟
     </span>
   
 
@@ -274,6 +274,24 @@
 <p>LaTeX Workshop is an extension for Visual Studio Code, aiming to provide core features for LaTeX typesetting with Visual Studio Code<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop" title="Visual Studio Code LaTeX Workshop Extension">3</a>.</p>
 </blockquote>
 <p>Make sure after all installations, the LaTeX distribution in system PATH.</p>
+<h2 id="latex-errors"><a class="markdownIt-Anchor" href="#latex-errors"></a> Latex Errors</h2>
+<h3 id="overfull-hbox-108622pt-too-wide"><a class="markdownIt-Anchor" href="#overfull-hbox-108622pt-too-wide"></a> Overfull \hbox (10.8622pt too wide)</h3>
+<figure class="highlight latex"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begingroup</span><br><span class="hljs-keyword">\setlength</span>&#123;<span class="hljs-keyword">\tabcolsep</span>&#125;&#123;10pt&#125; <span class="hljs-comment">% Default value: 6pt</span><br><span class="hljs-keyword">\renewcommand</span>&#123;<span class="hljs-keyword">\arraystretch</span>&#125;&#123;1.5&#125; <span class="hljs-comment">% Default value: 1</span><br><span class="hljs-keyword">\begin</span>&#123;table&#125;[h]<br>    <span class="hljs-keyword">\begin</span>&#123;tabular&#125;&#123;llll&#125;<br>    Chairman:                <span class="hljs-built_in">&amp;</span> Univ. -Prof.<span class="hljs-keyword">\@</span> Dr.<span class="hljs-keyword">\@</span> Frank Othengrafen      <span class="hljs-built_in">&amp;</span>  <span class="hljs-built_in">&amp;</span>  <span class="hljs-keyword">\\</span><br>    Supervisor and Reviewer: <span class="hljs-built_in">&amp;</span> Univ.-Prof.<span class="hljs-keyword">\@</span> Dr<span class="hljs-keyword">\@</span>. habil Nguyen Xuan Thinh <span class="hljs-built_in">&amp;</span>  <span class="hljs-built_in">&amp;</span>  <span class="hljs-keyword">\\</span><br>    Supervisor and Reviewer: <span class="hljs-built_in">&amp;</span> Univ.-Prof.<span class="hljs-keyword">\@</span> Dr.-Ing Ralf Bill             <span class="hljs-built_in">&amp;</span>  <span class="hljs-built_in">&amp;</span>  <span class="hljs-keyword">\\</span><br>    <span class="hljs-keyword">\end</span>&#123;tabular&#125;<br><span class="hljs-keyword">\end</span>&#123;table&#125;<br><span class="hljs-keyword">\endgroup</span><br></code></pre></td></tr></table></figure>
+<p><strong>Solution</strong></p>
+<p>After typesetting a LaTeX document Overleaf will often display messages which report an underfull or overfull \hbox (or \vbox), along with so-called badness values for underfull boxes or amounts by which boxes are overfull. Firstly, it is important to note these messages are not errors. They are warnings or, more correctly, “diagnostic messages” which originate from inside the TeX engine being used to typeset your LaTeX document<a target="_blank" rel="noopener" href="https://www.overleaf.com/learn/how-to/Understanding_underfull_and_overfull_box_warnings#Introduction" title="Overleaf">5</a>.</p>
+<blockquote>
+<p>You can use the <a target="_blank" rel="noopener" href="https://ctan.org/pkg/microtype?lang=en">microtype package</a> which takes advantage of micro-typographic extensions introduced by pdfTeX—producing higher-quality typesetting which can also result in fewer bad boxes<a target="_blank" rel="noopener" href="https://www.overleaf.com/learn/how-to/Understanding_underfull_and_overfull_box_warnings#Common_problems_and_how_to_fix_them" title="Overleaf">6</a>.</p>
+</blockquote>
+<blockquote>
+<p>I assume you get this warning because your tabular is (a little bit) wider than your <code>\textwidth</code><a target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/6237/overfull-hbox-warning-when-using-tabular" title="StackExchange">7</a>.</p>
+</blockquote>
+<p>Solutions include:</p>
+<blockquote>
+<p>enlarging the <code>\textwidth</code> a little<br />
+narrowing down the tabular by a little<br />
+adding <code>\hfuzz=0.64pt</code> somewhere in the preamble<br />
+The <code>\hfuzz</code> setting specifies the maximum amount of box-overflow before a warning message will be issued.</p>
+</blockquote>
 <h1 id="github"><a class="markdownIt-Anchor" href="#github"></a> Github</h1>
 <blockquote>
 <p>If you are a developer, you might be used to versioning everything (hopefully). So why not use GIT in your LaTeX documents as well?</p>
@@ -283,7 +301,7 @@
 </blockquote>
 <h2 id="error-about-contributions-not-display-correctly-in-github"><a class="markdownIt-Anchor" href="#error-about-contributions-not-display-correctly-in-github"></a> Error about contributions not display correctly in Github</h2>
 <p>The reason of contributions are not correctly dispalyed in Github is wrong git setting. After run</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><pre><code class="hljs shell">git config --global user.email &quot;youremail@yourdomain.com&quot;<br>git config --global user.name &quot;Your Name&quot;<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git config --global user.email &quot;youremail@yourdomain.com&quot;<br>git config --global user.name &quot;Your Name&quot;<br></code></pre></td></tr></table></figure>
 <p>everything works just fine.</p>
 
             </div>
