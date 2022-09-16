@@ -26,12 +26,13 @@
 <meta property="og:image" content="http://mengyuchi.github.io/2022/04/21/Post-StaMPS-Analysis-in-Xuzhou/Feng_visualizer.png">
 <meta property="og:image" content="http://mengyuchi.github.io/2022/04/21/Post-StaMPS-Analysis-in-Xuzhou/Panan_visualizer1.png">
 <meta property="og:image" content="http://mengyuchi.github.io/2022/04/21/Post-StaMPS-Analysis-in-Xuzhou/Panan_visualizer2.png">
+<meta property="og:image" content="http://mengyuchi.github.io/2022/04/21/Post-StaMPS-Analysis-in-Xuzhou/xuzhou_stamps_result.png">
 <meta property="article:published_time" content="2022-04-21T15:12:27.000Z">
-<meta property="article:modified_time" content="2022-09-07T08:27:17.752Z">
+<meta property="article:modified_time" content="2022-09-16T15:15:39.293Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="ENVISAT">
-<meta property="article:tag" content="StaMPS-InSAR">
 <meta property="article:tag" content="Xuzhou">
+<meta property="article:tag" content="StaMPS-InSAR">
 <meta property="article:tag" content="StaMPS-Visualizer">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://mengyuchi.github.io/2022/04/21/Post-StaMPS-Analysis-in-Xuzhou/Feng_visualizer.png">
@@ -216,7 +217,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      10k 字
+      15k 字
     </span>
   
 
@@ -225,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      84 分钟
+      126 分钟
     </span>
   
 
@@ -373,6 +374,108 @@ now the new baseline chart can be selected in the Baseline Plot tab</p>
 <p>Create <code>Panan.kml</code> in google maps and use <code>subset_ts_plot_export.R</code> to subset all PS points within roi.</p>
 <p><img src="Panan_visualizer1.png" srcset="/img/loading.gif" lazyload alt="PS results of Panan Lake in StaMPS_Visualizer" /></p>
 <p><img src="Panan_visualizer2.png" srcset="/img/loading.gif" lazyload alt="PS results of Panan Lake in StaMPS_Visualizer" /></p>
+<h1 id="stamps-visualizer-qgis"><a class="markdownIt-Anchor" href="#stamps-visualizer-qgis"></a> StaMPS -&gt; VisuAlizer -&gt; QGIS</h1>
+<h2 id="research-question-how-to-convert-stamps-result-into-a-tiff-or-other-coordinate-files"><a class="markdownIt-Anchor" href="#research-question-how-to-convert-stamps-result-into-a-tiff-or-other-coordinate-files"></a> Research question: How to convert StaMPS result into a tiff or other coordinate files?</h2>
+<blockquote>
+<p>Regarding StaMPS results, if you plan to go to a GIS system it should be immediate or simpler to export in <code>csv</code> file and then import in the GIS and from there, if desired do the conversion to tiff… That is what I do when I want to work with the results into GIS<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/error-in-ps-plot-ifg-after-snap-nan-make-stamps-unable-to-calculate/12159/2?u=mdelgado" title="STEP Forum">8</a>.</p>
+</blockquote>
+<blockquote>
+<p>You can also find an explanation here <a target="_blank" rel="noopener" href="https://github.com/thho/StaMPS_Visualizer">StaMPS_Visualizer</a>. Visist the repository on Github, launch the <code>StamPS-Visualizer</code> Example and go the the Manual tab, here is a description how to export the data you are looking for as <code>csv</code> table from <code>Matlab</code> and use <code>R</code> to build a spatial object from it. From there you can export it to any format you would like to have<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/how-to-use-stamps-result-into-gis/12160" title="STEP Forum">9</a>.</p>
+</blockquote>
+<h3 id="stamps-result-to-csv-file"><a class="markdownIt-Anchor" href="#stamps-result-to-csv-file"></a> StamPS result to <code>csv</code> file</h3>
+<p>Set <code>radius</code> 70000m</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs matlab">ps_plot(<span class="hljs-string">&#x27;v-do&#x27;</span>,<span class="hljs-string">&#x27;ts&#x27;</span>)<br><span class="hljs-comment">% 1307450 ref PS selected</span><br><span class="hljs-comment">% Please select a point on the figure to plot time series (TS)</span><br><span class="hljs-comment">% Selected point coordinates (lon,lat):117.0254, 34.2171</span><br></code></pre></td></tr></table></figure>
+<p><img src="xuzhou_stamps_result.png" srcset="/img/loading.gif" lazyload alt="Figure v-do" /></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs matlab">load parms.mat;<br>ps_plot(<span class="hljs-string">&#x27;v-do&#x27;</span>, <span class="hljs-number">-1</span>);<br><span class="hljs-comment">% savename =</span><br><span class="hljs-comment">%    &#x27;ps_plot_v-do&#x27;</span><br><span class="hljs-comment">% Color Range:  to 109 m/yr</span><br>load ps_plot_v-do.mat;<br>lon2_str = cellstr(num2str(lon2));<br>lat2_str = cellstr(num2str(lat2));<br>lonlat2_str = strcat(lon2_str, lat2_str);<br><br>lonlat_str = strcat(cellstr(num2str(lonlat(:,<span class="hljs-number">1</span>))), cellstr(num2str(lonlat(:,<span class="hljs-number">2</span>))));<br>ind = <span class="hljs-built_in">ismember</span>(lonlat_str, lonlat2_str);<br><br><span class="hljs-built_in">disp</span> = ph_disp(ind);<br>disp_ts = ph_mm(ind,:);<br>export_res = [lon2 lat2 <span class="hljs-built_in">disp</span> disp_ts];<br><br>metarow = [ref_centre_lonlat NaN transpose(day)<span class="hljs-number">-1</span>];<br>k = <span class="hljs-number">0</span>;<br>export_res = [export_res(<span class="hljs-number">1</span>:k,:); metarow; export_res(k+<span class="hljs-number">1</span>:<span class="hljs-keyword">end</span>,:)];<br>export_res = <span class="hljs-built_in">table</span>(export_res);<br><span class="hljs-built_in">writetable</span>(export_res,<span class="hljs-string">&#x27;stamps_tsexport.csv&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>File exported to dir <code>H:\StaMPS_LiDO_result\Xuzhou_city_new\stamps_tsexport.csv</code></p>
+<p>This <code>csv</code> file is used to import to <code>StaMPS_visualizer</code>. In order to import to <code>ArcGIS Online</code>, <code>metarow</code> in <code>stamps_tsexpoer.csv</code> file must be deleted, cause it is not readable in Map view.</p>
+<p>Run <code>writetable(export_res,'stamps_tsexport_d2.csv')</code> in matlab instead of write <code>metarow</code> in csv file. Result is saved in dir <code>H:\StaMPS_LiDO_result\Xuzhou_city_new\stamps_tsexport_d2.csv</code></p>
+<h3 id="details-of-stamps_tsexportcsv"><a class="markdownIt-Anchor" href="#details-of-stamps_tsexportcsv"></a> Details of <code>stamps_tsexport.csv</code></h3>
+<p>What does each row and columns mean in exported csv file?</p>
+<blockquote>
+<p>the csv chart is structured like this<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/stamps-visualizer-snap-stamps-workflow/9613/83?page=5" title="STEP Forum">12</a>:<br />
+row 1 header<br />
+row 2 col 1 and 2 lon lat of your ref point<br />
+row 2 col 3 NaN to fill this cell<br />
+row 2 col 4:ncol the dates in days from 0 of the measurement, will be converted in stamps visualizer in yyyy-mm-dd. Numbers<a target="_blank" rel="noopener" href="https://forum.step.esa.int/t/stamps-visualizer-snap-stamps-workflow/9613/11" title="STEP Forum">13</a> can be converted to human-read date in <a target="_blank" rel="noopener" href="https://www.epochconverter.com/seconds-days-since-y0">EpochConverter</a><br />
+row 3 col 1 an 2 lon lat of measurement point (MP)<br />
+row 3 col 3 mean velocity of MP<br />
+row 3 col 4:ncol displacement value of MP</p>
+</blockquote>
+<h3 id="import-csv-to-arcgis"><a class="markdownIt-Anchor" href="#import-csv-to-arcgis"></a> Import <code>csv</code> to ArcGIS</h3>
+<blockquote>
+<p>You can use spreadsheet data stored in a comma-separated values (CSV) text file (<code>.csv</code>) or data stored in a delimited text file (<code>.txt</code>) or GPS Exchange Format file (<code>.gpx</code>) in ArcGIS Online. The following list summarizes how you can use these files and provides links to instructions. The sections after the functionality list provide information on proper formatting and tips for using CSV, TXT, and GPX files in your ArcGIS Online organization<a target="_blank" rel="noopener" href="https://doc.arcgis.com/en/arcgis-online/reference/csv-gpx.htm" title="ArcGIS Online">10</a>.</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://doc.arcgis.com/en/arcgis-online/reference/add-layers.htm#FILE">Add CSV, TXT, or GPX files to your map</a>. Map Viewer Classic adds the location information, draws features on the map for each item in the file, and stores the information in the map as a layer. Once you’ve added your file to the map, you can edit the properties of the layer that is created. For example, you can configure pop-ups, change symbols, set the visibility range, enable editing, and remove pop-ups.</li>
+</ul>
+<h4 id="publish-hosted-feature-layers"><a class="markdownIt-Anchor" href="#publish-hosted-feature-layers"></a> Publish hosted feature layers</h4>
+<blockquote>
+<p>If your <code>CSV</code> file, shapefile, or <code>GeoJSON</code> file contains a large amount of data, or you want to create a layer that you can reuse in multiple maps, you can <a target="_blank" rel="noopener" href="https://doc.arcgis.com/en/arcgis-online/manage-data/publish-features.htm">publish a hosted feature layer</a> instead of adding the file to the map.</p>
+</blockquote>
+<p>Publish a CSV file</p>
+<blockquote>
+<p>To web enable feature layers from <code>CSV</code> files, you upload them to ArcGIS Online and have them hosted as services. These services are referred to as hosted feature layers. This is a useful workflow if you do not have any ArcGIS products installed locally<a target="_blank" rel="noopener" href="https://doc.arcgis.com/en/arcgis-online/manage-data/publish-features.htm#GUID-DD47C642-38B4-4645-801D-2866FE90BF73" title="ArcGIS Online">11</a>. Features are published in the <code>WGS 1984</code> Web Mercator (Auxiliary Sphere) coordinate system.</p>
+</blockquote>
+<p><strong>Important</strong></p>
+<p>Before publish, <code>stamps_tsexport.csv</code> file need to be modified. Open with MS Execl and delete row 2 then save.</p>
+<ul>
+<li>
+<p>Open <strong>Content</strong> &gt; <strong>My Content</strong>, click <strong>New item</strong>, and click <strong>Your device</strong>.</p>
+</li>
+<li>
+<p>Find the file on your device.</p>
+</li>
+<li>
+<p>Select the file and click <strong>Open</strong>.</p>
+</li>
+<li>
+<p>Choose <strong>Add <code>stamps_tsexport_d2.csv</code> and create a hosted feature layer or table</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Review the fields included and make changes as needed. If the field types can be identified, they are set automatically. You can remove fields, change the display name of the field, and change the field type. <code>export_res_1</code> to <code>Longitude</code>, <code>export_res_2</code> to <code>Latitude</code>.</p>
+</li>
+<li>
+<p>Choose a <strong>Time Zone</strong> for the date fields in your CSV file.</p>
+</li>
+<li>
+<p>Click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Choose the information in your file that ArcGIS Online should use to locate features.</p>
+</li>
+<li>
+<p>Optionally, type tag terms separated by commas.</p>
+</li>
+<li>
+<p>Optionally, type a summary that describes the data.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ul>
+<h3 id="import-csv-to-qgis"><a class="markdownIt-Anchor" href="#import-csv-to-qgis"></a> Import <code>csv</code> to QGIS</h3>
+<p>Many times the GIS data comes in a table or in a spreadsheet. <code>QGIS</code> allows you to import structured text files with coordinates as a vector layer. This tutorial shows how you can use the Data Source Manager to import Delimited Text files<a target="_blank" rel="noopener" href="https://www.qgistutorials.com/en/docs/3/importing_spreadsheets_csv.html" title="QGIS tutorial">14</a>.</p>
+<ul>
+<li>
+<p>Click the <code>Open Data Source Manager</code> button on the Data Source Toolbar. You may also use <code>Ctrl + L</code> keyboard shortcut.</p>
+</li>
+<li>
+<p>In the Data Source Manager dialog box, switch to the <code>Delimited Text</code> tab. Click the … button next to the File name.</p>
+</li>
+<li>
+<p>By default <code>X</code> field and <code>Y</code> field values will be auto-populated if it finds a suitable name field in the input. In our case, they are <code>export_res_1</code> and <code>export_res_2</code>.</p>
+</li>
+<li>
+<p>You may change it if the import selects the wrong fields. You can leave the Geometry CRS to the default <code>EPSG:4326 - WGS 84 CRS</code>.</p>
+</li>
+<li>
+<p>Add Basemap. In the browser panel, locate the Tile Server entry and right click it to add a new service, double click <code>Open Street Map</code>.</p>
+</li>
+</ul>
 
             </div>
             <hr>
@@ -392,9 +495,9 @@ now the new baseline chart can be selected in the Baseline Plot tab</p>
                     
                       <a class="hover-with-bg" href="/tags/ENVISAT/">ENVISAT</a>
                     
-                      <a class="hover-with-bg" href="/tags/StaMPS-InSAR/">StaMPS-InSAR</a>
-                    
                       <a class="hover-with-bg" href="/tags/Xuzhou/">Xuzhou</a>
+                    
+                      <a class="hover-with-bg" href="/tags/StaMPS-InSAR/">StaMPS-InSAR</a>
                     
                       <a class="hover-with-bg" href="/tags/StaMPS-Visualizer/">StaMPS-Visualizer</a>
                     
