@@ -16,16 +16,16 @@
   <meta name="author" content="Yuchi Meng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Intro In order to compare the influene of coal mining activity and it’s further impact in city, we conduct a series research both include Xuzhou city and Ruhr valler in Germany, which is know by coal">
+    <meta name="description" content="Intro In order to compare the influence of coal mining activity 1nd it’s further impact in city, we conduct a series research both include Xuzhou city and Ruhr valley in Germany, which is known by co">
 <meta property="og:type" content="article">
 <meta property="og:title" content="StaMPS Process of Ruhr">
 <meta property="og:url" content="http://mengyuchi.github.io/2022/09/18/StaMPS-Process-of-Ruhr/index.html">
 <meta property="og:site_name" content="Yuchi&#39;s BLOG">
-<meta property="og:description" content="Intro In order to compare the influene of coal mining activity and it’s further impact in city, we conduct a series research both include Xuzhou city and Ruhr valler in Germany, which is know by coal">
+<meta property="og:description" content="Intro In order to compare the influence of coal mining activity 1nd it’s further impact in city, we conduct a series research both include Xuzhou city and Ruhr valley in Germany, which is known by co">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mengyuchi.github.io/2022/09/18/StaMPS-Process-of-Ruhr/ruhr.jpg">
 <meta property="article:published_time" content="2022-09-18T13:17:56.000Z">
-<meta property="article:modified_time" content="2022-09-18T16:01:20.552Z">
+<meta property="article:modified_time" content="2022-09-19T15:47:32.018Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="InSAR">
 <meta property="article:tag" content="Land Subsidence">
@@ -218,7 +218,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.4k 字
+      4.7k 字
     </span>
   
 
@@ -227,7 +227,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      29 分钟
+      39 分钟
     </span>
   
 
@@ -268,7 +268,7 @@
             
             <div class="markdown-body">
               <h1 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h1>
-<p>In order to compare the influene of coal mining activity and it’s further impact in city, we conduct a series research both include Xuzhou city and Ruhr valler in Germany, which is know by coal mining history in last century. This post is about using Sentinel 1A SAR data to produce land subsidence LOS velocity by StaMPS-InSAR in LiDO3.</p>
+<p>In order to compare the influence of coal mining activity 1nd it’s further impact in city, we conduct a series research both include Xuzhou city and Ruhr valley in Germany, which is known by coal mining history in last century. This post is about using Sentinel 1A SAR data to produce land subsidence LOS velocity by StaMPS-InSAR in LiDO3.</p>
 <h1 id="dataset"><a class="markdownIt-Anchor" href="#dataset"></a> Dataset</h1>
 <p>135 Sentinel1-A SLC IW arcsending SAR data with path <code>15</code> and frame <code>364</code> from <code>2016-09-30</code> to <code>2021-12-01</code> has been acquired from ASF data search vertex<a target="_blank" rel="noopener" href="https://search.asf.alaska.edu/#/" title="ASF Data Search">1</a>.</p>
 <p><img src="dataset_ruhr.png" srcset="/img/loading.gif" lazyload alt="Dataset of Ruhr valley" /></p>
@@ -282,7 +282,7 @@
 <p><img src="master_select.png" srcset="/img/loading.gif" lazyload alt="Select optimal master in SNAP" /></p>
 <ul>
 <li>
-<p>Perform subsetting of whole image using <code>TOPSAR Split via Radar / Sentinel-1 TOPS / S-1 TOPS Split</code>. Set the processing parameters</p>
+<p>Subset whole image using <code>TOPSAR Split via Radar / Sentinel-1 TOPS / S-1 TOPS Split</code>. Set the processing parameters</p>
 <ul>
 <li>IW1</li>
 <li>VV</li>
@@ -358,6 +358,17 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li>After <code>subset</code> the SAR data, if it doesn’t cover the whole ROI, extent should be manually picked up in SNAP using <code>copy pixel info to clipboard</code> right click.</li>
+</ul>
+<blockquote>
+<p>Latitude:	51.30391	deg<br />
+Longitude:	7.383403	deg</p>
+</blockquote>
+<blockquote>
+<p>Latitude:	51.838238	deg<br />
+Longitude:	6.313985	deg</p>
+</blockquote>
 <h2 id="2-snap2stamps-in-wsl"><a class="markdownIt-Anchor" href="#2-snap2stamps-in-wsl"></a> 2. snap2stamps in WSL</h2>
 <ul>
 <li>
@@ -387,7 +398,26 @@
 <p>Run the python scripts of snap2stamp directly in your shell:</p>
 </li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">slave sorting</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(fast) 2-3 seconds</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-keyword">in</span> WSL</span><br>python slaves_prep.py project.conf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">slave splitting and orbit correction</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(this takes some time, approx. 50 seconds per slave) 120 seconds per slave</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-keyword">in</span> WSL</span><br><br>python splitting_slaves.py project.conf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">master-slave coregistration and interferometric generation</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(this takes some time, approx. 180 seconds per slave) 680+ seconds per slave, around 24 hours to process all</span><br>python coreg_ifg_topsar.py project.conf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">ouput data generation <span class="hljs-keyword">in</span> StaMPS compatible format</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(approx. 30 seconds)</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">python stamps_export.py project.conf</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">slave sorting</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(fast) 2-3 seconds</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-keyword">in</span> WSL</span><br>python slaves_prep.py project.conf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">slave splitting and orbit correction</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(this takes some time, approx. 50 seconds per slave) 120 seconds per slave</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-keyword">in</span> WSL</span><br><br>python splitting_slaves.py project.conf<br></code></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>Copy folder <code>graphs</code>, <code>logs</code> and <code>split</code> in <code>I:SAR\Data\Ruhr\</code> to <code>work\smyumeng\Sentinel_PS\Ruhr</code> with WinSCP. Process the following step in Lido.</p>
+</li>
+<li>
+<p>Edit the <code>project.conf</code> file in <code>\work\smyumeng\snap2stamps\bin</code>:</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">######## CONFIGURATION FILE ######</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">##################################</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">PROJECT DEFINITION</span><br>PROJECTFOLDER=/work/smyumeng/Sentinel_PS/Ruhr<br>GRAPHSFOLDER=/work/smyumeng/snap2stamps/graphs<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#################################</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">PROCESSING PARAMETERS</span><br>IW1=IW1<br>MASTER=/work/smyumeng/Sentinel_PS/Ruhr/master/S1A_IW_SLC__1SDV_20200201T171634_20200201T171702_031062_039191_B623_split.dim<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#################################</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">AOI BBOX DEFINITION</span><br>LONMIN=51.283068<br>LATMIN=2.061542<br>LONMAX=51.718088<br>LATMAX=2.862711<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#################################</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">SNAP GPT</span> <br>GPTBIN_PATH=/home/smyumeng/snap/bin/gpt<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#################################</span></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">COMPUTING RESOURCES TO EMPLOY</span><br>CPU=28<br>CACHE=256G<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#################################</span></span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>Run snap2stamps commands using <code>sbatch</code></li>
+</ul>
+<p>cd to <code>/work/smyumeng/project/snap2stamps_script/</code> and open in terminal</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">sbatch snap2stamps_coreg.sh<br>sbatch snap2stamps_stamps_output.sh<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Or simply run snap2stamps commands in terminal</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">master-slave coregistration and interferometric generation</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(this takes some time, approx. 180 seconds per slave) 680+ seconds per slave, around 24 hours to process all</span><br>python coreg_ifg_topsar.py project.conf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">ouput data generation <span class="hljs-keyword">in</span> StaMPS compatible format</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">(approx. 30 seconds)</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">python stamps_export.py project.conf</span><br></code></pre></td></tr></table></figure>
+<h1 id="stamps-in-lido"><a class="markdownIt-Anchor" href="#stamps-in-lido"></a> StaMPS in LiDO</h1>
 
             </div>
             <hr>
