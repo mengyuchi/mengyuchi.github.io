@@ -24,7 +24,7 @@
 <meta property="og:description" content="Intro After export csv file in MATLAB, further analysis should be done in GIS program, like ArcGIS or QGIS. This post is about works after ‘Post StaMPS Analysis in Xuzhou’.  ArcGIS Pro ArcGIS pro is">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-16T15:36:42.000Z">
-<meta property="article:modified_time" content="2022-09-26T16:26:53.561Z">
+<meta property="article:modified_time" content="2022-10-05T09:02:40.164Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="Land Subsidence">
 <meta property="article:tag" content="ArcGIS Pro">
@@ -214,7 +214,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      840 字
+      1k 字
     </span>
   
 
@@ -223,7 +223,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 分钟
+      9 分钟
     </span>
   
 
@@ -288,12 +288,26 @@
 </li>
 </ul>
 <h2 id="arcgis-desktop"><a class="markdownIt-Anchor" href="#arcgis-desktop"></a> ArcGIS Desktop</h2>
+<ol>
+<li>XY Table to Point</li>
+</ol>
+<figure class="highlight nestedtext"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">Input Table</span><span class="hljs-punctuation">:</span> <span class="hljs-string">stamps_tsexport_d2.csv</span><br><br><span class="hljs-attribute">Output Feature Class</span><span class="hljs-punctuation">:</span> <span class="hljs-string">stamps_xzc</span><br><br><span class="hljs-attribute">X Field</span><span class="hljs-punctuation">:</span> <span class="hljs-string">export_res_1</span><br><br><span class="hljs-attribute">Y Field</span><span class="hljs-punctuation">:</span> <span class="hljs-string">export_res_2</span><br><br><span class="hljs-attribute">Coordinate System</span><span class="hljs-punctuation">:</span> <span class="hljs-string">`Current Map` WGS_1984_UTM_Zone_50N</span><br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li>
+<p>Lat/Lon to UTM</p>
+</li>
+<li>
+<p>Symbology</p>
+</li>
+</ol>
 <ul>
-<li>Aggregate Points</li>
+<li>
+<p>Apply Filter</p>
+</li>
+<li>
+<p>Graduated color</p>
+</li>
 </ul>
-<p>Input Features: <code>stamps_tsexport_xuzhou_city</code></p>
-<p>Output Feature Class: <code>stamps_xz_AggregatePoint.shp</code></p>
-<p>Aggregation Distance: 50m</p>
 <h2 id="arcgis-online"><a class="markdownIt-Anchor" href="#arcgis-online"></a> ArcGIS Online</h2>
 <ol>
 <li>
@@ -305,6 +319,23 @@
 </ol>
 <ul>
 <li>Add a filter</li>
+</ul>
+<ol start="3">
+<li>
+<p>Clip <code>stamps_tsexport_xuzhou_city</code>dataset with <code>xuzhou_centre_Dissolve.shp</code></p>
+</li>
+<li>
+<p>Symbology</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>Apply Filter</p>
+</li>
+<li>
+<p>Graduated color</p>
+</li>
+<li></li>
 </ul>
 <h2 id="arcgis-api-for-javascript"><a class="markdownIt-Anchor" href="#arcgis-api-for-javascript"></a> ArcGIS API for Javascript</h2>
 <h1 id="qgis"><a class="markdownIt-Anchor" href="#qgis"></a> QGIS</h1>
