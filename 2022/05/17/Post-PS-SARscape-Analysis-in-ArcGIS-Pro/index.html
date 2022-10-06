@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mengyuchi.github.io/2022/05/17/Post-PS-SARscape-Analysis-in-ArcGIS-Pro/r.jpg">
 <meta property="article:published_time" content="2022-05-17T10:25:43.000Z">
-<meta property="article:modified_time" content="2022-05-17T18:59:39.089Z">
+<meta property="article:modified_time" content="2022-10-06T15:55:25.350Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="PS-InSAR">
 <meta property="article:tag" content="SARscape">
@@ -215,7 +215,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      2.5k 字
     </span>
   
 
@@ -224,7 +224,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20 分钟
+      21 分钟
     </span>
   
 
@@ -266,21 +266,32 @@
             <div class="markdown-body">
               <p>This post is about post-SARscape-PSinsar analysis for Xuzhou city in ArcGIS and RStudio.</p>
 <h1 id="r-arcgis-bridge"><a class="markdownIt-Anchor" href="#r-arcgis-bridge"></a> R-ArcGIS bridge</h1>
-<p>R is an open-source statistical computing language that offers a large suite of data analysis and statistical tools. You can use R to extend the capabilities of ArcGIS and allow for more robust spatial and non-spatial data analysis. In this tutorial, a process will be outlined which will guide you through configuring ArcGIS with the RArcGIS bridge to enable you to access ArcGIS datasets in R, install third-party R packages, and execute R tools configured as script tools in an ArcGIS toolbox. By establishing this link, you will be able to develop R programs that interoperate with ArcGIS datasets, and create custom geoprocessing tools that use R functionality within an ArcGIS Pro or ArcGIS Desktop  environment<a target="_blank" rel="noopener" href="https://highered-esricanada.github.io/r-arcgis-tutorials/1-Getting-Started.pdf" title="Tutorial for ArcGIS Pro 2.2 / ArcGIS Desktop 10.6.1 Getting Started with the R-ArcGIS Bridge">1</a>.</p>
+<p>R is an open-source statistical computing language that offers a large suite of data analysis and statistical tools. You can use R to extend the capabilities of ArcGIS and allow for more robust spatial and non-spatial data analysis. In this tutorial, a process will be outlined which will guide you through configuring ArcGIS with the R-ArcGIS bridge to enable you to access ArcGIS datasets in R, install third-party R packages, and execute R tools configured as script tools in an ArcGIS toolbox. By establishing this link, you will be able to develop R programs that interoperate with ArcGIS datasets, and create custom geoprocessing tools that use R functionality within an ArcGIS Pro or ArcGIS Desktop  environment<a target="_blank" rel="noopener" href="https://highered-esricanada.github.io/r-arcgis-tutorials/1-Getting-Started.pdf" title="Tutorial for ArcGIS Pro 2.2 / ArcGIS Desktop 10.6.1 Getting Started with the R-ArcGIS Bridge">1</a>.</p>
 <h2 id="background-information"><a class="markdownIt-Anchor" href="#background-information"></a> Background Information</h2>
 <blockquote>
 <p>ArcGIS offers a multitude of statistical tools for data analysis. These tools are especially useful when working with GIS data, as they can help you extract information that might not be apparent by looking at a map. The tools available in ArcGIS include basic descriptive statistics (e.g., mean, median, standard deviation), and a variety of spatial statistics, many of which can be found in the Spatial Statistics Toolbox. You are encouraged to use these built-in tools where applicable.</p>
 </blockquote>
 <blockquote>
-<p>While these resources can be beneficial, certain common non-spatial analysis techniques (e.g., ANOVA, correlation, etc.) are not available from within ArcGIS. If you need to apply such techniques, you may have to draw on other statistical software, and exporting data from ArcGIS to a third-party system to perform a simple test can be time consuming and sometimes cumbersome. Being able to communicate with other statistical software systems directly from within ArcGIS helps to alleviate this problem. This is made possible by the R-ArcGIS Bridge by connecting ArcGIS to the R statistical computing software.</p>
+<p>While these resources can be beneficial, certain common non-spatial analysis techniques (e.g., ANOVA, correlation, etc.) are not available from within ArcGIS. If you need to apply such techniques, you may have to draw on other statistical software, and exporting data from ArcGIS to a third-party system to perform a simple test can be time-consuming and sometimes cumbersome. Being able to communicate with other statistical software systems directly from within ArcGIS helps to alleviate this problem. This is made possible by the R-ArcGIS Bridge by connecting ArcGIS to the R statistical computing software.</p>
 </blockquote>
 <blockquote>
 <p>R is an open-source statistical computing language that offers a large suite of data analysis and statistical tools. R also has an active and growing user community of data scientists, academics, and software engineers who are constantly implementing new tools and techniques that keep R up to date with the latest research methods. Harnessing these tools can reduce some of the work of performing statistical tests, and is a reason to consider using R with ArcGIS.</p>
 </blockquote>
 <blockquote>
-<p>Setting up the R-ArcGIS Bridge to establish the link between ArcGIS and R is a relatively straightforward process. By completing this tutorial, you will have successfully installed the R-ArcGIS Bridge. This initial setup is a requirement for associated tutorial that teach you to work with ArcGIS data in R, and create custom R tools that can be execute from ArcGIS.</p>
+<p>Setting up the R-ArcGIS Bridge to establish the link between ArcGIS and R is a relatively straightforward process. By completing this tutorial, you will have successfully installed the R-ArcGIS Bridge. This initial setup is a requirement for associated tutorial that teach you to work with ArcGIS data in R, and create custom R tools that can be executed from ArcGIS.</p>
 </blockquote>
-<h2 id=""><a class="markdownIt-Anchor" href="#"></a> </h2>
+<h2 id="arcgis-pro"><a class="markdownIt-Anchor" href="#arcgis-pro"></a> ArcGIS pro</h2>
+<ol>
+<li>
+<p>Load all SARscape PS results in ArcGIS (<code>H:\DATA\Sentinel\Xuzhou_1\PS\xuzhou_centre_PS_processing\geocoding</code>).</p>
+</li>
+<li>
+<p><code>Merge</code> into one dataset <code>PS_SARscape_xzc_merge</code><a target="_blank" rel="noopener" href="https://www.esri.com/arcgis-blog/products/arcgis-desktop/mapping/merging-multiple-shapefiles-into-a-single-shapefile/">2</a>.</p>
+</li>
+<li>
+<p>Symbology</p>
+</li>
+</ol>
 
             </div>
             <hr>
