@@ -20,9 +20,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
@@ -109,7 +109,7 @@
     <link href="/2022/06/30/Land-Cover-Classification-using-Sentinel2-and-Deep-Learning/"/>
     <url>/2022/06/30/Land-Cover-Classification-using-Sentinel2-and-Deep-Learning/</url>
     
-    <content type="html"><![CDATA[<h1 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h1><p>This post is about getting to know LULC classificaiton using Sentinel 2 based on deep learing.</p><span id="more"></span><h1 id="sentinel-2"><a class="markdownIt-Anchor" href="#sentinel-2"></a> Sentinel 2</h1><p><a href="https://sentinel.esa.int/web/sentinel/missions/sentinel-2">Sentinel-2</a> is a mission of two twin satellites, promoted by the European Space Agency, travelling around the Globe, completing a full circle every ten days. The two satellites are flying in the same orbit but phased at 180°, which means that they co-operate to provide freshly captured imagery every five days. One is called S2A and its twin is called S2B<a href="https://www.staridasgeography.gr/how-to-make-outstanding-maps-with-sentinel-2-and-arcgis-pro-part-1-band-combinations/" title="How to Make Outstanding Maps with Sentinel-2 and ArcGIS Pro – Part 1: Band Combinations">1</a>!</p><h2 id="data-download"><a class="markdownIt-Anchor" href="#data-download"></a> Data Download</h2><figure class="highlight dsconfig"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">wget</span> <span class="hljs-built_in">--content-disposition</span> <span class="hljs-built_in">--continue</span> <span class="hljs-built_in">--user=&#123;mengyuchi&#125;</span> <span class="hljs-built_in">--password=&#123;5212109mengle&#125;</span> <span class="hljs-string">&quot;https://scihub.copernicus.eu/dhus/odata/v1/Products(&#x27;9586b4cc-c2bf-4efb-8ee7-87f2ff6f2089&#x27;)/$value&quot;</span><br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h1><p>This post is about getting to know LULC classificaiton using Sentinel 2 based on deep learing.</p><span id="more"></span><h1 id="sentinel-2"><a class="markdownIt-Anchor" href="#sentinel-2"></a> Sentinel 2</h1><p><a href="https://sentinel.esa.int/web/sentinel/missions/sentinel-2">Sentinel-2</a> is a mission of two twin satellites, promoted by the European Space Agency, travelling around the Globe, completing a full circle every ten days. The two satellites are flying in the same orbit but phased at 180°, which means that they co-operate to provide freshly captured imagery every five days. One is called S2A and its twin is called S2B<a href="https://www.staridasgeography.gr/how-to-make-outstanding-maps-with-sentinel-2-and-arcgis-pro-part-1-band-combinations/" title="How to Make Outstanding Maps with Sentinel-2 and ArcGIS Pro – Part 1: Band Combinations">1</a>!</p><h2 id="data-download"><a class="markdownIt-Anchor" href="#data-download"></a> Data Download</h2><figure class="highlight dsconfig"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">wget</span> <span class="hljs-built_in">--content-disposition</span> <span class="hljs-built_in">--continue</span> <span class="hljs-built_in">--user=&#123;mengyuchi&#125;</span> <span class="hljs-built_in">--password=&#123;5212109mengle&#125;</span> <span class="hljs-string">&quot;https://scihub.copernicus.eu/dhus/odata/v1/Products(&#x27;9586b4cc-c2bf-4efb-8ee7-87f2ff6f2089&#x27;)/$value&quot;</span><br></code></pre></td></tr></table></figure><h3 id="download-with-aria2c"><a class="markdownIt-Anchor" href="#download-with-aria2c"></a> Download with aria2c</h3><ol><li><p>download <code>product.meta4</code></p></li><li><p><code>cd</code> to the folder that you want to place</p></li><li><p><code>aria2c --http-user=mengyuchi --http-passwd=5212109mengle --check-certificate=false --max-concurrent-downloads=2 -M products.meta4</code></p></li></ol><h2 id="sen2cor"><a class="markdownIt-Anchor" href="#sen2cor"></a> Sen2Cor</h2><h3 id="sen2cor-in-snap"><a class="markdownIt-Anchor" href="#sen2cor-in-snap"></a> Sen2Cor in SNAP</h3><ol><li><p>Unzip Sentinel2 file</p></li><li><p>Install Sen2Cor in SNAP Tools</p></li><li><p>Optical\Thematic Land Processing\Sen2Cor</p></li><li><p>I\O Parameter: Select .xml file in <code>D:\Data\Sentinel2\xuzhou\Original\S2A_MSIL1C_20161206T030112_N0204_R032_T50SMC_20161206T030749.SAFE\MTD_MSIL1C.xml</code></p></li><li><p>Processing Parameter: Resolution → All</p></li><li><p>Wait for processing</p></li></ol><h3 id="sen2cor-in-cmd"><a class="markdownIt-Anchor" href="#sen2cor-in-cmd"></a> Sen2Cor in cmd</h3><ol><li><p>Download <a href="https://step.esa.int/main/snap-supported-plugins/sen2cor/sen2cor-v2-10/">Sen2Cor v2.10</a></p></li><li><p>Unzip</p></li><li><p>Open <code>dir</code> in command prompt</p></li><li><p>Copy Sentinel2 L1C data file path <code>L2A_Process.bat I:\Data\Sentinel2\xuzhou\L1C\S2A_MSIL1C_20200320T025541_N0209_R032_T50SMC_20200320T060846.SAFE</code></p></li><li><p>Run command <code>L2A_Process.bat I:\Data\Sentinel2\xuzhou\L1C\S2A_MSIL1C_20200320T025541_N0209_R032_T50SMD_20200320T060846.SAFE</code></p></li><li><p>Wait around 10 mins.</p></li><li><p>Check results in SNAP or QGIS.</p></li></ol><h2 id="sen2res-in-snap"><a class="markdownIt-Anchor" href="#sen2res-in-snap"></a> Sen2Res in SNAP</h2><ol><li><p><code>Optical</code> → <code>Sentinel2 super-resolution</code></p></li><li><p>Get <code>Extent</code> of <code>AOI</code> in <code>ArcGIS</code></p></li></ol><ul><li>Extent for <code>Xuzhou_center</code> in deg</li></ul><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Top</span>: <span class="hljs-number">34</span>.<span class="hljs-number">585279</span><br><span class="hljs-attribute">Bottom</span>: <span class="hljs-number">34</span>.<span class="hljs-number">022282</span><br><span class="hljs-attribute">Left</span>: <span class="hljs-number">116</span>.<span class="hljs-number">811255</span><br><span class="hljs-attribute">Right</span>: <span class="hljs-number">117</span>.<span class="hljs-number">713315</span><br></code></pre></td></tr></table></figure><ul><li>Extent for <code>feng_pei</code> in deg</li></ul><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Top</span>: <span class="hljs-number">34</span>.<span class="hljs-number">975770</span><br><span class="hljs-attribute">Bottom</span>: <span class="hljs-number">34</span>.<span class="hljs-number">406956</span><br><span class="hljs-attribute">Left</span>: <span class="hljs-number">116</span>.<span class="hljs-number">355183</span><br><span class="hljs-attribute">Right</span>: <span class="hljs-number">117</span>.<span class="hljs-number">144540</span><br></code></pre></td></tr></table></figure><ol start="3"><li>Edit <code>Geo Coordinates</code>, <code>I/O Parameters → Directory</code> in panel</li></ol><p><img src="super_resolving1.png" alt="Sen2Res parameters" /></p><p><img src="super_resolving2.png" alt="Sen2Res parameters" /></p><ol start="4"><li>Run, this would take a while</li></ol><h2 id="subset-in-snap"><a class="markdownIt-Anchor" href="#subset-in-snap"></a> Subset in SNAP</h2><p>Due to long processing time of Sen2Res, we have to clip our original L2A product into sub-areas<a href="https://blog.csdn.net/lidahuilidahui/article/details/102765420" title="CSDN blog">2</a>. We use <code>subset</code> tool in SNAP for this process.</p><ol><li>Open multi L2A products in SNAP.</li></ol><p><img src="overview_subset_dataset.png" alt="overview of dataset" /></p><ol start="3"><li><code>Raster</code> → <code>Subset</code></li></ol>]]></content>
     
     
     <categories>
@@ -212,9 +212,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
@@ -251,11 +251,11 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
       
       <tag>Reposititory</tag>
+      
+      <tag>InSAR</tag>
       
     </tags>
     
@@ -311,9 +311,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
@@ -379,9 +379,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
@@ -418,9 +418,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
@@ -484,15 +484,15 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>Reposititory</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>ENVISAT</tag>
       
       <tag>StamPS</tag>
-      
-      <tag>Reposititory</tag>
       
     </tags>
     
@@ -517,11 +517,11 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
       
       <tag>LULC</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Vietname</tag>
       
@@ -548,9 +548,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Reposititory</tag>
+      
+      <tag>InSAR</tag>
       
     </tags>
     
@@ -602,11 +602,11 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
       
       <tag>LULC</tag>
+      
+      <tag>InSAR</tag>
       
     </tags>
     
@@ -631,9 +631,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Reposititory</tag>
+      
+      <tag>InSAR</tag>
       
     </tags>
     
