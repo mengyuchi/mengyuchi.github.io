@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Data preparation of land subsidence susceptibility mapping analysis in Xuzhou</title>
+    <link href="/2022/11/08/Data-preparation-of-land-subsidence-susceptibility-mapping-analysis-in-Xuzhou/"/>
+    <url>/2022/11/08/Data-preparation-of-land-subsidence-susceptibility-mapping-analysis-in-Xuzhou/</url>
+    
+    <content type="html"><![CDATA[<h1 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h1><h1 id="data-prepareing"><a class="markdownIt-Anchor" href="#data-prepareing"></a> Data Prepareing</h1><h2 id="dem"><a class="markdownIt-Anchor" href="#dem"></a> DEM</h2><p>An advanced space borne therman emission and reflection radiometer (ASTER) digital elevation model (DEM) was obtained (1 arc second or approximately 30 meter resolution) and processed in the GIS environment to produce topography-related factor layers (altitude, slope angle, slope aspect, plan curvature, profile curvature and TWI).</p><h3 id="download"><a class="markdownIt-Anchor" href="#download"></a> Download</h3><p>ASTGTM v003 (ASTER Global Digital Elevation Model 1 arc second) can be accessed using different <a href="https://lpdaac.usgs.gov/products/astgtmv003/#tools">tools</a>. In this study, we use <a href="https://search.earthdata.nasa.gov/search?q=C1711961296-LPCLOUD">NASA Earthdata Search</a> tool to download DEM in Xuzhou.</p><h3 id="merging-multiple-dem-in-arcgis-pro"><a class="markdownIt-Anchor" href="#merging-multiple-dem-in-arcgis-pro"></a> Merging Multiple DEM in ArcGIS pro</h3><p><strong>Mosaic to New Raster</strong> -&gt; Select downloaded two DEMs <strong>N34E116_dem.tiff</strong> and <strong>N34E117_dem.tiff</strong> -&gt; <strong>Raster Dataset Name with Extension: elevation_xuzhou.dat</strong> -&gt; <strong>Pixel Type: 32-bot float</strong> -&gt; <strong>Number of Bands: 1</strong> -&gt; <strong>Run</strong></p><h3 id="export-data"><a class="markdownIt-Anchor" href="#export-data"></a> Export Data</h3><p>Export DEM to features with clip option.</p><h2 id="surface-parameter"><a class="markdownIt-Anchor" href="#surface-parameter"></a> Surface Parameter</h2><p>Search <strong>surface parameter</strong> in ArcGIS pro, set parameters to<a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/surface-parameters.htm">1</a>:</p><h3 id="slope-aspect-curvature"><a class="markdownIt-Anchor" href="#slope-aspect-curvature"></a> Slope, aspect, curvature</h3><ul><li><strong>Quadratic</strong></li><li><strong>Use adaptive neighborhood</strong></li><li><strong>Degrees</strong></li></ul><h2 id="openstreetmap"><a class="markdownIt-Anchor" href="#openstreetmap"></a> OpenStreetMap</h2><h3 id="download-road-map"><a class="markdownIt-Anchor" href="#download-road-map"></a> Download road map</h3><p>Use <code>overpass</code> tool to download roadmap of a specific city, such as Xuhzou.</p><ol><li><p>Get city ID by <a href="http://www.overpass-api.de/index.html">overpass-api</a></p></li><li><p>Insert code in <strong>Overpass API Query Form</strong></p></li></ol><figure class="highlight xml"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">osm-script</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">query</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;relation&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">has-kv</span> <span class="hljs-attr">k</span>=<span class="hljs-string">&quot;boundary&quot;</span> <span class="hljs-attr">v</span>=<span class="hljs-string">&quot;administrative&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">has-kv</span> <span class="hljs-attr">k</span>=<span class="hljs-string">&quot;name:zh&quot;</span> <span class="hljs-attr">v</span>=<span class="hljs-string">&quot;徐州市&quot;</span>/&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">query</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">print</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">osm-script</span>&gt;</span><br></code></pre></td></tr></table></figure><ol start="3"><li><p>Download file <code>interprept</code>, open with <strong>Notepad</strong>, get city ID in <em><strong><relation id="3218572"></strong></em></p></li><li><p>Insert code again in <strong>Overpass API Quert Form</strong></p></li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">osm-script</span> <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;1800&quot;</span> <span class="hljs-attr">element-limit</span>=<span class="hljs-string">&quot;100000000&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">union</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">area-query</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;3603218572&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">recurse</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;node-relation&quot;</span> <span class="hljs-attr">into</span>=<span class="hljs-string">&quot;rels&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">recurse</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;node-way&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">recurse</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;way-relation&quot;</span>/&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">union</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">union</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">recurse</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;way-node&quot;</span>/&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">union</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">print</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">&quot;body&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">osm-script</span>&gt;</span><br></code></pre></td></tr></table></figure><ol start="5"><li><p>Download <code>interprept</code> file, this is the roadmap of Xuzhou city.</p></li><li><p>Open with QGIS and convert OSM type file to shp file.</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Xuzhou</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Land Subsidence</tag>
+      
+      <tag>Land Subsidence Susceptibility Mapping</tag>
+      
+      <tag>Machine Learning</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2022/11/08/hello-world/"/>
     <url>/2022/11/08/hello-world/</url>
@@ -33,17 +62,17 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
       <tag>PS-InSAR</tag>
       
-      <tag>LiDO3</tag>
-      
       <tag>StaMPS-InSAR</tag>
+      
+      <tag>LiDO3</tag>
       
       <tag>snap2stamps</tag>
       
@@ -74,11 +103,11 @@
       
       <tag>Land Subsidence</tag>
       
-      <tag>ArcGIS Pro</tag>
+      <tag>StaMPS-InSAR</tag>
       
       <tag>Xuzhou</tag>
       
-      <tag>StaMPS-InSAR</tag>
+      <tag>ArcGIS Pro</tag>
       
       <tag>Sentinel_1A</tag>
       
@@ -225,19 +254,19 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
       <tag>PS-InSAR</tag>
       
-      <tag>LiDO3</tag>
+      <tag>StaMPS-InSAR</tag>
       
       <tag>Xuzhou</tag>
       
-      <tag>StaMPS-InSAR</tag>
+      <tag>LiDO3</tag>
       
       <tag>snap2stamps</tag>
       
@@ -264,9 +293,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Reposititory</tag>
       
@@ -295,9 +324,9 @@
       
       <tag>ENVISAT</tag>
       
-      <tag>Xuzhou</tag>
-      
       <tag>StaMPS-InSAR</tag>
+      
+      <tag>Xuzhou</tag>
       
       <tag>StaMPS-Visualizer</tag>
       
@@ -324,19 +353,19 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
       <tag>PS-InSAR</tag>
       
-      <tag>LiDO3</tag>
+      <tag>StaMPS-InSAR</tag>
       
       <tag>Xuzhou</tag>
       
-      <tag>StaMPS-InSAR</tag>
+      <tag>LiDO3</tag>
       
       <tag>snap2stamps</tag>
       
@@ -392,19 +421,19 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
       <tag>PS-InSAR</tag>
       
-      <tag>LiDO3</tag>
+      <tag>StaMPS-InSAR</tag>
       
       <tag>Xuzhou</tag>
       
-      <tag>StaMPS-InSAR</tag>
+      <tag>LiDO3</tag>
       
       <tag>snap2stamps</tag>
       
@@ -431,9 +460,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>Sentinel1-A</tag>
       
@@ -497,9 +526,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>ENVISAT</tag>
       
@@ -530,9 +559,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>LULC</tag>
       
@@ -615,9 +644,9 @@
     
     <tags>
       
-      <tag>InSAR</tag>
-      
       <tag>Land Subsidence</tag>
+      
+      <tag>InSAR</tag>
       
       <tag>LULC</tag>
       
