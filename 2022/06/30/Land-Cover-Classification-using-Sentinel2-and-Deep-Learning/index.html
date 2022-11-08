@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://mengyuchi.github.io/2022/06/30/Land-Cover-Classification-using-Sentinel2-and-Deep-Learning/super_resolving2.png">
 <meta property="og:image" content="http://mengyuchi.github.io/2022/06/30/Land-Cover-Classification-using-Sentinel2-and-Deep-Learning/overview_subset_dataset.png">
 <meta property="article:published_time" content="2022-06-30T09:07:13.000Z">
-<meta property="article:modified_time" content="2022-10-27T15:31:22.603Z">
+<meta property="article:modified_time" content="2022-11-02T16:09:27.254Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="LULC">
 <meta property="article:tag" content="Land Cover Classification">
@@ -353,7 +353,16 @@
 <p><img src="super_resolving1.png" srcset="/img/loading.gif" lazyload alt="Sen2Res parameters" /></p>
 <p><img src="super_resolving2.png" srcset="/img/loading.gif" lazyload alt="Sen2Res parameters" /></p>
 <ol start="4">
-<li>Run, this would take a while</li>
+<li>
+<p>Run, this would take a while</p>
+</li>
+<li>
+<p>Total time spend for procesing: 01:48:46.160</p>
+</li>
+</ol>
+<h2 id="mosaic"><a class="markdownIt-Anchor" href="#mosaic"></a> Mosaic</h2>
+<ol>
+<li>Raster → Geometric → Mosaicking</li>
 </ol>
 <h2 id="subset-in-snap"><a class="markdownIt-Anchor" href="#subset-in-snap"></a> Subset in SNAP</h2>
 <p>Due to long processing time of Sen2Res, we have to clip our original L2A product into sub-areas<a target="_blank" rel="noopener" href="https://blog.csdn.net/lidahuilidahui/article/details/102765420" title="CSDN blog">2</a>. We use <code>subset</code> tool in SNAP for this process.</p>
