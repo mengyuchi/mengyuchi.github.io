@@ -26,8 +26,8 @@
 <meta property="og:image" content="http://mengyuchi.github.io/2022/06/30/Land-Cover-Classification-using-Sentinel2-and-Deep-Learning/super_resolving1.png">
 <meta property="og:image" content="http://mengyuchi.github.io/2022/06/30/Land-Cover-Classification-using-Sentinel2-and-Deep-Learning/super_resolving2.png">
 <meta property="og:image" content="http://mengyuchi.github.io/2022/06/30/Land-Cover-Classification-using-Sentinel2-and-Deep-Learning/overview_subset_dataset.png">
-<meta property="article:published_time" content="2022-06-30T09:07:13.000Z">
-<meta property="article:modified_time" content="2022-11-02T16:09:27.254Z">
+<meta property="article:published_time" content="2022-06-30T03:07:13.000Z">
+<meta property="article:modified_time" content="2022-11-19T03:06:36.995Z">
 <meta property="article:author" content="Yuchi Meng">
 <meta property="article:tag" content="LULC">
 <meta property="article:tag" content="Land Cover Classification">
@@ -216,7 +216,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      5.4k 字
     </span>
   
 
@@ -225,7 +225,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17 分钟
+      45 分钟
     </span>
   
 
@@ -284,6 +284,19 @@
 <p><code>aria2c --http-user=mengyuchi --http-passwd=5212109mengle --check-certificate=false --max-concurrent-downloads=2 -M products.meta4</code></p>
 </li>
 </ol>
+<h3 id="download-with-python"><a class="markdownIt-Anchor" href="#download-with-python"></a> Download with python</h3>
+<ol>
+<li>
+<p>Setup python environment for python</p>
+</li>
+<li>
+<p>Open <code>Anaconda powershell prompt</code>, install <code>sentinelsat</code> package<a target="_blank" rel="noopener" href="https://blog.csdn.net/lidahuilidahui/article/details/90486402" title="CSDN">4</a></p>
+</li>
+</ol>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> sentinalsat<br></code></pre></td></tr></table></figure>
+<ol start="3">
+<li></li>
+</ol>
 <h2 id="sen2cor"><a class="markdownIt-Anchor" href="#sen2cor"></a> Sen2Cor</h2>
 <h3 id="sen2cor-in-snap"><a class="markdownIt-Anchor" href="#sen2cor-in-snap"></a> Sen2Cor in SNAP</h3>
 <ol>
@@ -330,14 +343,36 @@
 <p>Check results in SNAP or QGIS.</p>
 </li>
 </ol>
-<h2 id="sen2res-in-snap"><a class="markdownIt-Anchor" href="#sen2res-in-snap"></a> Sen2Res in SNAP</h2>
+<h3 id="sen2cor-using-bat-script"><a class="markdownIt-Anchor" href="#sen2cor-using-bat-script"></a> Sen2Cor using bat script</h3>
 <ol>
 <li>
-<p><code>Optical</code> → <code>Sentinel2 super-resolution</code></p>
+<p>Create new <code>txt</code> file in folder <code>E:\Code\Sentinel2_L1C_to_L2A</code></p>
 </li>
 <li>
-<p>Get <code>Extent</code> of <code>AOI</code> in <code>ArcGIS</code></p>
+<p>Copy these code in <code>txt</code> file</p>
 </li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">title Sentinel-2A L1C bat script<br><br><br>set &quot;Sen2cor_bin=C:\Users\mengy\.snap\auxdata\Sen2Cor-02.10.01-win64&quot;<br><br>rem set &quot;input_dir=E:\DATA\LULC\Sentinel2\L1C&quot;<br><br>set &quot;input_dir=E:\DATA\L1C_temp&quot;<br><br>set &quot;output_dir=E:\DATA\LULC\Sentinel2\L2A&quot;<br><br>for /d  %%i in  (%input_dir%\S2*.SAFE ) do ( <br><span class="hljs-meta prompt_">	%</span><span class="language-bash">Sen2cor_bin%\L2A_Process.bat %%i --output_dir=%output_dir%  --resolution=10</span><br>	echo &quot;--------------------------------------------------------------&quot;<br>)<br>echo &quot;All Done&quot;<br></code></pre></td></tr></table></figure>
+<ol start="3">
+<li>
+<p>Save as <code>Sen2cor_weak.bat</code></p>
+</li>
+<li>
+<p>Open <code>Windows powershell</code>, <code>cd</code> to Dir <code>E:\Code\Sentinel2_L1C_to_L2A</code> and run <code>./Sen2cor_weak.bat</code></p>
+</li>
+<li>
+<p>Error <code>Sen2cor 2.10.01 - Product metadata file cannot be read with 14.2 baseline L1C</code></p>
+</li>
+</ol>
+<blockquote>
+<p>The solution to this error: using <code>Sen2Cor-2.05.05-win64</code> to process sentinel 2 data that produced before 2017<a target="_blank" rel="noopener" href="https://blog.csdn.net/Tadpole_L/article/details/123574197">6</a>.</p>
+</blockquote>
+<ol start="6">
+<li>Output <code>dir</code> for data before 2017 is <code>E:\DATA\LULC\Sentinel2\L1C\Before_2017</code>, and output <code>dir</code> for data after 2017 is <code>E:\DATA\LULC\Sentinel2\L2A</code></li>
+</ol>
+<h2 id="sen2res-in-snap"><a class="markdownIt-Anchor" href="#sen2res-in-snap"></a> Sen2Res in SNAP</h2>
+<ol>
+<li>Get <code>Extent</code> of <code>AOI</code> in <code>ArcGIS</code></li>
 </ol>
 <ul>
 <li>Extent for <code>Xuzhou_center</code> in deg</li>
@@ -347,17 +382,33 @@
 <li>Extent for <code>feng_pei</code> in deg</li>
 </ul>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Top</span>: <span class="hljs-number">34</span>.<span class="hljs-number">975770</span><br><span class="hljs-attribute">Bottom</span>: <span class="hljs-number">34</span>.<span class="hljs-number">406956</span><br><span class="hljs-attribute">Left</span>: <span class="hljs-number">116</span>.<span class="hljs-number">355183</span><br><span class="hljs-attribute">Right</span>: <span class="hljs-number">117</span>.<span class="hljs-number">144540</span><br></code></pre></td></tr></table></figure>
-<ol start="3">
-<li>Edit <code>Geo Coordinates</code>, <code>I/O Parameters → Directory</code> in panel</li>
+<ul>
+<li><code>Geo Coordinates</code> setting:</li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">S2A_</span>*SMC_*: South and West -&gt; <span class="hljs-number">34</span>.<span class="hljs-number">022282</span> &amp; <span class="hljs-number">116</span>.<span class="hljs-number">811255</span> <br><span class="hljs-attribute">S2A_</span>*SMD_*: North and West -&gt; <span class="hljs-number">34</span>.<span class="hljs-number">585279</span> &amp; <span class="hljs-number">116</span>.<span class="hljs-number">811255</span><br><span class="hljs-attribute">S2A_</span>*SNC_*: South and East -&gt; <span class="hljs-number">34</span>.<span class="hljs-number">022282</span> &amp; <span class="hljs-number">117</span>.<span class="hljs-number">713315</span><br><span class="hljs-attribute">S2A_</span>*SND_*: North and East -&gt; <span class="hljs-number">34</span>.<span class="hljs-number">585279</span> &amp; <span class="hljs-number">117</span>.<span class="hljs-number">713315</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>Code for <code>subset</code></p>
+</blockquote>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">S2A_</span>*SMC_*: North <span class="hljs-number">34</span>.<span class="hljs-number">337</span>, East <span class="hljs-number">117</span>.<span class="hljs-number">104</span>, South <span class="hljs-number">34</span>.<span class="hljs-number">022</span> <span class="hljs-number">116</span>.<span class="hljs-number">811</span> POLYGON ((<span class="hljs-number">34</span>.<span class="hljs-number">337</span> <span class="hljs-number">117</span>.<span class="hljs-number">104</span>, <span class="hljs-number">34</span>.<span class="hljs-number">337</span> <span class="hljs-number">116</span>.<span class="hljs-number">811</span>, <span class="hljs-number">34</span>.<span class="hljs-number">022</span> <span class="hljs-number">116</span>.<span class="hljs-number">811</span>, <span class="hljs-number">34</span>.<span class="hljs-number">022</span> <span class="hljs-number">117</span>.<span class="hljs-number">104</span>, <span class="hljs-number">34</span>.<span class="hljs-number">337</span> <span class="hljs-number">117</span>.<span class="hljs-number">104</span>))<br><span class="hljs-attribute">S2A_</span>*SMD_*: <br><span class="hljs-attribute">S2A_</span>*SNC_*: <br><span class="hljs-attribute">S2A_</span>*SND_*: <br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li>
+<p><code>Raster</code> → <code>subset</code></p>
+</li>
+<li>
+<p><code>Optical</code> → <code>Sentinel2 super-resolution</code></p>
+</li>
+<li>
+<p>Edit <code>Geo Coordinates</code>, <code>I/O Parameters → Directory</code> in panel</p>
+</li>
 </ol>
 <p><img src="super_resolving1.png" srcset="/img/loading.gif" lazyload alt="Sen2Res parameters" /></p>
 <p><img src="super_resolving2.png" srcset="/img/loading.gif" lazyload alt="Sen2Res parameters" /></p>
-<ol start="4">
+<ol start="5">
 <li>
 <p>Run, this would take a while</p>
 </li>
 <li>
-<p>Total time spend for procesing: 01:48:46.160</p>
+<p>Total time spend for processing: 01:48:46.160</p>
 </li>
 </ol>
 <h2 id="mosaic"><a class="markdownIt-Anchor" href="#mosaic"></a> Mosaic</h2>
@@ -373,6 +424,82 @@
 <ol start="3">
 <li><code>Raster</code> → <code>Subset</code></li>
 </ol>
+<h1 id="using-snap-gpt-tool-to-process-sentinel2-data"><a class="markdownIt-Anchor" href="#using-snap-gpt-tool-to-process-sentinel2-data"></a> Using SNAP-GPT tool to process Sentinel2 data</h1>
+<h2 id="setup"><a class="markdownIt-Anchor" href="#setup"></a> Setup</h2>
+<h2 id="gpt-for-resampling-and-subset"><a class="markdownIt-Anchor" href="#gpt-for-resampling-and-subset"></a> GPT for Resampling and subset</h2>
+<h1 id="lulc-classification-using-lstm-sentinel2-landcover"><a class="markdownIt-Anchor" href="#lulc-classification-using-lstm-sentinel2-landcover"></a> LULC classification using <code>lstm-sentinel2-landcover</code></h1>
+<blockquote>
+<p>Code for Deep Learning for Land Cover Change Detection<a target="_blank" rel="noopener" href="https://github.com/mengyuchi/lstm-sentinel2-landcover">5</a></p>
+</blockquote>
+<h2 id="python-environment-setup"><a class="markdownIt-Anchor" href="#python-environment-setup"></a> Python environment setup</h2>
+<ol>
+<li>
+<p><code>conda create -n n_env_py37 python=3.7</code></p>
+</li>
+<li>
+<p><code>conda activate n_env_py37</code></p>
+</li>
+<li>
+<p><code>cd</code> to folder <code>C:\Users\mengy\Documents\VS workspace\LSTM_Sentinel2_land_cover\lstm-sentinel2-landcover</code></p>
+</li>
+<li>
+<p><code>conda config --env --add channels conda-forge</code> <code>pip install numpy</code></p>
+</li>
+<li>
+<p><code>conda install -c conda-forge fire</code></p>
+</li>
+<li>
+<p><code>conda create -n tf tensorflow</code> <code>conda activate tf</code></p>
+</li>
+<li>
+<p><code>conda install -c conda-forge segmentation-models-pytorch</code></p>
+</li>
+<li>
+<p><code>conda install -c conda-forge scikit-learn</code></p>
+</li>
+<li>
+<p><code>conda install -c conda-forge scikit-image</code></p>
+</li>
+<li>
+<p><code>conda install -c conda-forge tqdm</code></p>
+</li>
+<li>
+<p><code>conda install -c conda-forge gdal</code></p>
+</li>
+<li>
+<p><code>conda install -c conda-forge rasterio</code></p>
+</li>
+</ol>
+<h2 id="data-preparation-and-placement"><a class="markdownIt-Anchor" href="#data-preparation-and-placement"></a> Data preparation and placement</h2>
+<ul>
+<li>
+<p>Sentinel images: <code>data/raw/sentinel/</code></p>
+</li>
+<li>
+<p>Ground Truth shapefile: <code>data/raw/ground_truth/gt_shapefile/</code></p>
+</li>
+<li>
+<p>shapefile of area of interest (AOI) = shape of GT as shapefile: <code>data/raw/ground_truth/overallshape/</code></p>
+</li>
+</ul>
+<h2 id="pre-processing"><a class="markdownIt-Anchor" href="#pre-processing"></a> Pre-processing</h2>
+<p>Example models are in <code>src/models/</code>, the data generators used for training are in <code>src/helpers/image_functions.py</code>.</p>
+<ul>
+<li>
+<p><code>baseline_cnn.py</code> is a simple FCN that trains on single images at a time (i.e. no sequences). It can be used as a pretrained base model for the LSTM models, as shown in e.g. <code>lstm_fixed_seq.py</code>.</p>
+</li>
+<li>
+<p><code>lstm_fixed_seq.py</code> is a FCN+LSTM that trains with sequences of images, however the images that build the sequence are fixed (``.</p>
+</li>
+<li>
+<p><code>lstm_random_seq.py</code> is also a FCN+LSTM that randomly builds a new sequence of images for each training batch.</p>
+</li>
+</ul>
+<p>Trained models are saved in <code>models/.</code> Tensorboard logs are saved in separate subdirectories of <code>reports/logs/</code>; this way they can be called via <code>tensorboard --logdir=reports/logs</code> (when in main directory).</p>
+<h1 id="sentinel-2-10-m-land-useland-cover-time-series-downloader"><a class="markdownIt-Anchor" href="#sentinel-2-10-m-land-useland-cover-time-series-downloader"></a> Sentinel-2 10 m Land Use/Land Cover Time series Downloader</h1>
+<p>This application provides access to individual 10-meter resolution GeoTIFF scenes for all land masses on the planet, for each year from 2017-2021<a target="_blank" rel="noopener" href="https://www.arcgis.com/apps/instant/media/index.html?appid=fc92d38533d440078f17678ebc20e8e2" title="ESRI 10m LULC">3</a>.</p>
+<p>All scenes for each year are also available to download as a zip file: 2017, 2018, 2019, 2020, 2021.</p>
+<p>Each annual zip download is approximately 60 GB of global extent.</p>
 
             </div>
             <hr>
